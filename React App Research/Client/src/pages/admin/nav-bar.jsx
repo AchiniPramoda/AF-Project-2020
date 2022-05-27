@@ -107,7 +107,7 @@ export default class Navbar extends React.Component {
         return (
             <>
                 <Box>
-              <AppBar position="fixed" color="default" mode='dark'>
+              <AppBar position="fixed" color="default" mode='dark' sx={{ backgroundColor: "black", color: "white"}}>
                 <Toolbar>
                 <IconButton
                   size="large"
@@ -130,7 +130,9 @@ export default class Navbar extends React.Component {
                   <SearchIcon />
                   <InputBase
                     placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }} />
+                    inputProps={{ 'aria-label': 'search' }} 
+                    sx={{marginLeft:1, color:"white"}}
+                    />
 
                 <IconButton
                 size="large"
@@ -184,7 +186,11 @@ export default class Navbar extends React.Component {
               '& .MuiDrawer-paper': {
                 width: 250,
                 boxSizing: 'border-box',
-                marginTop:10
+                marginTop:8,
+                backgroundColor: "black", 
+                color: "white",
+                borderRight: "2px solid white",
+                boxShadow:"0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b"
               },
             }}
             variant="persistent"
@@ -193,37 +199,40 @@ export default class Navbar extends React.Component {
       >
           <ListItemIcon>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon sx={{  color: "white"}}/>
             </IconButton>
           </ListItemIcon>
           
         <Divider />
-        <List>
+        <List  sx={{marginTop:2}}>
             <ListItem  disablePadding>
               <ListItemButton
                 component="a" 
                 href="/Admin" >
                 <ListItemIcon>
-                  <HomeRoundedIcon />                  
+                  <HomeRoundedIcon sx={{ color: "white"}}/>                  
                 </ListItemIcon>
                   Home
                 <ListItemText />
               </ListItemButton>
             </ListItem>
         </List>
+
         <Divider />
+
         <List>          
           <ListItem disablePadding>
             <ListItemButton onClick={this.handleUserOpen}>
               <ListItemIcon>
-                <PeopleAltRoundedIcon />                
+                <PeopleAltRoundedIcon sx={{  color: "white"}}/>                
               </ListItemIcon>
                 Users
               <ListItemText />
-              {this.state.userEx == true ? <ExpandLess /> : <ExpandMore />}
+              {this.state.userEx == true ? <ExpandLess sx={{  color: "white"}}/> : <ExpandMore sx={{  color: "white"}}/>}
             </ListItemButton>
           </ListItem>
         </List>
+
         <Collapse in={this.state.userEx} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItemButton 
@@ -231,7 +240,7 @@ export default class Navbar extends React.Component {
               href="/Admin/StudentReg"
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <PersonAddAltRoundedIcon />
+                <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Student Registration
               <ListItemText />
@@ -244,7 +253,7 @@ export default class Navbar extends React.Component {
               href="/Admin/StaffRegister"
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <PersonAddAltRoundedIcon />
+                <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Staff Registration
               <ListItemText />
@@ -257,7 +266,7 @@ export default class Navbar extends React.Component {
               href="/Admin/AdminRegister"
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <PersonAddAltRoundedIcon />
+                <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Admin Registration
               <ListItemText />
@@ -265,23 +274,29 @@ export default class Navbar extends React.Component {
           </List>
         </Collapse>
         <Divider />
+
         <List>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton  component="a" 
+              href="/Admin/AdminRegister"  >
               <ListItemIcon>
-              Research Topics
+                 <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
+              Research Topics
               <ListItemText />
             </ListItemButton>
           </ListItem>
         </List>
         <Divider />
+
         <List>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton  component="a" 
+              href="/Admin/AdminRegister">
               <ListItemIcon>
+              <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
+                </ListItemIcon>
                 Research Groups
-              </ListItemIcon>
               <ListItemText />
             </ListItemButton>
           </ListItem>
@@ -292,7 +307,7 @@ export default class Navbar extends React.Component {
             <ListItemButton
               onClick={this.handleAsgOpen}>
               <ListItemIcon>
-                <AssignmentRoundedIcon />
+                <AssignmentRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Assignment
               <ListItemText />
@@ -307,7 +322,7 @@ export default class Navbar extends React.Component {
               href="/Admin/AddAssignment"
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <PostAddRoundedIcon />
+                <PostAddRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Assignment Create
               <ListItemText />
@@ -320,7 +335,7 @@ export default class Navbar extends React.Component {
               href="/Admin/ViewAssignment"
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <AssignmentOutlinedIcon />
+                <AssignmentOutlinedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Assignment View
               <ListItemText />
@@ -334,7 +349,7 @@ export default class Navbar extends React.Component {
             <ListItemButton
               onClick={this.handleSchemaOpen}>
               <ListItemIcon>
-                <AssignmentRoundedIcon />
+                <AssignmentRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Marking Schemes
               <ListItemText />
@@ -349,7 +364,7 @@ export default class Navbar extends React.Component {
               href={`/Admin/AddSchema`}
               sx={{ pl: 4 }}>
               <ListItemIcon>
-                <PostAddRoundedIcon />
+                <PostAddRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
                 Schemes Create
               <ListItemText />

@@ -31,7 +31,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import ManRoundedIcon from '@mui/icons-material/ManRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
-import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
+import TopicRoundedIcon from '@mui/icons-material/TopicRounded';
 
 export default class Header extends React.PureComponent {
 
@@ -171,7 +175,7 @@ export default class Header extends React.PureComponent {
            <>
            {/* <h1>Header</h1> */}
            <Box>
-            <AppBar position="fixed" color="default" mode='dark'>
+            <AppBar  position="fixed" color="default" mode='dark' sx={{ backgroundColor: "black", color: "white"}}>
               <Toolbar>
                 <IconButton
                   size="large"
@@ -194,7 +198,9 @@ export default class Header extends React.PureComponent {
                   <SearchIcon />
                   <InputBase
                     placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }} />
+                    inputProps={{ 'aria-label': 'search' }} 
+                    sx={{marginLeft:2, color:"white"}}
+                    />
 
                 <IconButton
                 size="large"
@@ -269,7 +275,11 @@ export default class Header extends React.PureComponent {
               '& .MuiDrawer-paper': {
                 width: 250,
                 boxSizing: 'border-box',
-                marginTop:10
+                marginTop:8,
+                backgroundColor: "black", 
+                color: "white",
+                borderRight: "2px solid white",
+                boxShadow:"0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b"
               },
             }}
             variant="persistent"
@@ -278,46 +288,52 @@ export default class Header extends React.PureComponent {
       >
           <ListItemIcon>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon sx={{  color: "white"}}/>
             </IconButton>
           </ListItemIcon>
         <Divider />
-        <List>
+
+        <List sx={{marginTop:2}}>
             <ListItem  disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-
-                  Home
+                      <HomeRoundedIcon fontSize="small"  sx={{  color: "white"}} />
                 </ListItemIcon>
+                Home
                 <ListItemText />
               </ListItemButton>
             </ListItem>
         </List>
         <Divider />
-        <List>          
+
+        <List sx={{  color: "white"}}>          
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                Research
+                <ArticleRoundedIcon fontSize="small"  sx={{ color: "white"}}/>
+          
               </ListItemIcon>
+              Research 
               <ListItemText />
             </ListItemButton>
           </ListItem>
         </List>
         <Divider />
-        <List>          
+        <List sx={{  color: "white"}}>          
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                About Us
+                 <ArticleRoundedIcon fontSize="small"  sx={{ color: "white"}}/>
+          
               </ListItemIcon>
+              About Us
               <ListItemText />
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
 
-      <Modal
+     <Modal
         open={this.state.log}
         onClose={this.signModalClose}
         aria-labelledby="modal-modal-title"
@@ -329,7 +345,8 @@ export default class Header extends React.PureComponent {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: 400,
-          bgcolor: 'background.paper',
+          bgcolor: 'text.primary',
+          color:'white',
           border: '2px solid #000',
           boxShadow: 24,
           p: 4
@@ -341,11 +358,12 @@ export default class Header extends React.PureComponent {
           <div>
 
           <FormGroup>
-          <ListItem  disablePadding>
+          <ListItem   disablePadding>
             <ListItemIcon>
               <EmailRoundedIcon fontSize="large" />             
             </ListItemIcon>           
             <TextField
+            sx={{backgroundColor:"white",borderRadius:9}}
               fullWidth 
               label="Email"
               id="email"
@@ -359,7 +377,7 @@ export default class Header extends React.PureComponent {
           <FormGroup>
             <ListItem  disablePadding>
               <ListItemIcon>
-                <LockRoundedIcon fontSize="large" />
+                <LockRoundedIcon fontSize="large" sx={{ color: "white"}}/>
               </ListItemIcon>
               <TextField
                 fullWidth
@@ -371,11 +389,14 @@ export default class Header extends React.PureComponent {
                 onChange={(e) => this.onChange(e)}
               />
             </ListItem>
-          </FormGroup> <br/>
+          </FormGroup> 
+          
+          <br/>
+
           <FormGroup>
             <ListItem  disablePadding>
                 <ListItemIcon>
-                    <ManRoundedIcon fontSize="large"/>
+                    <ManRoundedIcon fontSize="large" sx={{ color: "white"}}/>
                 </ListItemIcon>
                 <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                 <Select
