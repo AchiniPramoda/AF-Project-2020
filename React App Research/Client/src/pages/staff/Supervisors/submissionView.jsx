@@ -126,45 +126,51 @@ export default class ViewAssignmentSubmission extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> View Assignment </h1>
+                    <h1 style={{color: 'white'}}> View Assignment </h1>
 
                     {this.state.Assignment.map((item) => (
 
                         <Accordion sx={{
                             marginTop:"20px",
-                            backgroundColor: "lightgray"
+                            backgroundColor: "black",
+                            border: "2px solid white",
+                            radius: 10,
                             }}>
                             <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
+                            expandIcon={<ExpandMoreIcon sx={{color:"white"}} />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                             >
-                            <Typography>{item.asgName}</Typography>
+                            <Typography sx={{color:"white", fontSize:"25px", fontWeight:"bold"}}>{item.asgName}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                             <Typography>
                             <Grid container spacing={3}>
-                                <Grid item xs={2}>
+                                <Grid item xs={2} sx={{color:"white", width:"200px"}}>
                                     Department : {item.department}
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
                                     End Date: {item.endDate}
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
                                     End Time: {item.endTime}
                                 </Grid>
                                     <ListItemButton
                                         component="a" 
                                         href={`${item.template}`}
                                         sx={{ 
-                                            marginTop:"10px"
+                                            marginTop:"10px",
+                                            border:"2px solid white",
+                                            width:"250px",
+                                            backgroundColor: "#616161",
+                                            marginLeft:"100px"
                                         }} >
                                         <ListItemIcon>
                                             <DownloadOutlinedIcon 
                                                 fontSize="large"
                                                 color="primary" />
                                         </ListItemIcon>
-                                        <ListItemText primary="Download Template" />
+                                        <ListItemText primary="Download Template" sx={{color:"white" , width:"200px"}} />
                                     </ListItemButton>                                   
                             </Grid>
                             </Typography>
@@ -181,7 +187,8 @@ export default class ViewAssignmentSubmission extends React.Component {
                                     color="primary"
                                     onClick={() => this.onViewSubmission(item._id)}
                                     sx={{ 
-                                        marginLeft:"200px"
+                                        marginLeft:"200px",
+                                        border:"2px solid white"
                                     }} >
                                     View Submissions
                                 </Button>
