@@ -127,3 +127,6 @@ app.use('/notice',NoticeRoute);
 
 const MarkingSchema = require('./routes/markingSchema');
 app.use('/marking',MarkingSchema);
+
+const resultSubmission = require('./routes/resultSubmission');
+app.use('/results',resultSubmission);

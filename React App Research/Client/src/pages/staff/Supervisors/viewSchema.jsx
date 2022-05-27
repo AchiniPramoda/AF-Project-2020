@@ -15,9 +15,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
-import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -46,6 +44,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import ListItem from '@mui/material/ListItem';
 import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
 
 export default class StaffSchemaView extends React.Component {
 
@@ -60,7 +59,15 @@ export default class StaffSchemaView extends React.Component {
             schema:null,
             fileName:"",
             viewSub: false,
-            edit: false
+            edit: false,
+            schemaID : "",
+            LecName : "",
+            desc : "",
+            results : null,
+            fileName:"Insert File",
+            open: false,
+            sub: false,
+            Submission : []
         }
     }
 
@@ -107,6 +114,89 @@ export default class StaffSchemaView extends React.Component {
         this.signModalOpen();
     }
 
+    onChange = (e) => {        
+        this.setState({[e.target.id]: e.target.value});
+        //console.log(e.target.value);
+    }
+
+    onFileChange = (e) => {
+        this.setState({
+            results:e.target.files[0],
+            fileName:e.target.files[0].name
+        })
+    }
+
+    onChageSelected = (e) => {
+        this.setState({department: e.target.value});
+    }
+
+    onSubmit = async (id) => {
+        //e.preventDefault();
+        
+
+        console.log(this.state.schemaName);
+
+        let formData = new FormData();
+        
+        formData.append("schemaID", id);
+        formData.append("schemaName", this.state.schemaName);
+        formData.append("department", this.state.department);
+        formData.append("desc", this.state.desc);
+        formData.append("results", this.state.results);
+        formData.append("fileName", this.state.fileName);
+
+        await axios.post("http://localhost:8088/results/add", formData)
+        .then((res)=> this.setState({
+            message: res.data,
+            type:"success",
+            open: true
+        }))
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+        .finally(() => {})
+
+        window.location = `/Admin/viewSchema`;
+    }
+
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
+    }
+
+    viewSubaddOpen = () => {    
+        this.setState({
+            sub: true
+        })
+        
+    };
+    
+    viewSubaddClose = () => {
+        this.setState({
+            sub: false
+        })
+    };
+
+    onSubViewClick = async (id) => {
+
+        this.viewSubOpen();
+        console.log(id);
+
+        await axios.get(`http://localhost:8088/results/view/${id}`)
+        .then((res)=> {this.setState({
+            Submission : res.data
+        }); console.log(res.data)})
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+
+    }
+
     render() {
         return (
             <>
@@ -135,12 +225,7 @@ export default class StaffSchemaView extends React.Component {
                                 <Grid item xs={2} sx={{color:"white", width:"200px"}}>
                                     Department Name : {item.department}
                                 </Grid>
-                                {/* <Grid item  sx={{color:"white", width:"200px"}}>
-                                    End Date: {item.schemaName}
-                                </Grid>
-                                <Grid item  sx={{color:"white" , width:"200px"}}>
-                                    End Time: {item.schemaName}
-                                </Grid > */}
+                                
                                 <Grid>
                                     <ListItemButton
                                         component="a" 
@@ -174,7 +259,7 @@ export default class StaffSchemaView extends React.Component {
                                     variant="contained" 
                                     startIcon={<AssignmentRoundedIcon />}
                                     color="primary"
-                                    onClick={() => this.onViewSubmission(item._id)}
+                                    onClick={() => this.onSubViewClick(item._id)}
                                     sx={{ 
                                         marginRight:"100px",
                                         border:"2px solid white"
@@ -186,7 +271,7 @@ export default class StaffSchemaView extends React.Component {
                                     variant="contained" 
                                     startIcon={<PostAddRoundedIcon />}
                                     color="primary"
-                                    //onClick={() => this.onViewSubmission(item._id)}
+                                    onClick={this.viewSubaddOpen}
                                     sx={{ 
                                         marginRight:"100px",
                                         border:"2px solid white"
@@ -227,11 +312,11 @@ export default class StaffSchemaView extends React.Component {
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
-                                        {/* {this.state.researches.map((item) => (
+                                        {this.state.Submission.map((item) => (
                                             <TableRow hover={true} sx={{height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.asgName} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.stdID} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.grpID} </TableCell>
+                                            {/* <TableCell align="center" sx={{fontSize:"20px"}}> {item.schemaID} </TableCell> */}
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.LecName} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.desc} </TableCell>
                                             <TableCell align="center">
                                                 <ListItemButton
                                                     onClick={() => this.onDownload(item._id)}
@@ -247,13 +332,137 @@ export default class StaffSchemaView extends React.Component {
                                                 </ListItemButton>  
                                             </TableCell>
                                             </TableRow>
-                                        ))} */}
+                                        ))}
                                         </TableBody>
                                     </Table>
                                 </TableContainer>
                                 
                             </Box>
                         </Modal>
+
+                        <Modal
+                            open={this.state.sub}
+                            onClose={this.viewSubaddClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            sx={{border:"2px solid gray"}}
+                        >
+                        <Box sx={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: 400,
+                            bgcolor: 'background.paper',
+                            border: '2px solid white',
+                            boxShadow: 24,
+                            p: 4,
+                            backgroundColor: "black"
+                        }}>
+                        <Typography 
+                            id="modal-modal-title" 
+                            variant="h6" 
+                            component="h2"
+                            sx={{ 
+                                marginLeft:"100px",
+                                color:"white",
+                                fontSize:"25px",
+                                fontWeight:"bold",
+                             }}>
+                            Insert Result Sheet
+                        </Typography>
+
+                        <FormGroup>
+                            <ListItem sx={{backgroundColor:"whitesmoke"}}>
+                            <ListItemIcon>
+                            <PermIdentityRoundedIcon fontSize="medium" />
+                        </ListItemIcon>
+                        <TextField 
+                            fullWidth
+                            sx={{color:"white"}}
+                            id="LecName" 
+                            label="Lecturer Name" 
+                            variant="standard"
+                            onChange={(e) => this.onChange(e)}
+                            size="medium" required/>
+                            </ListItem>
+                        
+                            </FormGroup> <br/>
+
+                            <FormGroup >
+                            <ListItem sx={{backgroundColor:"whitesmoke"}}>
+                                <ListItemIcon >
+                                    <ApartmentRoundedIcon fontSize="small" />
+                                </ListItemIcon>
+                                <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+                                <Select 
+                                    fullWidth                    
+                                    variant="standard"
+                                    labelId="demo-simple-select-standard-label"
+                                    id="department"
+                                    onChange={(e) => this.onChageSelected(e)}
+                                    label="Department"
+                                    >
+                                    <MenuItem value="">None</MenuItem>
+                                    <MenuItem value="IT">IT</MenuItem>
+                                    <MenuItem value="SE">SE</MenuItem>
+                                    <MenuItem value="CS">CS</MenuItem>
+                                </Select>
+                                </ListItem>
+                            </FormGroup> <br/>
+
+                            <FormGroup>
+                                <ListItem sx={{backgroundColor:"whitesmoke"}}>
+                                <ListItemIcon>
+                                <NoteAltIcon fontSize="medium" />
+                                </ListItemIcon>
+                                <TextField 
+                                    fullWidth
+                                    sx={{color:"white"}}
+                                    id="desc" 
+                                    label="Description" 
+                                    variant="standard"
+                                    onChange={(e) => this.onChange(e)}
+                                    size="medium" required/>
+                                </ListItem>
+                            
+                            </FormGroup> <br/>
+                                
+                                <FormGroup >
+                                <ListItem sx={{backgroundColor:"whitesmoke"}}>
+                                        <label htmlFor="icon-button-file">
+                                            <IconButton 
+                                                color="primary"
+                                                id="schema" 
+                                                aria-label="upload picture"
+                                                component="span">
+                                                <UploadFileRoundedIcon />                                                                  
+                                            </IconButton>
+                                            {this.state.fileName} 
+                                            <Input 
+                                                sx={{
+                                                    display: 'none',
+                                                }}
+                                                id="icon-button-file"                                    
+                                                onChange={(e) => this.onFileChange(e)}                                    
+                                                type="file" />                                
+                                        </label>
+                                        </ListItem>
+                                </FormGroup>  <br/>
+
+                                <Button 
+                                    fullWidth
+                                    sx={{border:"2px solid white"}} 
+                                    variant="contained" 
+                                    size="small"
+                                    onClick={() => this.onSubmit()}
+                                    color="success" >
+                                    Submit
+                                </Button>  
+
+                            </Box>                 
+                            
+                            </Modal>
 
                      <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
                         <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>

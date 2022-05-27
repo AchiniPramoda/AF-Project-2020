@@ -120,7 +120,7 @@ export default class AddSchema extends React.Component {
                         <ListItemIcon>
                             <ApartmentRoundedIcon fontSize="medium" />
                         </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label">Department</InputLabel>
+                        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select 
                             fullWidth                           
                             variant="standard"
