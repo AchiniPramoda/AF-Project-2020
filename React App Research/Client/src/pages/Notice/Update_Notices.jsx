@@ -41,7 +41,7 @@ function NoticeEdit() {
         noticePurpose: noticePurpose,
       }
   
-      axios.put(`http://localhost:8088/group/edit/${params.id}`,updateData)
+      axios.put(`http://localhost:8088/notice/update/${params.id}`,updateData)
         .then((response) => {
           console.log("updated successfully");
           window.location = `viewNotice`;
@@ -87,7 +87,7 @@ function NoticeEdit() {
        <label className='lbl-group'>Date Of the notice</label>
           <input
             class="form-field-group"
-            type="text"
+            type="date"
             placeholder="Date Of the notice"
             name="date"
             onChange={(e) =>setdate(e.target.value)}
