@@ -27,6 +27,9 @@ import TopicRegister from './src/pages/topic/Topic_register';
 import TopicViewStd from './src/pages/topic/Topic_view_std';
 import TopicView from './src/pages/topic/Topic_View';
 import ViewAssignmentSubmission from './src/pages/staff/Supervisors/submissionView';
+import AddNotices from "./src/pages/Notice/AddNotice";
+import ViewNotices from "./src/pages/Notice/viewNotice";
+import UdateNotices from "./src/pages/Notice/Update_Notices";
 
 export default class App extends React.Component {
 
@@ -73,6 +76,9 @@ export default class App extends React.Component {
             <Route path="/Supervisor" element={<SupervisorMain />} />
             <Route path="/Chat" element={<ChatMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
+            <Route path='/AddNotices' element={<AddNotices/>}/>
+            <Route path='/viewNotice'element={<ViewNotices/>}/>
+            <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
 
          </Routes>
                      

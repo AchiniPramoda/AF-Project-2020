@@ -14,7 +14,7 @@ const noticeSchema = new Schema({
     },
     
     date : {
-        type : Number,
+       type:String,
         required: true
     },
     noticePurpose : {

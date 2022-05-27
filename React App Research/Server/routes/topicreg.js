@@ -6,7 +6,7 @@ const Topic = require('../models/Research_Topic');
 router.post('/add', (req, res) => {
     
     const topics = new Topic({
-        stdID : req.body.stdID,
+      stdID : req.body.stdID,
         grpID : req.body.grpID,
         title : req.body.title,
         email : req.body.email,
