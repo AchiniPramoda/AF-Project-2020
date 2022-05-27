@@ -125,4 +125,5 @@ app.use('/login', login);
 const NoticeRoute = require('./routes/notices');
 app.use('/notice',NoticeRoute);
 
-
+const MarkingSchema = require('./routes/markingSchema');
+app.use('/marking',MarkingSchema);

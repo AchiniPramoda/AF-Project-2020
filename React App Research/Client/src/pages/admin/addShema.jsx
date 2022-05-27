@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -15,6 +16,10 @@ import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+import Container from '@mui/material/Container';
+import ListItem from '@mui/material/ListItem';
 
 export default class AddSchema extends React.Component {
 
@@ -22,15 +27,19 @@ export default class AddSchema extends React.Component {
         super(props);
 
         this.state = {
-            fileName: "",
-            asgName:"",
-            asgDep:"",
-            schema:null
+            schemaName:"",
+            department:"",
+            schema:null,
+            fileName:"Insert File",
+            message: "",
+            type:"",
+            open: true
         }
     }
 
     onChange = (e) => {        
         this.setState({[e.target.id]: e.target.value});
+        console.log(e.target.value);
     }
 
     onFileChange = (e) => {
@@ -41,7 +50,38 @@ export default class AddSchema extends React.Component {
     }
 
     onChageSelected = (e) => {
-        this.setState({asgDep: e.target.value});
+        this.setState({department: e.target.value});
+    }
+
+    onSubmit = async (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("schemaName", this.state.schemaName);
+        formData.append("department", this.state.department);
+        formData.append("schema", this.state.schema);
+        formData.append("fileName", this.state.fileName);
+
+        await axios.post("http://localhost:8088/marking/add", formData)
+        .then((res)=> this.setState({
+            message: res.data,
+            type:"success",
+            open: true
+        }))
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+        .finally(() => {})
+
+        window.location = `/Admin/viewSchema`;
+    }
+
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
     }
 
     render() {
@@ -50,34 +90,39 @@ export default class AddSchema extends React.Component {
                 <div className="AllView">
                     <Navbar/>
                     
-                    <h1> Add Schema </h1>
+                    <h1 style={{color: 'white'}}> Add Schema </h1>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                    <Container sx={{ 
+                            backgroundColor: "black", 
+                            color: "white",
+                            border: '2px solid white',
+                            width:"600px",
+                            height:"auto"                    
                         }}>
+
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="small" />
+                            <PermIdentityRoundedIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                            id="asgName" 
+                            fullWidth
+                            id="schemaName" 
                             label="Assignment Name" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
-                            size="medium" required/>
+                            size="small" required/>
+                        </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <ApartmentRoundedIcon fontSize="small" />
+                            <ApartmentRoundedIcon fontSize="medium" />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label">Department</InputLabel>
-                        <Select                            
+                        <Select 
+                            fullWidth                           
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
@@ -90,13 +135,11 @@ export default class AddSchema extends React.Component {
                             <MenuItem value="SE">SE</MenuItem>
                             <MenuItem value="CS">CS</MenuItem>
                         </Select>
+                        </ListItem>
                     </FormGroup>
                     
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                    <ListItem sx={{backgroundColor:"whitesmoke", color:"black"}} >
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -107,6 +150,7 @@ export default class AddSchema extends React.Component {
                                 </IconButton>
                                 {this.state.fileName} 
                                 <Input 
+                                    fullWidth
                                     sx={{
                                         display: 'none',
                                     }}
@@ -114,20 +158,26 @@ export default class AddSchema extends React.Component {
                                     onChange={(e) => this.onFileChange(e)}                                    
                                     type="file" />                                
                             </label>
+                            </ListItem>
                     </FormGroup>
 
                     <Button 
-                        sx={{
-                            width:400,
-                            marginLeft:40
-                        }} 
+                        fullWidth
+                        sx={{marginTop: "20px", border:"2px solid white", marginBottom:"20px"}}
                         variant="contained" 
                         size="small"
                         onClick={(e) => this.onSubmit(e)}
                         color="success" >
                         Submit
                     </Button>
+
+                    </Container>
                     
+                    <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
+                        <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
+                            {this.state.message}
+                        </Alert>
+                    </Snackbar>
                 </div>
             </>
         )

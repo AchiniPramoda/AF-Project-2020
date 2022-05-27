@@ -19,6 +19,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import Container from '@mui/material/Container';
+import ListItem from '@mui/material/ListItem';
+import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export default class AddAssignment extends React.Component{
 
@@ -90,68 +93,71 @@ export default class AddAssignment extends React.Component{
                 <Navbar />
 
                 <div className="AllView">
-                    <h1> Add Assignment </h1>
+                    <h1 style={{color: 'white'}}> Add Assignment </h1>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
+                    <Container sx={{ 
+                            backgroundColor: "black", 
+                            color: "white",
+                            border: '2px solid white',
+                            width:"600px",
+                            height:"auto"                    
+                        }}>                    
+
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="small" />
+                            <PermIdentityRoundedIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
+                            fullWidth
                             id="asgName" 
                             label="Assignment Name" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
-                            size="medium" required/>
+                            size="small" required/>
+                        </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="small" />
+                            <DateRangeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
+                            fullWidth
                             type="date"
                             id="endDate" 
                             label="" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                        </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <AccessTimeIcon fontSize="small" />
+                            <AccessTimeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
+                            fullWidth
                             type="time"
                             id="endTime" 
                             label="" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                        </ListItem>
                     </FormGroup>                    
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
-                            <ApartmentRoundedIcon fontSize="small" />
+                            <ApartmentRoundedIcon fontSize="medium" />
                         </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label">Department</InputLabel>
-                        <Select                            
+                        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+                        <Select  
+                            fullWidth                          
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
@@ -164,13 +170,11 @@ export default class AddAssignment extends React.Component{
                             <MenuItem value="SE">SE</MenuItem>
                             <MenuItem value="CS">CS</MenuItem>
                         </Select>
+                        </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5
-                        }}>
+                    <FormGroup sx={{marginTop: "20px"}}>
+                        <ListItem sx={{backgroundColor:"whitesmoke", color:"black"}} >
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -188,19 +192,20 @@ export default class AddAssignment extends React.Component{
                                     onChange={(e) => this.onFileChange(e)}                                    
                                     type="file" />                                
                             </label>
+                            </ListItem>
                         </FormGroup>
 
                     <Button 
-                        sx={{
-                            width:400,
-                            marginLeft:40
-                        }} 
+                        fullWidth
+                        sx={{marginTop: "20px", border:"2px solid white", marginBottom:"20px"}} 
                         variant="contained" 
                         size="small"
                         onClick={(e) => this.onSubmit(e)}
                         color="success" >
                         Submit
                     </Button>
+
+                    </Container>
 
                     <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
                         <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>

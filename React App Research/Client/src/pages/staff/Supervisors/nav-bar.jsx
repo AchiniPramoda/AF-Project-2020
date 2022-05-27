@@ -228,11 +228,11 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
-                href="/Supervisor/researchView">
+                href="/Supervisor/viewSchema">
               <ListItemIcon>
               <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
               </ListItemIcon>
-              Documents Evaluation
+                Documents Evaluation
               <ListItemText sx={{ color: "white",fontSize:"small"}}/>
             </ListItemButton>
           </ListItem>
