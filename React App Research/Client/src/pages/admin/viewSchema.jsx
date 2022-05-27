@@ -59,7 +59,11 @@ export default class AdminSchemaView extends React.Component {
             schema:null,
             fileName:"",
             viewSub: false,
-            edit: false
+            edit: false,
+            id:"",
+            message: "",
+            type:"",
+            open: true
         }
     }
 
@@ -102,8 +106,88 @@ export default class AdminSchemaView extends React.Component {
         })
     };
 
-    onEditClick = () => {
+    onEditClick = async (id) => {
         this.signModalOpen();
+
+        await axios.get(`http://localhost:8088/marking/view/${id}`)
+        .then((res)=> {this.setState({
+            id : res.data._id,
+            schemaName : res.data.schemaName,
+            department : res.data.department,
+            fileName : res.data.fileName
+        }); console.log(res.data)} )
+        .catch((err) => console.error(err));
+    }
+
+    onChange = (e) => {        
+        this.setState({[e.target.id]: e.target.value});
+        console.log(e.target.value);
+    }
+
+    onFileChange = (e) => {
+        this.setState({
+            schema:e.target.files[0],
+            fileName:e.target.files[0].name
+        })
+    }
+
+    onChageSelected = (e) => {
+        this.setState({department: e.target.value});
+    }
+
+    onSubmit = async (e) => {
+        console.log(this.state.id);
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("schemaName", this.state.schemaName);
+        formData.append("department", this.state.department);
+        formData.append("schema", this.state.schema);
+        formData.append("fileName", this.state.fileName);
+
+        await axios.put(`http://localhost:8088/marking/edit/${this.state.id}`, formData)
+        .then((res)=> this.setState({
+            message: res.data,
+            type:"success",
+            open: true
+        }))
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+        .finally(() => {window.location = `/Admin/viewSchema`;})
+
+        this.handleOpen();
+        
+    }
+    
+    handleOpen = async () => {
+        this.setState({
+            open: true
+        })
+    }
+
+    handleClose = async () => {
+        this.setState({
+            open: false
+        })
+    }
+
+    onDelete = async (id) => {
+        await axios.delete(`http://localhost:8088/marking/delete/${id}`)
+        .then((res)=> this.setState({
+            message: res.data,
+            type:"success",
+            //open: true
+        }), this.handleOpen)
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+
+        window.location.reload();
     }
 
     render() {
@@ -134,12 +218,7 @@ export default class AdminSchemaView extends React.Component {
                                 <Grid item xs={2} sx={{color:"white", width:"200px"}}>
                                     Department Name : {item.department}
                                 </Grid>
-                                {/* <Grid item  sx={{color:"white", width:"200px"}}>
-                                    End Date: {item.schemaName}
-                                </Grid>
-                                <Grid item  sx={{color:"white" , width:"200px"}}>
-                                    End Time: {item.schemaName}
-                                </Grid > */}
+                                
                                 <Grid>
                                     <ListItemButton
                                         component="a" 
@@ -172,7 +251,7 @@ export default class AdminSchemaView extends React.Component {
                                     variant="contained" 
                                     startIcon={<ModeEditOutlinedIcon />}
                                     color="warning"
-                                    onClick={() => this.onEditClick()}
+                                    onClick={() => this.onEditClick(item._id)}
                                     sx={{ 
                                         marginRight:"50px",
                                         border:"2px solid white"
@@ -182,7 +261,7 @@ export default class AdminSchemaView extends React.Component {
                                 <Button 
                                     variant="contained" 
                                     endIcon={<DeleteIcon />}
-                                   // onClick={() => this.onDelete(item._id)}                                    
+                                   onClick={() => this.onDelete(item._id)}                                    
                                     color="error"
                                     sx={{ 
                                         marginRight:"100px",
@@ -306,7 +385,8 @@ export default class AdminSchemaView extends React.Component {
                             id="schemaName" 
                             label="Assignment Name" 
                             variant="standard"
-                            //onChange={(e) => this.onChange(e)}
+                            defaultValue={this.state.schemaName}
+                            onChange={(e) => this.onChange(e)}
                             size="medium" required/>
                             </ListItem>
                         
@@ -319,12 +399,12 @@ export default class AdminSchemaView extends React.Component {
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select 
-                            fullWidth                           
+                            fullWidth                    
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
-                           // value={this.state.asgDep}
-                            //onChange={(e) => this.onChageSelected(e)}
+                            defaultValue={this.state.department}
+                            onChange={(e) => this.onChageSelected(e)}
                             label="Department"
                             >
                             <MenuItem value="">None</MenuItem>
@@ -345,13 +425,13 @@ export default class AdminSchemaView extends React.Component {
                                     component="span">
                                     <UploadFileRoundedIcon />                                                                  
                                 </IconButton>
-                                 {/* {this.state.fileName}  */}
+                                 {this.state.fileName} 
                                  <Input 
                                     sx={{
                                         display: 'none',
                                     }}
                                     id="icon-button-file"                                    
-                                    //onChange={(e) => this.onFileChange(e)}                                    
+                                    onChange={(e) => this.onFileChange(e)}                                    
                                     type="file" />                                
                             </label>
                             </ListItem>
@@ -362,9 +442,9 @@ export default class AdminSchemaView extends React.Component {
                         sx={{border:"2px solid white"}} 
                         variant="contained" 
                         size="small"
-                        //onClick={(e) => this.onSubmit(e)}
-                        color="success" >
-                        Submit
+                        onClick={(e) => this.onSubmit(e)}
+                        color="warning" >
+                        Update
                     </Button>  
 
                     </Box>                 

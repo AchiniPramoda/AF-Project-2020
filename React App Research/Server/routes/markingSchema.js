@@ -56,16 +56,29 @@ router.put('/edit/:id', upload.single('schema'), async (req, res) => {
 
     try{
 
-        let marking = await Marking.findById(req.params.id);
+        const marking = await Marking.findById(req.params.id);
 
-        await cloudinary.uploader.destroy(marking.cloudinary_id,  {resource_type: "raw",} );
+        var result = null;
 
-        const result = await cloudinary.uploader.upload(req.file.path, {
-            resource_type: "raw", 
-            folder : "Marking",
-            public_id: req.file.originalname
-        });
-       // res.json(result);
+        if(!req.file) {
+
+            console.log("File None");
+            result = await cloudinary.api.resource(marking.cloudinary_id,  {resource_type: "raw",});
+            //console.log(result);
+
+        }else {
+
+            await cloudinary.uploader.destroy(marking.cloudinary_id,  {resource_type: "raw",} );
+
+            result = await cloudinary.uploader.upload(req.file.path, {
+                resource_type: "raw", 
+                folder : "Marking",
+                public_id: req.file.originalname
+            });
+        // res.json(result);
+        }
+
+        
        
        await Marking.findById(req.params.id)
         .then((response) => {
@@ -78,7 +91,7 @@ router.put('/edit/:id', upload.single('schema'), async (req, res) => {
             response
             .save()
             .then(() => res.json("Marking Shema Updated Successfully..."))
-            .catch((err) => err.json(err.message));
+            .catch(() => err.json(err.message));
         })
         .catch((err) => err.json(err.message));
 

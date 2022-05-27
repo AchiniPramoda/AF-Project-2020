@@ -15,14 +15,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormGroup from '@mui/material/FormGroup';
-import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
 import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
@@ -105,6 +103,8 @@ export default class StudentViewAssignment extends React.Component {
         //e.preventDefault();
 
         let formData = new FormData();
+        formData.append("AsgID", this.state.id);
+        formData.append("asgName", this.state.asgName);
         formData.append("stdID", this.state.stdID);
         formData.append("grpID", this.state.grpID);
         formData.append("file", this.state.file);
@@ -121,11 +121,13 @@ export default class StudentViewAssignment extends React.Component {
             open: true
         }))
         .finally();
+
+        this.signModalClose();
     }
 
     onFileChange = (e) => {
         this.setState({
-            template:e.target.files[0],
+            file:e.target.files[0],
             fileName:e.target.files[0].name
         })
     }
@@ -150,7 +152,7 @@ export default class StudentViewAssignment extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> View Assignment </h1>
+                    <h1 style={{color:"white"}}> View Assignment </h1>
 
                     {this.state.Assignment.map((item) => (
 

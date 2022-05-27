@@ -210,7 +210,7 @@ export default class ViewAssignment extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> View Assignment </h1>
+                    <h1 style={{color: 'white'}}> View Assignment </h1>
 
                     {this.state.Assignment.map((item) => (
 
