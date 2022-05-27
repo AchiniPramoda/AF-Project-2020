@@ -1,11 +1,11 @@
 const router = require("express").Router();
 let Notice = require("../models/notice");
 
-router.route("/add").post((req, res) => {
+router.route("/AddNotice").post((req, res) => {
 
     const noticeId = req.body.noticeId;
     const noticeTitle = req.body.noticeTitle;
-    const date = Number(req.body.date);
+    const date = req.body.date;
     const noticePurpose = req.body.noticePurpose;
     
     const newNotice = new Notice({
@@ -23,7 +23,7 @@ router.route("/add").post((req, res) => {
 
 })
 
-router.route("/").get((req, res) => {
+router.route("/viewNotice").get((req, res) => {
     Notice.find().then((notices) => {
         res.json(notices)
     }).catch((err) => {

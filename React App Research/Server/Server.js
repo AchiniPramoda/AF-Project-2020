@@ -1,10 +1,10 @@
-// const express = require('express');
+const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
 
-// Port = process.env.PORT;
+
 Url = process.env.URL;
 
 PORT=8088
@@ -12,6 +12,10 @@ PORT=8088
 const app = require("express")();
 const server = require("http").createServer(app);
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded(
+  {extended : true } 
+));
 const { nanoid } = require("nanoid");
 const io = require("socket.io")(server, {
   cors: {
@@ -102,13 +106,12 @@ const Research = require('./routes/Research');
 app.use('/research',Research);
 
 const TopicReg = require('./routes/topicreg');
-app.use('/topicreg',TopicReg);
+app.use('/topic',TopicReg);
 
 const TopicAccept = require('./routes/topic');
 app.use('/topicacc',TopicAccept);
 
 const Assignment = require('./routes/assignment');
-
 app.use('/assignment',Assignment);
 
 const Register = require('./routes/User_management');
@@ -116,4 +119,10 @@ app.use('/register',Register);
 
 const  login = require('./routes/login_management');
 app.use('/login', login);
+ 
+
+//add route for notices
+const NoticeRoute = require('./routes/notices');
+app.use('/notice',NoticeRoute);
+
 

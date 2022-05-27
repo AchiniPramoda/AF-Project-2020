@@ -30,7 +30,7 @@ function TopicRegister() {
 
     console.log(topicdata);
            
-    axios.post("http://localhost:8088/topicreg/add", topicdata )
+    axios.post("http://localhost:8088/topic/add", topicdata )
     .then((res) => 
       alert(res.data)
     )
