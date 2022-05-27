@@ -74,7 +74,7 @@ export default class Navbar extends React.Component {
         return (
             <>
           <Box >
-            <AppBar position="fixed" color="default" mode='dark' sx={{bgcolor: "text.primary", color: "white"}}>
+            <AppBar position="fixed" color="default" mode='dark' sx={{ backgroundColor: "black", color: "white"}}>
               <Toolbar>
                 <IconButton
                   size="large"
@@ -111,6 +111,7 @@ export default class Navbar extends React.Component {
               >
                 <AccountCircle />
               </IconButton>
+
               <Menu
                 id="menu-appbar"
                 sx={{
@@ -142,6 +143,7 @@ export default class Navbar extends React.Component {
                   Sign Out
                 </MenuItem>
               </Menu>
+
               </Toolbar>
             </AppBar>
           </Box>
@@ -159,12 +161,10 @@ export default class Navbar extends React.Component {
                 fontSize:20,
                 boxSizing: 'border-box',
                 marginTop:8,
-                bgcolor: "text.primary", 
+                backgroundColor: "black", 
                 color: "white",
                 borderRight: "2px solid white",
                 boxShadow:"0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b"
-               
-               
               },
             }}
             variant="persistent"

@@ -24,8 +24,8 @@ function StudentMain() {
                   title="SPM Reasearch"
                   subheader="SLIIT Reaserch Project"
                 />
-                 <CardContent sx={{margin:2, minHeight:400,minWidth:600}}  style={{ backgroundImage: `url(${Image1})`,   
-                      backgroundSize:"cover"
+                 <CardContent sx={{margin:2, minHeight:400,minWidth:600}} style={{ backgroundImage: `url(${Image1})`,   
+                      backgroundSize:"cover",borderRadius:9,  boxShadow:"0 0 8px 0 black, 2px 2px 2px 0 #1b1b1b"
                     }}>
                   
                   {/* <Button sx={{marginLeft:50,marginTop:15}} variant="outlined" color="error" size="large">
@@ -44,11 +44,11 @@ function StudentMain() {
                    title="Research Submission"
                  
                 />
-              <CardContent sx={{margin:0,maxWidth:300, backgroundColor: '#68B2CB'}}>                
+              <CardContent sx={{margin:0,maxWidth:300, backgroundColor: '#38B9EC'}}>                
                   <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="error" size="large" sx={{marginLeft:5,marginTop:2}} href="Student/ViewAssignment">
-                       Submissions
-                  </Button>
+                     <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7,marginTop:2}} href="Student/ViewAssignment">
+                         Submissions
+                     </Button>
                  </CardContent>
             </Card>
       </Grid>     
@@ -60,9 +60,9 @@ function StudentMain() {
                 <CardHeader 
                      title="Marking Schema"
                       />
-                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor: '#68B2CB'}}>
+                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor:'#F1592A'}}>
                   <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="primary" size="large" sx={{marginLeft:5, marginTop:2}}>
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}}>
                        Marking 
                   </Button>
                  </CardContent>
@@ -75,9 +75,9 @@ function StudentMain() {
             <CardHeader 
                      title=" Project Groups"
                       />
-                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor: '#68B2CB'}}>
+                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor: '#8EC63F'}}>
                   <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="primary" size="large" sx={{marginLeft:5, marginTop:2}}  href="/Student/GroupView" >
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}}  href="/Student/GroupView" >
                       Groups 
                   </Button>
                  </CardContent>
@@ -90,19 +90,15 @@ function StudentMain() {
             <CardHeader 
                      title="Templete"
                       />
-                       <CardContent sx={{margin:0, maxWidth:00,backgroundColor: '#68B2CB'}}>
+                       <CardContent sx={{margin:0, maxWidth:300, backgroundColor: '#92499E'}}>
                   <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="primary" size="large" sx={{marginLeft:5, marginTop:2}} href="Admin/ViewAssignment">
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}} href="Admin/ViewAssignment">
                       Assigment 
                   </Button>
                  </CardContent>
             </Card>
       </Grid> 
 </Grid>
-
-
- 
-   
 
 
    
