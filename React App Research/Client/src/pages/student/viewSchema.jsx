@@ -15,9 +15,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
-import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -30,23 +28,12 @@ import ListItemText from '@mui/material/ListItemText';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import FormGroup from '@mui/material/FormGroup';
-import TextField from '@mui/material/TextField';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
-import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
-import IconButton from '@mui/material/IconButton';
-import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import ListItem from '@mui/material/ListItem';
 
-export default class AdminSchemaView extends React.Component {
+export default class StudentSchemaView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -54,17 +41,22 @@ export default class AdminSchemaView extends React.Component {
         this.state = {
             Assignment:[],
             Schema:[],
-            Submission:[],
             schemaName:"",
             department:"",
             schema:null,
             fileName:"",
             viewSub: false,
             edit: false,
+            schemaID : "",
+            LecName : "",
+            desc : "",
+            results : null,
+            fileName:"Insert File",
+            open: false,
+            sub: false,
+            Submission : [],
             id:"",
-            message: "",
-            type:"",
-            open: true
+            itemID:""
         }
     }
 
@@ -90,10 +82,6 @@ export default class AdminSchemaView extends React.Component {
         })
     };
 
-    onViewSubmission = (id) => {
-        this.viewSubOpen();
-    }
-
     signModalOpen = () => {    
         this.setState({
             edit: true
@@ -107,89 +95,16 @@ export default class AdminSchemaView extends React.Component {
         })
     };
 
-    onEditClick = async (id) => {
+    onEditClick = () => {
         this.signModalOpen();
-
-        await axios.get(`http://localhost:8088/marking/view/${id}`)
-        .then((res)=> {this.setState({
-            id : res.data._id,
-            schemaName : res.data.schemaName,
-            department : res.data.department,
-            fileName : res.data.fileName
-        }); console.log(res.data)} )
-        .catch((err) => console.error(err));
     }
 
-    onChange = (e) => {        
-        this.setState({[e.target.id]: e.target.value});
-        console.log(e.target.value);
-    }
-
-    onFileChange = (e) => {
-        this.setState({
-            schema:e.target.files[0],
-            fileName:e.target.files[0].name
-        })
-    }
-
-    onChageSelected = (e) => {
-        this.setState({department: e.target.value});
-    }
-
-    onSubmit = async (e) => {
-        console.log(this.state.id);
-        e.preventDefault();
-
-        let formData = new FormData();
-        formData.append("schemaName", this.state.schemaName);
-        formData.append("department", this.state.department);
-        formData.append("schema", this.state.schema);
-        formData.append("fileName", this.state.fileName);
-
-        await axios.put(`http://localhost:8088/marking/edit/${this.state.id}`, formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
-        .finally(() => {window.location = `/Admin/viewSchema`;})
-
-        this.handleOpen();
-        
-    }
-    
-    handleOpen = async () => {
-        this.setState({
-            open: true
-        })
-    }
-
-    handleClose = async () => {
+    handleClose = () => {
         this.setState({
             open: false
         })
     }
 
-    onDelete = async (id) => {
-        await axios.delete(`http://localhost:8088/marking/delete/${id}`)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            //open: true
-        }), this.handleOpen)
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
-
-        window.location.reload();
-    }
     onSubViewClick = async (id) => {
 
         this.setState({
@@ -217,7 +132,7 @@ export default class AdminSchemaView extends React.Component {
                 <Navbar/>
                 
                 <div className="AllView">
-                    <h1 style={{color: "white"}}> View Schema </h1>
+                    <h1 style={{color: 'white'}}> View Schema </h1>
 
                 {this.state.Schema.map((item) => (
                     <Accordion sx={{
@@ -268,28 +183,7 @@ export default class AdminSchemaView extends React.Component {
                                 sx={{ 
                                     marginTop:"10px"
                                 }} >
-                                <Button 
-                                    variant="contained" 
-                                    startIcon={<ModeEditOutlinedIcon />}
-                                    color="warning"
-                                    onClick={() => this.onEditClick(item._id)}
-                                    sx={{ 
-                                        marginRight:"50px",
-                                        border:"2px solid white"
-                                    }} >
-                                    Edit
-                                </Button>
-                                <Button 
-                                    variant="contained" 
-                                    endIcon={<DeleteIcon />}
-                                   onClick={() => this.onDelete(item._id)}                                    
-                                    color="error"
-                                    sx={{ 
-                                        marginRight:"100px",
-                                        border:"2px solid white"
-                                    }}  >
-                                    Remove
-                                </Button>
+                                
                                 <Button 
                                     variant="contained" 
                                     startIcon={<AssignmentRoundedIcon />}
@@ -343,7 +237,7 @@ export default class AdminSchemaView extends React.Component {
                                             <TableCell align="center" sx={{fontSize:"20px"}}> {item.department} </TableCell>
                                             <TableCell align="center">
                                                 <ListItemButton
-                                                    // onClick={() => this.onDownload(item._id)}
+                                                    //onClick={() => this.onDownload(item._id)}
                                                     component="a" 
                                                     href={item.results}
                                                     sx={{ 
@@ -364,116 +258,7 @@ export default class AdminSchemaView extends React.Component {
                                 </TableContainer>
                                 
                             </Box>
-                        </Modal>
-
-                        <Modal
-                            open={this.state.edit}
-                            onClose={this.signModalClose}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                            sx={{border:"2px solid gray"}}
-                        >
-                        <Box sx={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: 400,
-                            bgcolor: 'background.paper',
-                            border: '2px solid white',
-                            boxShadow: 24,
-                            p: 4,
-                            backgroundColor: "black"
-                        }}>
-                        <Typography 
-                            id="modal-modal-title" 
-                            variant="h6" 
-                            component="h2"
-                            sx={{ 
-                                marginLeft:"100px",
-                                color:"white",
-                                fontSize:"25px",
-                                fontWeight:"bold",
-                             }}>
-                            Edit Assignment
-                        </Typography>
-
-                        <FormGroup>
-                            <ListItem sx={{backgroundColor:"whitesmoke"}}>
-                            <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="medium" />
-                        </ListItemIcon>
-                        <TextField 
-                            fullWidth
-                            sx={{color:"white"}}
-                            id="schemaName" 
-                            label="Assignment Name" 
-                            variant="standard"
-                            defaultValue={this.state.schemaName}
-                            onChange={(e) => this.onChange(e)}
-                            size="medium" required/>
-                            </ListItem>
-                        
-                    </FormGroup> <br/>
-
-                    <FormGroup >
-                    <ListItem sx={{backgroundColor:"whitesmoke"}}>
-                        <ListItemIcon >
-                            <ApartmentRoundedIcon fontSize="small" />
-                        </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-                        <Select 
-                            fullWidth                    
-                            variant="standard"
-                            labelId="demo-simple-select-standard-label"
-                            id="department"
-                            defaultValue={this.state.department}
-                            onChange={(e) => this.onChageSelected(e)}
-                            label="Department"
-                            >
-                            <MenuItem value="">None</MenuItem>
-                            <MenuItem value="IT">IT</MenuItem>
-                            <MenuItem value="SE">SE</MenuItem>
-                            <MenuItem value="CS">CS</MenuItem>
-                        </Select>
-                        </ListItem>
-                    </FormGroup> <br/>
-                    
-                    <FormGroup >
-                    <ListItem sx={{backgroundColor:"whitesmoke"}}>
-                            <label htmlFor="icon-button-file">
-                                <IconButton 
-                                    color="primary"
-                                    id="schema" 
-                                    aria-label="upload picture"
-                                    component="span">
-                                    <UploadFileRoundedIcon />                                                                  
-                                </IconButton>
-                                 {this.state.fileName} 
-                                 <Input 
-                                    sx={{
-                                        display: 'none',
-                                    }}
-                                    id="icon-button-file"                                    
-                                    onChange={(e) => this.onFileChange(e)}                                    
-                                    type="file" />                                
-                            </label>
-                            </ListItem>
-                    </FormGroup>  <br/>
-
-                    <Button 
-                        fullWidth
-                        sx={{border:"2px solid white"}} 
-                        variant="contained" 
-                        size="small"
-                        onClick={(e) => this.onSubmit(e)}
-                        color="warning" >
-                        Update
-                    </Button>  
-
-                    </Box>                 
-                    
-                    </Modal>
+                        </Modal>                        
 
                      <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
                         <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>

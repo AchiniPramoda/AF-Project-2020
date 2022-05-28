@@ -8,6 +8,19 @@ import axios from 'axios';
 import Navbar from '../admin/nav-bar';
 // import {useHistory} from 'react-router-dom';
 
+import Box from '@mui/material/Box';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 function GroupView() {
 
@@ -58,7 +71,81 @@ function GroupView() {
     return(
         <div>
           <Navbar/>
-     <div class="tablealign-inv">
+
+              <Box sx={{
+                position: 'absolute',
+                top: '55%',
+                left: '58%',
+                transform: 'translate(-50%, -50%)',
+                width: 1250,
+                bgcolor: 'background.paper',
+                border: '5px solid black',
+                //boxShadow: 24,
+                backgroundColor:"white",
+                p: 0.5
+            }}>
+
+                                  <TableContainer component={Paper}>
+                                    <Table size="small" sx={{ mWidth: 700, border: '2px solid black'}} aria-label="customized table">
+                                        <TableHead>
+                                        <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Department</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Member No 01</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Member No 02</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Member No 03</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
+                                        </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                        {group.map((view) => (
+                                            <TableRow hover={true} sx={{height:"10px"}}>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.groupid} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.department} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.memberLeader} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.memberone} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.membertwo} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.mamberthree} </TableCell>
+                                            <TableCell align="left" >
+                                              <ButtonGroup>
+                                                <ListItemButton
+                                                    //onClick={() => this.onDownload(item._id)}
+                                                    component="a" 
+                                                    //href={item.results}
+                                                    sx={{ 
+                                                        marginTop:"10px",
+                                                        width:"60px"
+                                                    }} >
+                                                    <ListItemIcon>
+                                                      <DeleteIcon color={'secondary'} align="left"/>
+                                                    </ListItemIcon>
+                                                    <ListItemText primary="" />
+                                                </ListItemButton> 
+                                                <Divider />
+                                                <ListItemButton
+                                                    //onClick={() => this.onDownload(item._id)}
+                                                    component="a" 
+                                                    //href={item.results}
+                                                    sx={{ 
+                                                        marginLeft:"10px",
+                                                        marginTop:"10px",
+                                                        width:"50px"
+                                                    }} >
+                                                    <ListItemIcon>
+                                                    <DeleteIcon color={'secondary'} />
+                                                    </ListItemIcon>
+                                                    <ListItemText primary="" />
+                                                </ListItemButton> 
+                                                </ButtonGroup> 
+                                            </TableCell>
+                                            </TableRow>
+                                        ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                              </Box>
+            {/* <div class="tablealign-inv">
                   <table class="table-Inv">
 
                     <tr>
@@ -99,7 +186,7 @@ function GroupView() {
                 ))}
                          
              </table>
-          </div> 
+          </div>  */}
 
           {/* <Grid item>
                       <Button alignItems="center" variant="outlined" color="primary" href="/Group_Edit">
