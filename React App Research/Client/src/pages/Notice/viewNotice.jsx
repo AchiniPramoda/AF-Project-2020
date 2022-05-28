@@ -71,6 +71,7 @@ function View() {
                           <th>Date</th>
                          <th>Description</th>
                             <th>Action</th>
+                            <th>Action</th>
                         
                 </tr>  
                 
