@@ -3,9 +3,9 @@ import "./Group_view.css";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
-import { Grid, Button } from '@material-ui/core';
+import { Grid} from '@material-ui/core';
 import axios from 'axios';
-import Navbar from '../student/nav-bar';
+import Navbar from '../admin/nav-bar';
 // import {useHistory} from 'react-router-dom';
 
 

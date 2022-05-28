@@ -13,7 +13,7 @@ function TopicView() {
     const [topic, settopic] = useState([])
 
     const gettopic=()=>{
-              axios.get("http://localhost:8088/topicreg/views/pend")
+              axios.get("http://localhost:8088/topic/views/pend")
                .then((res)=>{
                  console.log(res.data);
                  settopic(res.data);

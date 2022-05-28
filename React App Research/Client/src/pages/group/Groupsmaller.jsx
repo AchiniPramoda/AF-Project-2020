@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-// import {  FaStar } from 'react-icons/fa';
+
 
 const PackageSmallView = (props) => {
 
@@ -13,26 +13,7 @@ const PackageSmallView = (props) => {
     }
 
     return (
-        // <div className={`col-xs-12 col-sm-6 col-md-${count}`}>
-            
-        //     <div class="card">
-        //         <img src={user.imageURL} class="card-img-top" alt={user.empNumber} />
-        //         <div class="card-body">
-        //             <h5 class="card-title text-center">{user.groupid}</h5>
-        //             <h6 class="card-title">Group ID: {user.department}</h6>
-        //             <p class="card-text">Leader:{user.memberLeader}</p> 
-        //         <div class="card-footer">
-        //                 <div class="row text-center">
-        //                     <div className="">
-        //                         <button onClick={() => handleClick(`/user/${user._id}`)} type="button" class="btn btn-outline-primary">View</button>
-                                
-        //                     </div>    
-        //                 </div>
-                        
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>'
+       
  <div class="container">
   <div class="card">
     <div class="box">
