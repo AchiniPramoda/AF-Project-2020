@@ -347,23 +347,24 @@ export default class Header extends React.PureComponent {
           width: 400,
           bgcolor: 'text.primary',
           color:'white',
-          border: '2px solid #000',
-          boxShadow: 24,
+          borderRadius:12,
+          border: "2px solid white",
+          boxShadow:"0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b",
           p: 4
         }}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" sx={{marginLeft:18, fontSize:30}}>
             Sign In
           </Typography>
 
           <div>
 
-          <FormGroup>
+          <FormGroup sx={{marginTop:6}}>
           <ListItem   disablePadding>
             <ListItemIcon>
-              <EmailRoundedIcon fontSize="large" />             
+              <EmailRoundedIcon fontSize="large" sx={{ color: "white"}}/>             
             </ListItemIcon>           
             <TextField
-            sx={{backgroundColor:"white",borderRadius:9}}
+            sx={{backgroundColor:"white",borderRadius:9,height:55}}
               fullWidth 
               label="Email"
               id="email"
@@ -375,11 +376,13 @@ export default class Header extends React.PureComponent {
           </FormGroup> <br/>
             
           <FormGroup>
-            <ListItem  disablePadding>
+            <ListItem 
+             disablePadding>
               <ListItemIcon>
                 <LockRoundedIcon fontSize="large" sx={{ color: "white"}}/>
               </ListItemIcon>
               <TextField
+               sx={{backgroundColor:"white",borderRadius:9}}
                 fullWidth
                 id="password"
                 label="Password"
@@ -398,8 +401,9 @@ export default class Header extends React.PureComponent {
                 <ListItemIcon>
                     <ManRoundedIcon fontSize="large" sx={{ color: "white"}}/>
                 </ListItemIcon>
-                <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+                <InputLabel  id="demo-simple-select-standard-label"></InputLabel>
                 <Select
+                 sx={{backgroundColor:"white",borderRadius:9}}
                     fullWidth                            
                     variant="filled"
                     labelId="demo-simple-select-standard-label"
@@ -417,11 +421,11 @@ export default class Header extends React.PureComponent {
           </FormGroup> <br/>
 
             <Button 
-              fullWidth
               onClick={this.onSignIn}
-              variant="contained" 
-              color="success">
-              Sign In
+              variant="outlined" 
+              sx={{width:220,border:3,borderRadius:10 ,height:60 ,marginLeft:12,marginTop:3}}
+              >
+              SignIn
             </Button>
             
           </div>

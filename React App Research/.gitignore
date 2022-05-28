@@ -4,3 +4,7 @@ node_modules
 # Ignore pacel chache
 
 .parcel-cache
+
+
+
+dist
