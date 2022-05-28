@@ -150,6 +150,7 @@ export default class ViewAssignment extends React.Component {
 
     onDelete = async (id) => {
         console.log(id);
+        
         await axios.delete(`http://localhost:8088/assignment/delete/${id}`)
         .then((res)=> this.setState({
             message: res.data,
@@ -209,45 +210,51 @@ export default class ViewAssignment extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> View Assignment </h1>
+                    <h1 style={{color: 'white'}}> View Assignment </h1>
 
                     {this.state.Assignment.map((item) => (
 
                         <Accordion sx={{
                             marginTop:"20px",
-                            backgroundColor: "lightgray"
+                            backgroundColor: "black",
+                            border: "2px solid white",
+                            radius: 10,
                             }}>
                             <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
+                            expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                             >
-                            <Typography>{item.asgName}</Typography>
+                            <Typography sx={{color:"white", fontSize:"25px", fontWeight:"bold"}}>{item.asgName}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                             <Typography>
                             <Grid container spacing={3}>
-                                <Grid item xs={2}>
+                                <Grid item xs={2} sx={{color:"white", width:"200px"}}>
                                     Department : {item.department}
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
                                     End Date: {item.endDate}
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
                                     End Time: {item.endTime}
                                 </Grid>
                                     <ListItemButton
                                         component="a" 
                                         href={`${item.template}`}
                                         sx={{ 
-                                            marginTop:"10px"
+                                            marginTop:"10px",
+                                            border:"2px solid white",
+                                            width:"250px",
+                                            backgroundColor: "#616161",
+                                            marginLeft:"100px"
                                         }} >
                                         <ListItemIcon>
                                             <DownloadOutlinedIcon 
                                                 fontSize="large"
                                                 color="primary" />
                                         </ListItemIcon>
-                                        <ListItemText primary="Download Template" />
+                                        <ListItemText primary="Download Template" sx={{color:"white" , width:"200px"}}/>
                                     </ListItemButton>                                   
                             </Grid>
                             </Typography>
@@ -263,7 +270,8 @@ export default class ViewAssignment extends React.Component {
                                     color="warning"
                                     onClick={() => this.onEditClick(item._id)}
                                     sx={{ 
-                                        marginRight:"100px"
+                                        marginRight:"100px",
+                                        border:"2px solid white"
                                     }} >
                                     Edit
                                 </Button>
@@ -273,7 +281,8 @@ export default class ViewAssignment extends React.Component {
                                     onClick={() => this.onDelete(item._id)}                                    
                                     color="error"
                                     sx={{ 
-                                        marginRight:"100px"
+                                        marginRight:"100px",
+                                        border:"2px solid white"
                                     }}  >
                                     Remove
                                 </Button>
@@ -283,7 +292,8 @@ export default class ViewAssignment extends React.Component {
                                     color="primary"
                                     onClick={() => this.onViewSubmission(item._id)}
                                     sx={{ 
-                                        marginLeft:"200px"
+                                        marginLeft:"200px",
+                                        border:"2px solid white"
                                     }} >
                                     View Submissions
                                 </Button>
@@ -298,6 +308,7 @@ export default class ViewAssignment extends React.Component {
                         onClose={this.signModalClose}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
+                        sx={{border:"2px solid gray"}}
                         >
                         <Box sx={{
                             position: 'absolute',
@@ -306,9 +317,10 @@ export default class ViewAssignment extends React.Component {
                             transform: 'translate(-50%, -50%)',
                             width: 400,
                             bgcolor: 'background.paper',
-                            border: '2px solid #000',
+                            border: '2px solid white',
                             boxShadow: 24,
-                            p: 4
+                            p: 4,
+                            backgroundColor: "black"
                         }}>
                         <Typography 
                             id="modal-modal-title" 
@@ -316,7 +328,7 @@ export default class ViewAssignment extends React.Component {
                             component="h2"
                             sx={{ 
                                 marginLeft:"100px",
-                                color:"blue",
+                                color:"white",
                                 fontSize:"25px",
                                 fontWeight:"bold",
                              }}>
@@ -326,7 +338,7 @@ export default class ViewAssignment extends React.Component {
                             <div>                            
                                 
                          <FormGroup>
-                         <ListItem  disablePadding>
+                         <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
                         <ListItemIcon>
                             <PermIdentityRoundedIcon fontSize="large" />
                         </ListItemIcon>
@@ -342,7 +354,7 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>    <br/> 
 
                     <FormGroup>
-                        <ListItem  disablePadding>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
                         <ListItemIcon>
                             <AccessTimeIcon fontSize="large" />
                         </ListItemIcon>
@@ -359,7 +371,7 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>    <br/> 
 
                     <FormGroup>
-                    <ListItem  disablePadding>
+                    <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
                         <ListItemIcon>
                             <PermIdentityRoundedIcon fontSize="large" />
                         </ListItemIcon>
@@ -376,7 +388,7 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>      <br/>                
 
                     <FormGroup>
-                        <ListItem  disablePadding>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
                         <ListItemIcon>
                             <ApartmentRoundedIcon fontSize="large" />
                         </ListItemIcon>
@@ -400,7 +412,7 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>  <br/> 
 
                     <FormGroup>
-                    <ListItem  disablePadding>
+                    <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -423,6 +435,7 @@ export default class ViewAssignment extends React.Component {
 
                                 <Button 
                                     fullWidth
+                                    sx={{border:"2px solid white"}}
                                     onClick={this.onUpdate}
                                     variant="contained" 
                                     color="warning">
@@ -453,7 +466,7 @@ export default class ViewAssignment extends React.Component {
                                 p: 4
                             }}>
                                 <TableContainer component={Paper}>
-                                    <Table size="small" sx={{ minWidth: 700, border: '2px solid black', }} aria-label="customized table">
+                                    <Table size="small" sx={{ minWidth: 700, border: '2px solid black'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>

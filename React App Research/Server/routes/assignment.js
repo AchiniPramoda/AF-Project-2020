@@ -58,16 +58,30 @@ router.put('/edit/:id', upload.single('template'), async (req, res) => {
 
     try{
 
-        let research = await Assignment.findById(req.params.id);
+        const research = await Assignment.findById(req.params.id);
 
-        await cloudinary.uploader.destroy(research.cloudinary_id,  {resource_type: "raw",} );
+        var result = null;
 
-        const result = await cloudinary.uploader.upload(req.file.path, {
-            resource_type: "raw", 
-            folder : "Template",
-            public_id: req.file.originalname
-        });
-       // res.json(result);
+        if(!req.file) {
+
+            console.log("File None");
+            result = await cloudinary.api.resource(research.cloudinary_id,  {resource_type: "raw",});
+            //console.log(result);
+
+        }else {
+
+            await cloudinary.uploader.destroy(research.cloudinary_id,  {resource_type: "raw"} );
+
+            result = await cloudinary.uploader.upload(req.file.path, {
+                resource_type: "raw", 
+                folder : "Template",
+                public_id: req.file.originalname
+            });
+            console.log(result);
+            // res.json(result);
+        }
+
+        console.log(result);
        
        await Assignment.findById(req.params.id)
         .then((response) => {
@@ -94,8 +108,7 @@ router.put('/edit/:id', upload.single('template'), async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
     let research = await Assignment.findById(req.params.id)
-
-    console.log(research);
+    //console.log(research);
 
     await cloudinary.uploader.destroy(research.cloudinary_id, {resource_type: "raw",});
 
