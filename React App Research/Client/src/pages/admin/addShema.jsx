@@ -33,7 +33,7 @@ export default class AddSchema extends React.Component {
             fileName:"Insert File",
             message: "",
             type:"",
-            open: true
+            open: false
         }
     }
 
@@ -73,9 +73,8 @@ export default class AddSchema extends React.Component {
             type:"error",
             open: true
         }))
-        .finally(() => {})
 
-        window.location = `/Admin/viewSchema`;
+        //window.location = `/Admin/viewSchema`;
     }
 
     handleClose = () => {

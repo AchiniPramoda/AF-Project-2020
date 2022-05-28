@@ -5,6 +5,10 @@ node_modules
 
 .parcel-cache
 
+<<<<<<< Updated upstream
 
 
 dist
+=======
+dist
+>>>>>>> Stashed changes
