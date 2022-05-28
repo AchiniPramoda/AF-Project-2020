@@ -688,7 +688,6 @@ body{
     padding: 10px;
     color: white;
 }
-
 .Groupreg-form-group {
     display: flex;
     flex-direction: column;
@@ -696,14 +695,12 @@ body{
     padding: 10px;
 
 }
-
 .success-message {
     font-family: "Roboto", sans-serif;
     background-color: #3f89f8;
     padding: 15px;
     color: white;
 }
-
 .form-field-group {
     margin: 10px 0 10px 0;
     padding: 15px;
@@ -713,43 +710,35 @@ body{
     background: white;
     color: black;
 }
-
 span {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     margin-bottom: 15px;
 }
-
 input {
     color: black;
    
 }
-
 input::placeholder {
     color: black;
     opacity: 0.5;
 }
-
 .error {
     border-style: solid;
     border: 2px solid #ffa4a4;
 }
-
 button {
     color: white;
     cursor: pointer;
 }
-
 button:disabled {
     cursor: default;
 }
-
 .btngroup-group {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-
 .cancel-group {
     background-color: transparent;
     border-radius: 5px;
@@ -761,7 +750,6 @@ button:disabled {
     font-size: 16px;
     font-family: "Roboto", sans-serif;
 }
-
 .submit-group {
     background-color: transparent;
     border: 2px solid white;
@@ -774,7 +762,6 @@ button:disabled {
     font-family: "Roboto", sans-serif;
 
 }
-
 /* .edit-group{
     background-color: transparent;
     border-radius: 5px;
@@ -782,20 +769,16 @@ button:disabled {
     color: white;
     text-decoration: none;  
 } */
-
 .title-group {
     margin-top: 20px;
     padding: 20px 20px;
     border-radius: 20px;
     font-size: 25px; 
 }
-
-
 .lbl-group{
     font-size: 14px;
     font-family:'poppin';
 }
-
 .group-title{
     margin-top: 10px;
     text-align: center;
@@ -804,22 +787,19 @@ button:disabled {
     border-radius: 20px;
     font-size: 18px;
 }
-
 .landing_img_inv{
     margin-right: 50px;   
 }
-
 .table-Inv {
     border: 2px solid #999;
     padding: 0.5rem;
     color: black;
-    margin-left: 300px;
-    margin-top: 120px;
+    margin-left: 600px;
+    margin-top: 160px;
     font-size: 14px;
     background-color: white;
     width: auto;
 }
-
 td, th {
     border: 1px solid #999;
     padding: 0.5rem;
@@ -827,7 +807,6 @@ td, th {
     color: #000;
     height: 40px;
   }
-
 .tablealign-inv{
     margin-bottom: 100px;
 }  

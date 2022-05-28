@@ -223,7 +223,7 @@ export default class Navbar extends React.Component {
         </List>
         <Divider />
 
-        <List sx={{marginTop:1}}>          
+        {/* <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
               href="/Student/GroupAdd">
@@ -234,7 +234,7 @@ export default class Navbar extends React.Component {
             </ListItemButton>
           </ListItem>
         </List>
-        <Divider/>
+        <Divider/> */}
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>

@@ -370,6 +370,19 @@ export default class Navbar extends React.Component {
               <ListItemText />
             </ListItemButton>
           </List>
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href={`/Admin/viewSchema`}
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AssignmentRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Schemes View
+              <ListItemText />
+            </ListItemButton>
+          </List>
         </Collapse>        
         <Divider />
       </Drawer>

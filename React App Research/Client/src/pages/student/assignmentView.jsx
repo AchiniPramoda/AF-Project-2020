@@ -15,14 +15,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormGroup from '@mui/material/FormGroup';
-import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
 import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
@@ -35,6 +33,7 @@ import Alert from '@mui/material/Alert';
 import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
+import ListItem from '@mui/material/ListItem';
 
 export default class StudentViewAssignment extends React.Component {
 
@@ -104,6 +103,8 @@ export default class StudentViewAssignment extends React.Component {
         //e.preventDefault();
 
         let formData = new FormData();
+        formData.append("AsgID", this.state.id);
+        formData.append("asgName", this.state.asgName);
         formData.append("stdID", this.state.stdID);
         formData.append("grpID", this.state.grpID);
         formData.append("file", this.state.file);
@@ -120,11 +121,13 @@ export default class StudentViewAssignment extends React.Component {
             open: true
         }))
         .finally();
+
+        this.signModalClose();
     }
 
     onFileChange = (e) => {
         this.setState({
-            template:e.target.files[0],
+            file:e.target.files[0],
             fileName:e.target.files[0].name
         })
     }
@@ -149,45 +152,51 @@ export default class StudentViewAssignment extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> View Assignment </h1>
+                    <h1 style={{color:"white"}}> View Assignment </h1>
 
                     {this.state.Assignment.map((item) => (
 
                         <Accordion sx={{
                             marginTop:"20px",
-                            backgroundColor: "lightgray"
+                            backgroundColor: "black",
+                            border: "2px solid white",
+                            radius: 10,
                             }}>
                             <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
+                            expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                             >
-                            <Typography>{item.asgName}</Typography>
+                            <Typography sx={{color:"white", fontSize:"25px", fontWeight:"bold"}}>{item.asgName}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                             <Typography>
                             <Grid container spacing={3}>
-                                <Grid item xs={2}>
+                                <Grid item xs={2} sx={{color:"white", width:"200px"}}>
                                     Department : {item.department}
                                 </Grid>
-                                <Grid item xs={3}>
-                                    End Date: {item.endDate}
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
+                                    End Date : {item.endDate}
                                 </Grid>
-                                <Grid item xs={3}>
-                                    End Time: {item.endTime}
+                                <Grid item xs={3} sx={{color:"white", width:"200px"}}>
+                                    End Time : {item.endTime}
                                 </Grid>
                                     <ListItemButton
                                         component="a" 
                                         href={`${item.template}`}
                                         sx={{ 
-                                            marginTop:"10px"
+                                            marginTop:"10px",
+                                            border:"2px solid white",
+                                            width:"250px",
+                                            backgroundColor: "#616161",
+                                            marginLeft:"100px"
                                         }} >
                                         <ListItemIcon>
                                             <DownloadOutlinedIcon 
                                                 fontSize="large"
                                                 color="primary" />
                                         </ListItemIcon>
-                                        <ListItemText primary="Download Template" />
+                                        <ListItemText primary="Download Template" sx={{color:"white" , width:"200px"}}/>
                                     </ListItemButton>                                   
                             </Grid>
                             </Typography>
@@ -203,7 +212,8 @@ export default class StudentViewAssignment extends React.Component {
                                     color="primary"
                                     onClick={() => this.onSubmissionClick(item._id)}
                                     sx={{ 
-                                        marginRight:"100px"
+                                        marginRight:"100px",
+                                        border:"2px solid white"
                                     }} >
                                     Submission
                                 </Button>
@@ -218,6 +228,7 @@ export default class StudentViewAssignment extends React.Component {
                         onClose={this.signModalClose}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
+                        sx={{border:"2px solid gray"}}
                         >
                         <Box sx={{
                             position: 'absolute',
@@ -226,9 +237,10 @@ export default class StudentViewAssignment extends React.Component {
                             transform: 'translate(-50%, -50%)',
                             width: 500,
                             bgcolor: 'background.paper',
-                            border: '2px solid #000',
+                            border: '2px solid white',
                             boxShadow: 24,
-                            p: 4
+                            p: 4,
+                            backgroundColor: "black"
                         }}>
                         <Typography 
                             id="modal-modal-title" 
@@ -236,39 +248,47 @@ export default class StudentViewAssignment extends React.Component {
                             component="h2"
                             sx={{ 
                                 marginLeft:"50px",
-                                color:"blue",
+                                color:"white",
                                 fontSize:"25px",
                                 fontWeight:"bold",
+                                marginTop:"20px"
                              }}>
                             Research Assignment Submission
-                        </Typography>
+                        </Typography> <br/>
 
                             <div>                            
-                            <FormGroup sx={{}}>
+                        <FormGroup >
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <PermIdentityRoundedIcon fontSize="small" />
                         </ListItemIcon>
-                        <TextField 
+                        <TextField
+                            fullWidth 
                             id="stdID" 
                             label="Student ID" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                        </ListItem>
                     </FormGroup> <br/>
 
-                    <FormGroup sx={{}}>
+                    <FormGroup>
+                    <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <GroupsRoundedIcon fontSize="small" />
                         </ListItemIcon>
-                        <TextField 
+                        <TextField
+                            fullWidth 
                             id="grpID" 
                             label="Group ID" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                        </ListItem>
                     </FormGroup> <br/>
                     
-                    <FormGroup sx={{}}>
+                    <FormGroup>
+                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -277,7 +297,7 @@ export default class StudentViewAssignment extends React.Component {
                                     component="span">
                                     <UploadFileRoundedIcon />                                                                  
                                 </IconButton>
-                                {this.state.RfileName} 
+                                {this.state.fileName} 
                                 <Input 
                                     sx={{
                                         display: 'none',
@@ -286,11 +306,12 @@ export default class StudentViewAssignment extends React.Component {
                                     onChange={(e) => this.onFileChange(e)}                                    
                                     type="file" />                                
                             </label>
+                            </ListItem>
                         </FormGroup> <br/>
 
                     <Button 
                         fullWidth
-                        sx={{}} 
+                        sx={{border:"2px solid white"}}
                         variant="contained" 
                         size="small"
                         onClick={() => this.onSubmit()}

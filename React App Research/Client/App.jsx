@@ -30,6 +30,8 @@ import ViewAssignmentSubmission from './src/pages/staff/Supervisors/submissionVi
 import AddNotices from "./src/pages/Notice/AddNotice";
 import ViewNotices from "./src/pages/Notice/viewNotice";
 import UdateNotices from "./src/pages/Notice/Update_Notices";
+import AdminSchemaView from './src/pages/admin/viewSchema';
+import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
 
 export default class App extends React.Component {
 
@@ -50,6 +52,7 @@ export default class App extends React.Component {
             <Route path="/Admin/AddAssignment" element={<AddAssignment />} /> 
             <Route path="/Admin/ViewAssignment" element={<ViewAssignment />} />           
             <Route path="/Admin/AddSchema" element={<AddSchema />} />
+            <Route path="/Admin/viewSchema" element={<AdminSchemaView />} />
             <Route path="/Admin/GroupView" element={<GroupView />} />
             <Route path="/Admin/Topic_View" element={<TopicView/>} />
                         
@@ -79,6 +82,7 @@ export default class App extends React.Component {
             <Route path='/AddNotices' element={<AddNotices/>}/>
             <Route path='/viewNotice'element={<ViewNotices/>}/>
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
+            <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
 
          </Routes>
                      
