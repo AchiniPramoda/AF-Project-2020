@@ -7,6 +7,12 @@ import { Grid } from "@material-ui/core";
 import './student.css';
 import { Button, CardContent } from "@mui/material";
 import Image1 from "./hs1.jpg";
+import Image2 from "./c1.jpg";
+import Image3 from "./c2.jpg";
+import Image4 from "./c3.jpg";
+import Image5 from "./c4.jpg";
+import { width } from "@mui/system";
+import Footer from './footer.jsx';
 
 function StudentMain() {
 
@@ -44,9 +50,9 @@ function StudentMain() {
                    title="Research Submission"
                  
                 />
-              <CardContent sx={{margin:0,maxWidth:300, backgroundColor: '#38B9EC'}}>                
-                  <img className="image1" src={Image1} />
-                     <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7,marginTop:2}} href="Student/ViewAssignment">
+              <CardContent sx={{margin:0,Width:"auto", backgroundColor: '#38B9EC'}}>                
+                  <img className="image1" src={Image2} />
+                     <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:9,marginTop:2}} href="Student/ViewAssignment">
                          Submissions
                      </Button>
                  </CardContent>
@@ -60,9 +66,9 @@ function StudentMain() {
                 <CardHeader 
                      title="Marking Schema"
                       />
-                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor:'#F1592A'}}>
-                  <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}}>
+                       <CardContent sx={{margin:0, Width:"auto",backgroundColor:'#F1592A'}}>
+                  <img className="image1" src={Image3} />
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:13, marginTop:2}}>
                        Marking 
                   </Button>
                  </CardContent>
@@ -75,9 +81,9 @@ function StudentMain() {
             <CardHeader 
                      title=" Project Groups"
                       />
-                       <CardContent sx={{margin:0, maxWidth:300,backgroundColor: '#8EC63F'}}>
-                  <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}}  href="/Student/GroupView" >
+                       <CardContent sx={{margin:0, Width:"auto",backgroundColor: '#8EC63F'}}>
+                  <img className="image1" src={Image4} />
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:13, marginTop:2}}  href="/Student/GroupView" >
                       Groups 
                   </Button>
                  </CardContent>
@@ -90,9 +96,9 @@ function StudentMain() {
             <CardHeader 
                      title="Templete"
                       />
-                       <CardContent sx={{margin:0, maxWidth:300, backgroundColor: '#92499E'}}>
-                  <img className="image1" src={Image1} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:7, marginTop:2}} href="Admin/ViewAssignment">
+                       <CardContent sx={{margin:0, Width:"auto", backgroundColor: '#92499E'}}>
+                  <img className="image1" src={Image5} />
+                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:12, marginTop:2}} href="Admin/ViewAssignment">
                       Assigment 
                   </Button>
                  </CardContent>
@@ -100,7 +106,7 @@ function StudentMain() {
       </Grid> 
 </Grid>
 
-
+<Footer/>
    
 </div>
   );
