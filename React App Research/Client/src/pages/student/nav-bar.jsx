@@ -250,6 +250,24 @@ export default class Navbar extends React.Component {
         </List>        
         <Divider />
 
+
+
+        <List sx={{marginTop:1}}>          
+          <ListItem disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student/ViewAssignment">
+              <ListItemIcon>
+                <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
+              </ListItemIcon>
+              <ListItemText sx={{ color: "white"}} >Result View</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>        
+        <Divider />
+
+
+
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton>

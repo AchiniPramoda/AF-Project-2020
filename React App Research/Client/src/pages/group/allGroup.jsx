@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-
+import Navbar from '../student/nav-bar';
 import SmallView from "./Groupsmaller"
 // import './Allgroup.scss'
 
@@ -31,12 +31,7 @@ class AllForUser extends Component {
         return (
         
             <div>
-             <Navbar/>
-
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+                <Navbar/>
             <h1>....RESEARCH GROUP DETAILS.....</h1>
 
             <br/>

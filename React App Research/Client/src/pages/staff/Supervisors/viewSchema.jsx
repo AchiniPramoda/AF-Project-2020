@@ -45,6 +45,7 @@ import Alert from '@mui/material/Alert';
 import ListItem from '@mui/material/ListItem';
 import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default class StaffSchemaView extends React.Component {
 
@@ -67,7 +68,9 @@ export default class StaffSchemaView extends React.Component {
             fileName:"Insert File",
             open: false,
             sub: false,
-            Submission : []
+            Submission : [],
+            id:"",
+            itemID:""
         }
     }
 
@@ -92,10 +95,6 @@ export default class StaffSchemaView extends React.Component {
             viewSub: false
         })
     };
-
-    onViewSubmission = (id) => {
-        this.viewSubOpen();
-    }
 
     signModalOpen = () => {    
         this.setState({
@@ -130,17 +129,17 @@ export default class StaffSchemaView extends React.Component {
         this.setState({department: e.target.value});
     }
 
-    onSubmit = async (id) => {
-        //e.preventDefault();
-        
+    onSubClick = (id) => {
+        this.onSubmit(id);
+    }
 
-        console.log(this.state.schemaName);
+    onSubmit = async () => {
 
         let formData = new FormData();
         
-        formData.append("schemaID", id);
-        formData.append("schemaName", this.state.schemaName);
-        formData.append("department", this.state.department);
+        formData.append("schemaID", this.state.id);
+        formData.append("LecName", this.state.LecName);
+        //formData.append("department", this.state.department);
         formData.append("desc", this.state.desc);
         formData.append("results", this.state.results);
         formData.append("fileName", this.state.fileName);
@@ -149,16 +148,15 @@ export default class StaffSchemaView extends React.Component {
         .then((res)=> this.setState({
             message: res.data,
             type:"success",
-            open: true
+            open: true,
+            viewSub: false,
         }))
         .catch((err) => this.setState({
             message: err.message,
             type:"error",
             open: true
         }))
-        .finally(() => {})
-
-        window.location = `/Admin/viewSchema`;
+        .finally(() => this.viewSubaddClose())
     }
 
     handleClose = () => {
@@ -167,9 +165,10 @@ export default class StaffSchemaView extends React.Component {
         })
     }
 
-    viewSubaddOpen = () => {    
+    viewSubaddOpen = (ID) => {    
         this.setState({
-            sub: true
+            sub: true,
+            id: ID
         })
         
     };
@@ -181,6 +180,10 @@ export default class StaffSchemaView extends React.Component {
     };
 
     onSubViewClick = async (id) => {
+
+        this.setState({
+            itemID: id
+        })
 
         this.viewSubOpen();
         console.log(id);
@@ -195,6 +198,24 @@ export default class StaffSchemaView extends React.Component {
             open: true
         }))
 
+    }
+
+    onDelete = async (id) => {
+
+        await axios.delete(`http://localhost:8088/results/delete/${id}`)
+        .then((res)=> {this.setState({
+            message: res.data,
+            type:"success",
+            open: true
+        }); console.log(res.data)})
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+        .finally(() => this.onSubViewClick(this.state.itemID))
+
+        //this.viewSubOpen();
     }
 
     render() {
@@ -271,7 +292,7 @@ export default class StaffSchemaView extends React.Component {
                                     variant="contained" 
                                     startIcon={<PostAddRoundedIcon />}
                                     color="primary"
-                                    onClick={this.viewSubaddOpen}
+                                    onClick={() => this.viewSubaddOpen(item._id)}
                                     sx={{ 
                                         marginRight:"100px",
                                         border:"2px solid white"
@@ -329,6 +350,20 @@ export default class StaffSchemaView extends React.Component {
                                                             color="primary" />
                                                     </ListItemIcon>
                                                     <ListItemText primary="Download" />
+                                                </ListItemButton>  
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <ListItemButton
+                                                    onClick={() => this.onDelete(item._id)}
+                                                    sx={{ 
+                                                        marginTop:"10px"
+                                                    }} >
+                                                    <ListItemIcon>
+                                                        <DeleteForeverIcon 
+                                                            fontSize="large"
+                                                            color="error" />
+                                                    </ListItemIcon>
+                                                    <ListItemText primary="Delete" />
                                                 </ListItemButton>  
                                             </TableCell>
                                             </TableRow>

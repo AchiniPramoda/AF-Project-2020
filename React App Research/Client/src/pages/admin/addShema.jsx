@@ -20,6 +20,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import Container from '@mui/material/Container';
 import ListItem from '@mui/material/ListItem';
+import { borderRadius } from '@mui/system';
 
 export default class AddSchema extends React.Component {
 
@@ -90,21 +91,34 @@ export default class AddSchema extends React.Component {
                 <div className="AllView">
                     <Navbar/>
                     
-                    <h1 style={{color: 'white'}}> Add Schema </h1>
+                 
 
-                    <Container sx={{ 
+                 <Container sx={{ 
                             backgroundColor: "black", 
                             color: "white",
                             border: '2px solid white',
-                            width:"600px",
-                            height:"auto"                    
+                            width:"500px",
+                            height:"470px",
+                            marginTop:"170px",   
+                            border: "2px solid white",
+                            borderRadius:4,
+                            boxShadow:"0 0 20px 0 black, 2px 2px 2px 0 #1b1b1b"                 
                         }}>
 
+
+              <h1 style={{color: 'white'}}> Add Schema </h1>
                     <FormGroup sx={{marginTop: "20px"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
-                        <ListItemIcon>
+                   
+             <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:350,
+                            marginLeft:6,
+                            borderRadius:3,
+                            marginTop:2
+                            }} >
+                  <ListItemIcon>
                             <PermIdentityRoundedIcon fontSize="medium" />
-                        </ListItemIcon>
+                  </ListItemIcon>
+                  
                         <TextField 
                             fullWidth
                             id="schemaName" 
@@ -112,20 +126,32 @@ export default class AddSchema extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="small" required/>
+                       
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop: "20px"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
-                        <ListItemIcon>
-                            <ApartmentRoundedIcon fontSize="medium" />
-                        </ListItemIcon>
+                 <FormGroup sx={{marginTop: "20px",
+                                 }}>
+                        <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:350,
+                            height:65,
+                            marginLeft:6,
+                            borderRadius:3,
+                            marginTop:2
+                            }} >          
+                           <ListItemIcon>
+                               <ApartmentRoundedIcon fontSize="medium" />
+                           </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-                        <Select 
+                    
+                     <Select 
                             fullWidth                           
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
+                            label="Department" 
                             id="department"
+                           
+                           
                             value={this.state.asgDep}
                             onChange={(e) => this.onChageSelected(e)}
                             lable="Department"
@@ -139,7 +165,13 @@ export default class AddSchema extends React.Component {
                     </FormGroup>
                     
                     <FormGroup sx={{marginTop: "20px"}}>
-                    <ListItem sx={{backgroundColor:"whitesmoke", color:"black"}} >
+                    <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:350,
+                            marginLeft:6,
+                            borderRadius:3,
+                            color:"black",
+                            marginTop:2
+                            }} >
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -161,13 +193,17 @@ export default class AddSchema extends React.Component {
                             </ListItem>
                     </FormGroup>
 
-                    <Button 
-                        fullWidth
-                        sx={{marginTop: "20px", border:"2px solid white", marginBottom:"20px"}}
-                        variant="contained" 
+                    <Button                       
+                        sx={{marginTop: "40px", 
+                              border:"2px solid", 
+                              marginBottom:"20px",
+                              width:160,
+                              height:40,
+                              marginLeft:18}}
+                        variant="outlined" 
                         size="small"
                         onClick={(e) => this.onSubmit(e)}
-                        color="success" >
+                        color="primary" >
                         Submit
                     </Button>
 
