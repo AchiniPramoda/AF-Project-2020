@@ -1,36 +1,70 @@
 import React from 'react'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import {  FaStar } from 'react-icons/fa';
+import React from "react";
+import ReactDOM from "react-dom";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 
+
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
+import { Card } from '@mui/material';
+import { color } from '@mui/system';
 
 const PackageSmallView = (props) => {
 
     const user = props.user;
     const count = props.count;
 
-    const history = useHistory();
+    const history = useNavigate();
     const handleClick = (path) => {
         history.push(path);
     }
 
     return (
-       
- <div class="container">
-  <div class="card">
-    <div class="box">
-      <div class="content">  
-     <h1>Research Group</h1>
-     <br/> <button type="button" class="btn btn-default btn-circle btn-lg">
-     <h1>{user.groupid}</h1>
-                            </button>
+      <div>
+   <Card
+   sx={{backgroundColor:"black",
+  color:"white",
+  padding:"10px",
+  margin_left:"10px",
+  
+ 
+   }}>
+      <CardContent
+      sx={{backgroundColor:"black",
+      color:"white",
+      padding:"10px",
+
+      }}>
+        <Typography
+          >
+          {user.groupid}
+        </Typography>
+
+        <Typography  
+        >
+          {user.department}
+        </Typography>
+        <br/>
+        <Typography>
+          {user.memberLeader}
+        </Typography>
+        <Typography>
+          {user.memberLeader}
+        </Typography>
+     
+      </CardContent> 
+    </Card>
+<br/>
    
-    <br/>
-      <h3>Department: {user.department}</h3>
-       <h3>Leader : {user.memberLeader}</h3> 
-        <a href="#">Read More</a>
-      </div>
     </div>
-  </div>
-  </div>
+  
+
+
     );
 }
 

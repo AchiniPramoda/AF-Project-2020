@@ -6,7 +6,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import { Grid} from '@material-ui/core';
 import axios from 'axios';
 import Navbar from '../admin/nav-bar';
-// import {useHistory} from 'react-router-dom';
+
 
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -24,7 +24,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 
 function GroupView() {
 
-  // const history = useHistory();
+  
 
   const [group, setgroup] = useState([])
 
@@ -71,6 +71,7 @@ function GroupView() {
     return(
         <div>
           <Navbar/>
+
 
               <Box sx={{
                 position: 'absolute',
@@ -147,6 +148,10 @@ function GroupView() {
             {/* <div class="tablealign-inv">
                   <table class="table-Inv">
 
+    
+                  <table class="table-ab">
+
+
                     <tr>
                        <th>Group ID</th>
                        <th>Department</th>
@@ -185,6 +190,7 @@ function GroupView() {
                 ))}
                          
              </table>
+
           </div>  */}
 
           {/* <Grid item>
@@ -192,6 +198,7 @@ function GroupView() {
                           Add Item
                       </Button>
                  </Grid> */}
+
 
         </div>
     )

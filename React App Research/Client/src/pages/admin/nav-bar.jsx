@@ -237,7 +237,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Admin/StudentReg"
+              href="/StudentReg"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
@@ -250,7 +250,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Admin/StaffRegister"
+              href="/StaffRegister"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
@@ -263,7 +263,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Admin/AdminRegister"
+              href="/AdminRegister"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <PersonAddAltRoundedIcon sx={{  color: "white"}}/>

@@ -34,6 +34,7 @@ import AdminSchemaView from './src/pages/admin/viewSchema';
 import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
 import StudentSchemaView from './src/pages/student/viewSchema';
 
+
 export default class App extends React.Component {
 
  constructor(props) {

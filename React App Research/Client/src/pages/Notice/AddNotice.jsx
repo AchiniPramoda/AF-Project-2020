@@ -76,7 +76,7 @@ axios.post("http://localhost:8088/notice/AddNotice", NoticeData )
                 {/* <input type="textarea" class="form-field-group" id="noticePurpose" name="noticePurpose" value={values.noticePurpose} onChange={handleAddData} placeholder="Enter Notice Purpose" />
                 <MDBInput type="textarea" label="Icon Prefix" rows="2" icon="pencil-alt" /> */}
 
-                <textarea class="form-field-group"  rows="5" cols="33"value={values.noticePurpose} onChange={handleAddData} placeholder="Enter Notice Purpose"></textarea>
+                <textarea class="form-field-group" id="noticePurpose" name="noticePurpose" rows="5" cols="33"value={values.noticePurpose} onChange={handleAddData} placeholder="Enter Notice Purpose"></textarea>
           <div className="btngroup-group">  
               <button className="form-field cancel-group" onclick="document.getElementById('myInput').value = ''">
                  Clear

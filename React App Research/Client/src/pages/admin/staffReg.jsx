@@ -24,6 +24,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Box, fontSize } from '@mui/system';
+import { ListItem } from '@mui/material';
+import { Typography } from '@mui/material';
 
 export default class StaffRegister extends React.Component {
 
@@ -97,15 +100,36 @@ export default class StaffRegister extends React.Component {
                 <Navbar/>
                 
                 <div className="AllView">
-                    <h1> Staff Register </h1>
+                   
 
+       <Box sx={{
+           position: 'absolute',
+           width:500,
+           height:760,
+           marginTop:9,
+           marginLeft:14,
+           top: '50%',
+           left: '50%',
+           transform: 'translate(-50%, -50%)',
+           border: '2px solid white',
+           borderRadius:5,
+           boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",  
+           color:"white",                   
+           backgroundColor: "black"
+       }}>
+            <Typography  sx={{marginLeft:17,marginTop:2,marginBottom:2,fontSize:29}}>
+                    Student Registration
+               </Typography>
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                        backgroundColor:"white",                       
+                        marginLeft:4,
+                        marginBottom:5, 
+                        marginTop:6,
+                        marginRight:4                       
                         }}>
+                            <ListItem>
                         <ListItemIcon>
-                            <AccountCircleRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="fname" 
@@ -113,15 +137,18 @@ export default class StaffRegister extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                            </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                        backgroundColor:"white",
+                        marginLeft:4,
+                        marginBottom:5, 
+                        marginRight:4                         
                         }}>
+                        <ListItem>     
                         <ListItemIcon>
-                            <AccountCircleRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="small" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="lname" 
@@ -129,15 +156,18 @@ export default class StaffRegister extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                             </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                      backgroundColor:"white",
+                        marginLeft:4,
+                        marginBottom:5,
+                        marginRight:4                          
                         }}>
+                     <ListItem>
                         <ListItemIcon>
-                            <MailRoundedIcon fontSize="small" />
+                            <MailRoundedIcon fontSize="small" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="email" 
@@ -145,15 +175,18 @@ export default class StaffRegister extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                            </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                        backgroundColor:"white",
+                        marginLeft:4,
+                        marginBottom:5,
+                        marginRight:4                          
                         }}>
+                              <ListItem>
                         <ListItemIcon>
-                            <CallRoundedIcon fontSize="small" />
+                            <CallRoundedIcon fontSize="small" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="contact" 
@@ -161,15 +194,18 @@ export default class StaffRegister extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                            </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                       backgroundColor:"white",
+                        marginLeft:4,
+                        marginBottom:5,
+                        marginRight:4                          
                         }}>
+                              <ListItem>
                         <ListItemIcon>
-                            <AccountBoxRoundedIcon fontSize="small" />
+                            <AccountBoxRoundedIcon fontSize="small" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="password" 
@@ -178,15 +214,18 @@ export default class StaffRegister extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                            </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                        backgroundColor:"white",
+                        marginLeft:4,
+                       
+                        marginRight:4                         
                         }}>
+                              <ListItem>
                         <ListItemIcon>
-                            <ManRoundedIcon fontSize="small" />
+                            <ManRoundedIcon fontSize="small" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label">Position</InputLabel>
                         <Select                            
@@ -200,19 +239,25 @@ export default class StaffRegister extends React.Component {
                             <MenuItem value="Panel Member">Panel Member</MenuItem>
                             <MenuItem value="Supervisor">Supervisor</MenuItem>
                         </Select>
+                        </ListItem>
                     </FormGroup>
 
                     <Button 
                         sx={{
-                            width:400,
-                            marginLeft:40
+                            width:180,
+                            marginLeft:20,
+                            marginTop:3,
+                            marginBottom:2,
+                            fontSize:16,
+                            borderColor:"white"
                         }} 
-                        variant="contained" 
-                        size="small"
+                        variant="outlined" 
+                        size="medium"
                         onClick={this.handleClickOpen}
                         color="success" >
                         Submit
                     </Button>
+                </Box>
 
                     <Dialog
                         open={this.state.open}
@@ -221,6 +266,7 @@ export default class StaffRegister extends React.Component {
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                         >
+
                         <DialogTitle>{"Registration Confirmation"}</DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-title">
@@ -232,6 +278,7 @@ export default class StaffRegister extends React.Component {
                             <Button color="success" onClick={() => this.onSubmit()}>Confirm</Button>
                         </DialogActions>
                     </Dialog>
+                
                 </div>
             </>
         )

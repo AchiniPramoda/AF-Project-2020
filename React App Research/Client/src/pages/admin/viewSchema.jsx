@@ -236,7 +236,7 @@ export default class AdminSchemaView extends React.Component {
                                 <AccordionDetails>
                             <Typography>
                             <Grid container spacing={3}>
-                                <Grid item xs={2} sx={{color:"white", width:"200px"}}>
+                                <Grid item xs={2} sx={{color:"white", width:"200px", marginLeft:25}}>
                                     Department Name : {item.department}
                                 </Grid>
                                 
@@ -249,7 +249,7 @@ export default class AdminSchemaView extends React.Component {
                                             border:"2px solid white",
                                             width:"250px",
                                             backgroundColor: "#616161",
-                                            marginLeft:"100px"
+                                            marginLeft:60
                                         }} >
                                         <ListItemIcon>
                                             <DownloadOutlinedIcon 
@@ -262,46 +262,45 @@ export default class AdminSchemaView extends React.Component {
                                                                      
                             </Grid>
                             </Typography>
-                            <Stack 
-                                direction="row" 
-                                spacing={2}
-                                sx={{ 
-                                    marginTop:"10px"
-                                }} >
+                           
                                 <Button 
-                                    variant="contained" 
+                                    variant="outlined" 
                                     startIcon={<ModeEditOutlinedIcon />}
                                     color="warning"
                                     onClick={() => this.onEditClick(item._id)}
                                     sx={{ 
-                                        marginRight:"50px",
+                                        marginLeft:10,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }} >
                                     Edit
                                 </Button>
                                 <Button 
-                                    variant="contained" 
-                                    endIcon={<DeleteIcon />}
-                                    onClick={() => this.onDelete(item._id)}                                    
+
+                                    variant="outlined" 
+                                    startIcon={<DeleteIcon />}
+                                   onClick={() => this.onDelete(item._id)}                                                                   
                                     color="error"
                                     sx={{ 
-                                        marginRight:"100px",
+                                        marginLeft:19,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }}  >
                                     Remove
                                 </Button>
                                 <Button 
-                                    variant="contained" 
+                                    variant="outlined"  
                                     startIcon={<AssignmentRoundedIcon />}
                                     color="primary"
                                     onClick={() => this.onSubViewClick(item._id)}
                                     sx={{ 
-                                        marginRight:"100px",
+                                        marginLeft:24,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }} >
                                     View Results
                                 </Button>
-                            </Stack>
+                      
                             </AccordionDetails>
                         </Accordion>
                  ))}
@@ -317,21 +316,26 @@ export default class AdminSchemaView extends React.Component {
                                 top: '50%',
                                 left: '50%',
                                 transform: 'translate(-50%, -50%)',
-                                width: 1100,
-                                bgcolor: 'background.paper',
-                                border: '5px solid black',
-                                boxShadow: 24,
-                                backgroundColor:"lightgray",
-                                p: 4
+
+                                width: 1000,
+                                backgroundColor: "black",
+                                border: "2px solid white",
+                                borderRadius:10,
+                                p: 4,
+                                marginLeft:10,
+                                color:"white"
+
                             }}>
                                 <TableContainer component={Paper}>
-                                    <Table size="small" sx={{ minWidth: 700, border: '2px solid black'}} aria-label="customized table">
+                                    <Table size="small" sx={{ minWidth: 700, border: '2px solid black',alignContent:"center"}} aria-label="customized table">
                                         <TableHead>
+
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -375,14 +379,15 @@ export default class AdminSchemaView extends React.Component {
                         >
                         <Box sx={{
                             position: 'absolute',
+                            width:450,
+                            height:500,
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             width: 400,
-                            bgcolor: 'background.paper',
                             border: '2px solid white',
-                            boxShadow: 24,
-                            p: 4,
+                            borderRadius:5,
+                            boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",                    
                             backgroundColor: "black"
                         }}>
                         <Typography 
@@ -391,6 +396,7 @@ export default class AdminSchemaView extends React.Component {
                             component="h2"
                             sx={{ 
                                 marginLeft:"100px",
+                                marginTop:5,
                                 color:"white",
                                 fontSize:"25px",
                                 fontWeight:"bold",
@@ -398,13 +404,13 @@ export default class AdminSchemaView extends React.Component {
                             Edit Assignment
                         </Typography>
 
-                        <FormGroup>
+                        <FormGroup sx={{marginTop:4, marginLeft:4, marginRight:4, borderRadius:3}}>
                             <ListItem sx={{backgroundColor:"whitesmoke"}}>
                             <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="medium" />
+                            <PermIdentityRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                     
                             sx={{color:"white"}}
                             id="schemaName" 
                             label="Assignment Name" 
@@ -416,14 +422,13 @@ export default class AdminSchemaView extends React.Component {
                         
                     </FormGroup> <br/>
 
-                    <FormGroup >
+                    <FormGroup sx={{marginTop:4, marginLeft:4, marginRight:4, borderRadius:3}}>
                     <ListItem sx={{backgroundColor:"whitesmoke"}}>
                         <ListItemIcon >
-                            <ApartmentRoundedIcon fontSize="small" />
+                            <ApartmentRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
-                        <Select 
-                            fullWidth                    
+                        <Select                                         
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
@@ -439,7 +444,7 @@ export default class AdminSchemaView extends React.Component {
                         </ListItem>
                     </FormGroup> <br/>
                     
-                    <FormGroup >
+                    <FormGroup sx={{marginTop:4, marginLeft:4, marginRight:4, borderRadius:3}}>
                     <ListItem sx={{backgroundColor:"whitesmoke"}}>
                             <label htmlFor="icon-button-file">
                                 <IconButton 
@@ -461,11 +466,10 @@ export default class AdminSchemaView extends React.Component {
                             </ListItem>
                     </FormGroup>  <br/>
 
-                    <Button 
-                        fullWidth
-                        sx={{border:"2px solid white"}} 
-                        variant="contained" 
-                        size="small"
+                    <Button        
+                        sx={{border:"2px solid white", marginLeft:16,marginTop:3,width:160,height:50}} 
+                        variant="outlined" 
+                        size="medium"
                         onClick={(e) => this.onSubmit(e)}
                         color="warning" >
                         Update
