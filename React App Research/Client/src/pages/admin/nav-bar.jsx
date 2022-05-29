@@ -42,7 +42,8 @@ export default class Navbar extends React.Component {
       open: true,
       userEx: false,
       asg:false,
-      schema:false
+      schema:false,
+      notice:false
     }
   }
 
@@ -95,6 +96,13 @@ export default class Navbar extends React.Component {
       this.setState({schema:false})
     }
     
+  };
+  handleNoticeOpen = () => {
+    if(this.state.notice != true) {
+      this.setState({notice:true})
+    }else{
+      this.setState({notice:false})
+    }
   };
 
   onSignOut = () => {
@@ -385,6 +393,53 @@ export default class Navbar extends React.Component {
           </List>
         </Collapse>        
         <Divider />
+
+        <List>          
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={this.handleNoticeOpen}>
+              <ListItemIcon>
+                <AssignmentRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Notice
+              <ListItemText />
+              {this.state.notice == true ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Collapse in={this.state.notice} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/AddNotices"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PostAddRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Notice Publish
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/viewNotice"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AssignmentOutlinedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Notice View
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
+        </Collapse>        
+        <Divider />
+
+
+
+
       </Drawer>
             </>
         )
