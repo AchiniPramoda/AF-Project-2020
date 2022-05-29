@@ -32,6 +32,7 @@ import ViewNotices from "./src/pages/Notice/viewNotice";
 import UdateNotices from "./src/pages/Notice/Update_Notices";
 import AdminSchemaView from './src/pages/admin/viewSchema';
 import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
+import StudentSchemaView from './src/pages/student/viewSchema';
 
 
 export default class App extends React.Component {
@@ -55,7 +56,7 @@ export default class App extends React.Component {
             <Route path="/Admin/AddSchema" element={<AddSchema />} />
             <Route path="/Admin/viewSchema" element={<AdminSchemaView />} />
             <Route path="/Admin/GroupView" element={<GroupView />} />
-            <Route path="/Admin/Topic_View" element={<TopicView/>} />
+           
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />
@@ -73,6 +74,7 @@ export default class App extends React.Component {
             <Route path="/Student/Group_Edit/:id" element={<GroupEdit />} />
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
+            <Route path="/Student/ResultView" element={<StudentSchemaView/>} />
 
             <Route path="/Panel" element={<PanelMain />} />
             <Route path="/Panel/researchView" element={<ViewAssignmentSubmission />} />
@@ -84,6 +86,7 @@ export default class App extends React.Component {
             <Route path='/viewNotice'element={<ViewNotices/>}/>
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
+            <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
 
          </Routes>
                      

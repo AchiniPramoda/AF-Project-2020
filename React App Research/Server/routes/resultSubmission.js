@@ -24,6 +24,7 @@ router.post('/add', upload.single('results'), async (req, res) => {
             schemaID : req.body.schemaID,
             LecName : req.body.LecName,
             desc : req.body.desc,
+            department : req.body.department,
             results : result.secure_url,
             cloudinary_id : result.public_id,
             fileName:req.body.fileName
@@ -44,6 +45,13 @@ router.get('/view', (req, res) => {
     .find()
     .then((response) => res.json(response))
     .catch((err) => res.json(err.message));
+});
+
+router.get('/views/:id', (req, res) => {
+    Evaluation
+    .findById(req.params.id)
+    .then((response) => res.json(response))
+    .catch((err) => err.json(err.message));
 });
 
 router.get('/view/:id', (req, res) => {
