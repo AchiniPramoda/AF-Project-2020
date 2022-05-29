@@ -282,7 +282,7 @@ export default class AdminSchemaView extends React.Component {
                                 <Button 
                                     variant="contained" 
                                     endIcon={<DeleteIcon />}
-                                   onClick={() => this.onDelete(item._id)}                                    
+                                    onClick={() => this.onDelete(item._id)}                                    
                                     color="error"
                                     sx={{ 
                                         marginRight:"100px",

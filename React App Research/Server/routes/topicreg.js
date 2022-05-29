@@ -28,7 +28,7 @@ router.get('/view', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
     Topic
-    .find()
+    .findById(req.params.id)
     .then((response) => res.json(response))
     .catch((err) => res.json(err.message));
 });

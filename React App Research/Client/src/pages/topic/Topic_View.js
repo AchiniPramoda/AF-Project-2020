@@ -20,194 +20,353 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
-function TopicView() {
 
-    const [topic, settopic] = useState([]);
-    const [stdID, setstdID] = useState("");
-    const [grpID, setgrpID] = useState("");
-    const [title, settTitle] = useState("");
-    const [email, setemail] = useState("");
-    const [status, setstatus] = useState("");
+export default class TopicView extends React.Component {
 
-    const gettopic=()=>{
-              axios.get("http://localhost:8088/topic/views/pend")
-               .then((res)=>{
-                // console.log(res.data);
-                 settopic(res.data);
-               })
-               .catch((error)=>{
-                 console.log(error);
-               })
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      topic:[],
+      stdID:"",
+      grpID:"",
+      title:"",
+      email:"",
+      status:"",
+      itemID:"",
+      group:[]
     }
-     
-     useEffect(()=>{
-        gettopic();
-     })
+  }
 
+  componentDidMount () {
+    axios.get("http://localhost:8088/topic/views/pend")
+    .then((res)=> {this.setState({
+        topic : res.data
+    }); console.log(res.data)}  )
+    .catch((err) => console.error(err));    
+  }
 
-     const onTopicGroupDet = async (id) =>{
-       await axios.get(`http://localhost:8088/topic/view/${id}`)
-        .then((response) => {
-          setstdID(response.data.stdID);
-          setgrpID(response.data.groupid);
-          settTitle(response.data.title);
-          setemail(response.data.email);
-        })
-        .catch((err) => console.error(err.message))
-        
-        submit(id);
-     }
-  
+  rejectTopic = async (id) =>  {
+      this.setState({
+        status: "Rejected",
+        itemID:id
+      });
 
-     const rejectTopic = (id) =>  {
-      setstatus("Rejected");
-      onTopicGroupDet(id);
-     }
+      await axios.get(`http://localhost:8088/topic/view/${id}`)
+      .then((res)=> this.setState({
+          stdID:res.data.stdID,
+          grpID:res.data.grpID,
+          title:res.data.title,
+          email:res.data.email,
+      }))
+      .catch((err) => console.error(err))
+      .finally(() => this.onSubmit());
+   }
 
-     const accepttopic = (id) => {
+  accepttopic = async (id) => {
       console.log(id)
-      // setstatus("Accepted");
-      // onTopicGroupDet(id);
-     }
+      this.setState({
+        status: "Accepted",
+        itemID:id
+      });
+      
+      await axios.get(`http://localhost:8088/topic/view/${id}`)
+      .then((res)=> this.setState({
+        stdID:res.data.stdID,
+        grpID:res.data.grpID,
+        title:res.data.title,
+        email:res.data.email,
+      }))
+      .catch((err) => console.error(err))
+      .finally(() => this.onSubmit());      
+   }
 
-     const submit = async (id) => {
+   onSubmit = () => {
+    let topicdata = {
+      stdID: this.state.stdID,
+      grpID: this.state.grpID,
+      title: this.state.title,
+      email: this.state.email,
+      status: this.state.status,
+    }
+    console.log(topicdata);
 
-        const active = {
-          stdID : stdID,
-          grpID : grpID,
-          title : title,
-          email : email,
-          status: status
-        }
+    axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
+        .then((res)=> alert(res.data))
+        .catch((err) => alert(err.message))
+   }
 
-        console.log(active)
-
-         await axios.post(`http://localhost:8088/topicacc/response/${id}`, active)
-         .then((res)=> alert(res.data))
-         .catch((err) => console.error(err.message))
-     }
-
-
-    return(
+  render() {
+    return (
+      <>
         <div>
-
         <Navbar/>
 
-        <Box sx={{
-                position: 'absolute',
-                marginTop: '100px',
-                marginLeft: '295px',
-                width: 1200,
-                bgcolor: 'background.paper',
-                border: '5px solid black',
-                //boxShadow: 24,
-                backgroundColor:"white",
-                p: 0.5
-            }}>
+         <Box sx={{
+                 position: 'absolute',
+                 marginTop: '100px',
+                 marginLeft: '295px',
+                 width: 1200,
+                 bgcolor: 'background.paper',
+                 border: '5px solid black',
+                 //boxShadow: 24,
+                 backgroundColor:"white",
+                 p: 0.5
+             }}>
 
-                <TableContainer component={Paper}>
-                  <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
-                      <TableHead>
-                      <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                          <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
-                      </TableRow>
-                      </TableHead>
-                      <TableBody>
-                      {topic.map((view) => (
-                          <TableRow hover={true} sx={{height:"10px"}}>
-                          <TableCell align="center" sx={{fontSize:"20px"}}> {view.stdID} </TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px"}}> {view.grpID} </TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px"}}> {view.title} </TableCell>
-                          <TableCell align="center" sx={{fontSize:"20px"}}> {view.email} </TableCell>
-                          <TableCell align="center" >
-                            <ButtonGroup>
-                              <ListItemButton
-                                  onClick={() => {rejectTopic(topic._id)}}
-                                  component="a" 
-                                  //href={item.results}
-                                  sx={{ 
-                                      marginTop:"10px",
-                                      width:"100px",
-                                      marginRight:"0px"
-                                  }} >
-                                  <ListItemIcon>
-                                    <DeleteIcon color="error"/>
-                                     Reject
-                                  {/* <Button variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon />}> Edit </Button> */}
-                                  </ListItemIcon>
-                                  <ListItemText primary="" />
-                              </ListItemButton> 
-                              <ListItemButton
-                                  onClick={() => {accepttopic(topic._id)}}
-                                  component="a" 
-                                  //href={item.results}
-                                  sx={{ 
+                 <TableContainer component={Paper}>
+                   <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
+                       <TableHead>
+                       <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
+                       </TableRow>
+                       </TableHead>
+                       <TableBody>
+                       {this.state.topic.map((view) => (
+                           <TableRow hover={true} sx={{height:"10px"}}>
+                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.stdID} </TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.grpID} </TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.title} </TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.email} </TableCell>
+                           <TableCell align="center" >
+                             <ButtonGroup>
+                               <ListItemButton
+                                   onClick={() => this.rejectTopic(view._id)}
+                                  //  component="a" 
+                                   //href={item.results}
+                                   sx={{ 
+                                       marginTop:"10px",
+                                       width:"100px",
+                                       marginRight:"0px"
+                                   }} >
+                                   <ListItemIcon>
+                                     <DeleteIcon color="error"/>
+                                      Reject
+                                   
+                                   </ListItemIcon>
+                                   <ListItemText primary="" />
+                               </ListItemButton> 
+                               <ListItemButton
+                                   onClick={() => this.accepttopic(view._id)}
+                                  //  component="a" 
+                                   //href={item.results}
+                                   sx={{ 
                                       marginLeft:"10px",
-                                      marginTop:"10px",
-                                      width:"100px",
-                                      marginRight:"10px",
-                                  }} >
-                                  <ListItemIcon>                                    
-                                    Accept 
-                                  <SendIcon color="primary"/>
+                                       marginTop:"10px",
+                                       width:"100px",
+                                       marginRight:"10px",
+                                   }} >
+                                   <ListItemIcon>                                    
+                                     Accept 
+                                   <SendIcon color="primary"/>                                   
+                                   
+                                   </ListItemIcon>
+                               </ListItemButton> 
+                               </ButtonGroup> 
+                           </TableCell>
+                           </TableRow>
+                       ))}
+                       </TableBody>
+                   </Table>
+               </TableContainer>
+             </Box>
+        </div>
+      </>
+    )
+  }
+}
+// function TopicView() {
+
+//     const [topic, settopic] = useState([]);
+//     const [stdID, setstdID] = useState("");
+//     const [grpID, setgrpID] = useState("");
+//     const [title, settTitle] = useState("");
+//     const [email, setemail] = useState("");
+//     const [status, setstatus] = useState("");
+
+//     const gettopic=()=>{
+//               axios.get("http://localhost:8088/topic/views/pend")
+//                .then((res)=>{
+//                 // console.log(res.data);
+//                  settopic(res.data);
+//                })
+//                .catch((error)=>{
+//                  console.log(error);
+//                })
+//     }
+     
+//      useEffect(()=>{
+//         gettopic();
+//      })
+
+
+//      const onTopicGroupDet = async (id) =>{
+//        await axios.get(`http://localhost:8088/topic/view/${id}`)
+//         .then((response) => {
+//           setstdID(response.data.stdID);
+//           setgrpID(response.data.groupid);
+//           settTitle(response.data.title);
+//           setemail(response.data.email);
+//         })
+//         .catch((err) => console.error(err.message))
+        
+//         submit(id);
+//      }
+  
+
+    //  const rejectTopic = (id) =>  {
+    //   setstatus("Rejected");
+    //   onTopicGroupDet(id);
+    //  }
+
+    //  const accepttopic = (id) => {
+    //   console.log(id)
+    //   setstatus("Accepted");
+    //   onTopicGroupDet(id);
+    //  }
+
+//      const submit = async (id) => {
+
+//         const active = {
+//           stdID : stdID,
+//           grpID : grpID,
+//           title : title,
+//           email : email,
+//           status: status
+//         }
+
+//         console.log(active)
+
+//          await axios.post(`http://localhost:8088/topicacc/response/${id}`, active)
+//          .then((res)=> alert(res.data))
+//          .catch((err) => console.error(err.message))
+//      }
+
+
+//     return(
+//         <div>
+
+//         <Navbar/>
+
+//         <Box sx={{
+//                 position: 'absolute',
+//                 marginTop: '100px',
+//                 marginLeft: '295px',
+//                 width: 1200,
+//                 bgcolor: 'background.paper',
+//                 border: '5px solid black',
+//                 //boxShadow: 24,
+//                 backgroundColor:"white",
+//                 p: 0.5
+//             }}>
+
+//                 <TableContainer component={Paper}>
+//                   <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
+//                       <TableHead>
+//                       <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
+//                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
+//                       </TableRow>
+//                       </TableHead>
+//                       <TableBody>
+//                       {topic.map((view) => (
+//                           <TableRow hover={true} sx={{height:"10px"}}>
+//                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.stdID} </TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.grpID} </TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.title} </TableCell>
+//                           <TableCell align="center" sx={{fontSize:"20px"}}> {view.email} </TableCell>
+//                           <TableCell align="center" >
+//                             <ButtonGroup>
+//                               <ListItemButton
+//                                   onClick={() => {rejectTopic(topic._id)}}
+//                                   component="a" 
+//                                   //href={item.results}
+//                                   sx={{ 
+//                                       marginTop:"10px",
+//                                       width:"100px",
+//                                       marginRight:"0px"
+//                                   }} >
+//                                   <ListItemIcon>
+//                                     <DeleteIcon color="error"/>
+//                                      Reject
+//                                   {/* <Button variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon />}> Edit </Button> */}
+//                                   </ListItemIcon>
+//                                   <ListItemText primary="" />
+//                               </ListItemButton> 
+//                               <ListItemButton
+//                                   onClick={() => {accepttopic(topic._id)}}
+//                                   component="a" 
+//                                   //href={item.results}
+//                                   sx={{ 
+//                                       marginLeft:"10px",
+//                                       marginTop:"10px",
+//                                       width:"100px",
+//                                       marginRight:"10px",
+//                                   }} >
+//                                   <ListItemIcon>                                    
+//                                     Accept 
+//                                   <SendIcon color="primary"/>
                                     
-                                  {/* <Button variant="contained" onClick={accepttopic} endIcon={<SendIcon />}> Accept </Button> */}
-                                  </ListItemIcon>
-                              </ListItemButton> 
-                              </ButtonGroup> 
-                          </TableCell>
-                          </TableRow>
-                      ))}
-                      </TableBody>
-                  </Table>
-              </TableContainer>
-            </Box>
+//                                   {/* <Button variant="contained" onClick={accepttopic} endIcon={<SendIcon />}> Accept </Button> */}
+//                                   </ListItemIcon>
+//                               </ListItemButton> 
+//                               </ButtonGroup> 
+//                           </TableCell>
+//                           </TableRow>
+//                       ))}
+//                       </TableBody>
+//                   </Table>
+//               </TableContainer>
+//             </Box>
 
-     {/* <div class="tablealign-topic">
-                  <table class="table-topic">
+//      {/* <div class="tablealign-topic">
+//                   <table class="table-topic">
 
 
 
-                    <tr>
-                       <th>Leader ID</th>
-                       <th>Group ID</th>
-                       <th>Topic</th>
-                       <th>Email</th>
-                       <th>Action</th>                                 
-                    </tr>
+//                     <tr>
+//                        <th>Leader ID</th>
+//                        <th>Group ID</th>
+//                        <th>Topic</th>
+//                        <th>Email</th>
+//                        <th>Action</th>                                 
+//                     </tr>
           
-              {topic.map((view) => 
-              <tr>
-               <td>{view.stdID}</td>
-               <td>{view.grpID}</td>
-               <td>{view.title}</td>
-               <td>{view.email}</td>
-                  <td>
-                    <Stack direction="row" spacing={3}>
+//               {topic.map((view) => 
+//               <tr>
+//                <td>{view.stdID}</td>
+//                <td>{view.grpID}</td>
+//                <td>{view.title}</td>
+//                <td>{view.email}</td>
+//                   <td>
+//                     <Stack direction="row" spacing={3}>
                      
-                 <Button variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon />}>
-                         Reject
-                 </Button>
-                   <Button variant="contained" onClick={accepttopic} endIcon={<SendIcon />}>
-                        Accept
-                  </Button>
+//                  <Button variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon />}>
+//                          Reject
+//                  </Button>
+//                    <Button variant="contained" onClick={accepttopic} endIcon={<SendIcon />}>
+//                         Accept
+//                   </Button>
 
-                </Stack>
-                </td>
-           </tr>  
-           )}
+//                 </Stack>
+//                 </td>
+//            </tr>  
+//            )}
 
-             </table>
-          </div>            */}
+//              </table>
+//           </div>            */}
            
                  
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default TopicView;
+// export default TopicView;
