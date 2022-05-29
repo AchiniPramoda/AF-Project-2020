@@ -6,7 +6,7 @@ const Topic = require('../models/Research_Topic');
 router.post('/add', (req, res) => {
     
     const topics = new Topic({
-        stdID : req.body.stdID,
+      stdID : req.body.stdID,
         grpID : req.body.grpID,
         title : req.body.title,
         email : req.body.email,
@@ -22,13 +22,6 @@ router.post('/add', (req, res) => {
 router.get('/view', (req, res) => {
     Topic
     .find()
-    .then((response) => res.json(response))
-    .catch((err) => res.json(err.message));
-});
-
-router.get('/view/:id', (req, res) => {
-    Topic
-    .findById(req.params.id)
     .then((response) => res.json(response))
     .catch((err) => res.json(err.message));
 });
@@ -51,24 +44,6 @@ router.get('/views/reject', (req, res) => {
     Topic
     .find({status : "rejected"})
     .then((response) => res.json(response))
-    .catch((err) => res.json(err.message));
-});
-
-router.put('/edit/:id', (req, res) => {
-    Topic
-    .findById(req.params.id)
-    .then(response => {
-        response.stdID = req.body.stdID,
-        response.grpID = req.body.grpID,
-        response.title = req.body.title,
-        response.email = req.body.email,
-        response.status = "pending"
-
-        response
-        .save()
-        .then(() => res.json("Research Topic Updated Successfully..."))
-        .catch((err) => res.json(err.message));
-    })
     .catch((err) => res.json(err.message));
 });
 

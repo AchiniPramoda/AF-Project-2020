@@ -9,13 +9,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import './Addview.css';
 
-import Navbar from '../student/nav-bar';
-import {useHistory} from 'react-router-dom';
+import Navbar from '../admin/nav-bar';
+
 
 
 function View() {
 
-  // const history = useHistory();
+ 
 
   const [notice, setnotice] = useState([])
 

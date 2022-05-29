@@ -56,7 +56,9 @@ export default class App extends React.Component {
             <Route path="/Admin/AddSchema" element={<AddSchema />} />
             <Route path="/Admin/viewSchema" element={<AdminSchemaView />} />
             <Route path="/Admin/GroupView" element={<GroupView />} />
-           
+            <Route path="/Admin/Topic_View" element={<TopicView/>} />
+            <Route path='/Admin/AddNotices' element={<AddNotices/>}/>
+            <Route path='/Admin/viewNotice'element={<ViewNotices/>}/>
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />
@@ -82,8 +84,8 @@ export default class App extends React.Component {
             <Route path="/Supervisor" element={<SupervisorMain />} />
             <Route path="/Chat" element={<ChatMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
-            <Route path='/AddNotices' element={<AddNotices/>}/>
-            <Route path='/viewNotice'element={<ViewNotices/>}/>
+            
+            
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />

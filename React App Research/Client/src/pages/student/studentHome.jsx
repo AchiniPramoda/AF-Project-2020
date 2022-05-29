@@ -14,7 +14,10 @@ import Image4 from "./c3.jpg";
 import Image5 from "./c4.jpg";
 import { width } from "@mui/system";
  import Footer from './Footer.jsx';
- import SmallView from "../Notice/Notices_view"
+ import SmallView from "../Notice/Notices_view";
+ import { Box } from '@mui/system';
+ import { Container } from '@mui/system';
+ import { Typography } from '@mui/material';
  
  class StudentMain extends Component {
     
@@ -41,92 +44,158 @@ render () {
 
   <Navbar/>
 
-       <Card  elevation={5} >
-           <CardHeader
-                  title="SPM Reasearch"
-                  subheader="SLIIT Reaserch Project"
-                />
-                 <CardContent sx={{margin:2, minHeight:400,minWidth:600}} style={{ backgroundImage: `url(${Image1})`,   
-                      backgroundSize:"cover",borderRadius:9,  boxShadow:"0 0 8px 0 black, 2px 2px 2px 0 #1b1b1b"
-                    }}>
-                  
-                  {/* <Button sx={{marginLeft:50,marginTop:15}} variant="outlined" color="error" size="large">
-                      Error
-                   </Button> */}
-                 </CardContent>
-        </Card>
+     <Box elevation={5} sx={{backgroundColor:"white",
+                                      border:5,
+                                      borderColor:"Black",
+                                      borderRadius:3,
+                                      boxShadow:"8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b"}}>
+      
+     
+           <h1>SPM Reasearch</h1>
+             
+         
+            <CardContent sx={{margin:2, minHeight:400,minWidth:600}}  style={{ backgroundImage: `url(${Image1})`,   
+                 backgroundSize:"cover"
+               }}>
+             
+       
+            </CardContent>
+   </Box>
 
 <br></br>
-  
-  <Grid container marginTop={9} spacing={4}>
-    
-    <Grid item xs={12} md={3}>
-                 <Card elevation={5}>
-                <CardHeader 
-                   title="Research Submission"
-                 
-                />
-              <CardContent sx={{margin:0,Width:"auto", backgroundColor: '#38B9EC'}}>                
-                  <img className="image1" src={Image2} />
-                     <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:9,marginTop:2}} href="Student/ViewAssignment">
-                         Submissions
-                     </Button>
-                 </CardContent>
-            </Card>
-      </Grid>     
+   
+<Grid container marginTop={9} spacing={4}>
+        <Grid item xs={12} md={3} >
+            <Box elevation={12} sx={{                             
+                                      boxShadow:"8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b"}}>
+
+                    <Container sx={{backgroundColor:"red",marginTop:0,height:50}}>                           
+                           <Typography sx={{color:"white", fontSize:24,marginLeft:8,alignContent:"center"}}>Panels</Typography>
+                    </Container>   
+              
+                    <Container sx={{height:250,width:278 
+                                   }}  
+                                    style={{ backgroundImage: `url(${Image2})`,   
+                                    backgroundSize:"cover"
+               }}>
+                        <Button  variant="outlined" size="large" sx={{marginLeft:7, color:"white",
+                                                                                fontStyle:"oblique",
+                                                                                  fontSize:"27",
+                                                                                    marginTop:23,
+                                                                                    border:5,
+                                                                                    height:55,
+                                                                                    width:120,
+                                                                                    marginBottom:2,
+                                                                                    borderColor:"white"}} 
+                                                                               href="Supervisor/researchView">
+                              Panels
+                          </Button >
+                    </Container>     
+            </Box>
+      </Grid>    
    
    
       
-       <Grid item xs={12} md={3}>
-            <Card elevation={5}>
-                <CardHeader 
-                     title="Marking Schema"
-                      />
-                       <CardContent sx={{margin:0, Width:"auto",backgroundColor:'#F1592A'}}>
-                  <img className="image1" src={Image3} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:13, marginTop:2}}>
-                       Marking 
-                  </Button>
-                 </CardContent>
-            </Card>
-       </Grid> 
+      <Grid item xs={12} md={3} >
+            <Box elevation={12} sx={{ 
+                                      boxShadow:"8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b"}}>
+
+                    <Container sx={{backgroundColor:"purple",marginTop:0,height:50}}>                           
+                           <Typography sx={{color:"white", fontSize:24,marginLeft:8,alignContent:"center"}}>Topic</Typography>
+              
+                    </Container>   
+              
+                    <Container sx={{height:250,width:278 
+                                   }}  
+                                    style={{ backgroundImage: `url(${Image3})`,   
+                                    backgroundSize:"cover"
+               }}>
+                        <Button  variant="outlined" size="large" sx={{marginLeft:7, color:"white",
+                                                                                fontStyle:"bold",
+                                                                                  fontSize:"27",
+                                                                                    marginTop:23,
+                                                                                    border:5,
+                                                                                    height:55,
+                                                                                    width:120,
+                                                                                    marginBottom:2,
+                                                                                    borderColor:"white"}} 
+                                                                               href="Supervisor/researchView">
+                              Topic
+                          </Button >
+                    </Container>
+           
+            </Box>
+      </Grid>    
      
 
       <Grid item xs={12} md={3} >
-            <Card elevation={5}>
-            <CardHeader 
-                     title=" Project Groups"
-                      />
-                       <CardContent sx={{margin:0, Width:"auto",backgroundColor: '#8EC63F'}}>
-                  <img className="image1" src={Image4} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:13, marginTop:2}}  href="/Student/GroupView" >
-                      Groups 
-                  </Button>
-                 </CardContent>
-            </Card>
-      </Grid> 
+            <Box elevation={12} sx={{ 
+                                      boxShadow:"8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b"}}>
+
+                    <Container sx={{backgroundColor:"orange",marginTop:0,height:50}}>                           
+                           <Typography sx={{color:"white", fontSize:24,marginLeft:8,alignContent:"center"}}>Submission</Typography>
+              
+                    </Container>   
+              
+                    <Container sx={{height:250,width:278 
+                                   }}  
+                                    style={{ backgroundImage: `url(${Image4})`,   
+                                    backgroundSize:"cover"
+               }}>
+                        <Button  variant="outlined" size="large" sx={{marginLeft:7, color:"white",
+                                                                                fontStyle:"bold",
+                                                                                  fontSize:"27",
+                                                                                    marginTop:23,
+                                                                                    border:5,
+                                                                                    height:55,
+                                                                                    width:120,
+                                                                                    marginBottom:2,
+                                                                                    borderColor:"white"}} 
+                                                                               href="Supervisor/researchView">
+                              Submission
+                          </Button >
+                    </Container>
+           
+            </Box>
+      </Grid>
 
 
-      <Grid item xs={12} md={3}>
-            <Card elevation={5}>
-            <CardHeader 
-                     title="Templete"
-                      />
-                       <CardContent sx={{margin:0, Width:"auto", backgroundColor: '#92499E'}}>
-                  <img className="image1" src={Image5} />
-                  <Button  variant="outlined" color="inherit" size="large" sx={{marginLeft:12, marginTop:2}} href="Admin/ViewAssignment">
-                      Assigment 
-                  </Button>
-                 </CardContent>
-            </Card>
-      </Grid> 
-</Grid>
+      <Grid item xs={12} md={3} >
+            <Box elevation={12} sx={{ 
+                                      boxShadow:"8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b"}}>
+
+                    <Container sx={{backgroundColor:"blue",marginTop:0,height:50}}>                           
+                           <Typography sx={{color:"white", fontSize:24,marginLeft:8,alignContent:"center"}}>Evalution</Typography>
+              
+                    </Container>   
+              
+                    <Container sx={{height:250,width:278 
+                                   }}  
+                                    style={{ backgroundImage: `url(${Image5})`,   
+                                    backgroundSize:"cover"
+               }}>
+                        <Button  variant="outlined" size="large" sx={{marginLeft:7, color:"white",
+                                                                                fontStyle:"bold",
+                                                                                  fontSize:"27",
+                                                                                    marginTop:23,
+                                                                                    border:5,
+                                                                                    height:55,
+                                                                                    width:120,
+                                                                                    marginBottom:2,
+                                                                                    borderColor:"white"}} 
+                                                                               href="Supervisor/researchView">
+                              Evalution
+                          </Button >
+                    </Container>
+           
+            </Box>
+      </Grid>
+      </Grid>
 <br/>
 <br/>
 <Box sx={{  border: '4px dashed white', marginTop:"34px" }}>
 <h1 style={{color: 'white'}}>NOTICES FOR ALL</h1>
 </Box>
-
 
 <React.Fragment>
                    
@@ -144,8 +213,8 @@ render () {
 </div>
 
 
-     );
+      );
      }
-     }
+   }
 
 export default StudentMain;
