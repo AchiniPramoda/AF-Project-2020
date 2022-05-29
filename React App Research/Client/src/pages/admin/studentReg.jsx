@@ -2,14 +2,13 @@ import React from 'react';
 import axios from 'axios';
 
 import './../../component/css/Page.css';
-import Navbar from './../Main';
+import Navbar from './nav-bar';
 
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import MailRoundedIcon from '@mui/icons-material/MailRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import CallRoundedIcon from '@mui/icons-material/CallRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import Button from '@mui/material/Button';
@@ -18,6 +17,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Box, ListItem, Typography } from '@mui/material';
 
 export default class StudentAdd extends React.Component {
 
@@ -87,15 +87,38 @@ export default class StudentAdd extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1>Student Registration</h1>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+        <Box sx={{
+           position: 'absolute',
+           width:500,
+           height:750,
+           marginTop:9,
+           marginLeft:14,
+           top: '50%',
+           left: '50%',
+           transform: 'translate(-50%, -50%)',
+           border: '2px solid white',
+           borderRadius:5,
+           boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",
+           color:"white",                   
+           backgroundColor: "black"
+       }}>
+            <Typography  sx={{marginLeft:17,marginTop:2,marginBottom:2,fontSize:29}}>
+            Student Registration
+               </Typography>
+            
+                    <FormGroup sx={{          
+                          backgroundColor:"white",                       
+                          marginLeft:9,
+                          marginBottom:5, 
+                          marginTop:6,
+                          width:350,
+                          border:"black",
+                         borderRadius:1                   
                         }}>
+                   <ListItem>
                         <ListItemIcon>
-                            <AccountCircleRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
                             id="fname" 
@@ -103,15 +126,20 @@ export default class StudentAdd extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
-                    </FormGroup>
+                  </ListItem>
+            </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                       backgroundColor:"white",                       
+                       marginLeft:9,
+                       marginBottom:5, 
+                       marginTop:6,
+                       width:350,
+                       borderRadius:1                          
                         }}>
+                  <ListItem>
                         <ListItemIcon>
-                            <AccountCircleRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
                             id="lname" 
@@ -119,15 +147,20 @@ export default class StudentAdd extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
-                    </FormGroup>
+                  </ListItem>
+              </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                      backgroundColor:"white",                       
+                      marginLeft:9,
+                      marginBottom:5, 
+                      marginTop:6,
+                      width:350,
+                      borderRadius:1                           
                         }}>
+                   <ListItem>
                         <ListItemIcon>
-                            <MailRoundedIcon fontSize="small" />
+                            <MailRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
                             id="email" 
@@ -135,15 +168,20 @@ export default class StudentAdd extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                    </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                     backgroundColor:"white",                       
+                     marginLeft:9,
+                     marginBottom:5, 
+                     marginTop:6,
+                     width:350,
+                     borderRadius:1                    
                         }}>
+                  <ListItem>
                         <ListItemIcon>
-                            <CallRoundedIcon fontSize="small" />
+                            <CallRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
                             id="contact" 
@@ -151,37 +189,43 @@ export default class StudentAdd extends React.Component {
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                  </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                    <FormGroup sx={{   
+                       backgroundColor:"white",                       
+                       marginLeft:9,
+                       marginBottom:5, 
+                       marginTop:6,
+                       width:350,
+                       borderRadius:1                          
                         }}>
-                        <ListItemIcon>
-                            <AccountBoxRoundedIcon fontSize="small" />
-                        </ListItemIcon>
-                        <TextField 
+                       <ListItem>
+                         <ListItemIcon>
+                            <AccountBoxRoundedIcon fontSize="medium" sx={{color:"black"}} />
+                          </ListItemIcon>
+                          <TextField 
                             id="password" 
                             type="password"
                             label="password" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                          </ListItem>
                     </FormGroup>
 
                     <Button 
-                        sx={{
-                            width:400,
-                            marginLeft:40
-                        }} 
-                        variant="contained" 
+                       
+                        variant="outlined" 
                         size="small"
+                        sx={{border:2,borderColor:"white",  width:180,
+                        marginLeft:17, fontSize:16}}
+                        
                         onClick={this.handleClickOpen}
                         color="success" >
                         Submit
                     </Button>
-
+   </Box>
                     <Dialog
                         open={this.state.open}
                         keepMounted

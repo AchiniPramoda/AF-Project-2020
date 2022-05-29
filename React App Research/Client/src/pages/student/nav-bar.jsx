@@ -27,7 +27,11 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import TopicRoundedIcon from '@mui/icons-material/TopicRounded';
 import { palette } from '@mui/system';
-
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import GroupIcon from '@mui/icons-material/Group';
 
 export default class Navbar extends React.Component {
 
@@ -36,7 +40,9 @@ export default class Navbar extends React.Component {
 
     this.state = {
       logo:false,
-      open: true
+      open: true,
+      group: false,
+      topic: false,
     }
   }
 
@@ -69,6 +75,24 @@ export default class Navbar extends React.Component {
 
     window.location = "/"
   }
+
+  handleGroupOpen = () => {
+    if(this.state.group != true) {
+      this.setState({group:true})
+    }else{
+      this.setState({group:false})
+    }
+    
+  };
+
+  handleTopicOpen = () => {
+    if(this.state.topic != true) {
+      this.setState({topic:true})
+    }else{
+      this.setState({topic:false})
+    }
+    
+  };
 
     render() {
         return (
@@ -196,31 +220,81 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1,}} >        
           <ListItem disablePadding>
             <ListItemButton
-              component="a" 
-              href="/Student/TopicRegister" >
+              onClick={this.handleTopicOpen}
+                >
               <ListItemIcon > 
                 <TopicRoundedIcon fontSize="small"  sx={{  color: "white"}}/>              
-              </ListItemIcon >
-           
+              </ListItemIcon >              
               <ListItemText sx={{ color: "white"}} >Research Topics</ListItemText>
+              {this.state.topic == true ? <ExpandLess sx={{  color: "white"}}/> : <ExpandMore sx={{  color: "white"}}/>}
             </ListItemButton>
           </ListItem>
         </List>
+        <Collapse in={this.state.topic} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student/TopicRegister"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupAddIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                <ListItemText sx={{ color: "white",fontSize:"small"}} >Topic Registration</ListItemText>
+            </ListItemButton>
+          </List>
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                <ListItemText sx={{ color: "white",fontSize:"small"}} >View Topics</ListItemText>
+            </ListItemButton>
+          </List>
+        </Collapse>
         <Divider />
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton
-              component="a" 
-              href="/Student/GroupAdd" >
+              onClick={this.handleGroupOpen}
+                >
               <ListItemIcon>
                 <GroupsRoundedIcon fontSize="small"  sx={{ color: "white"}}/>
-              </ListItemIcon>
-               
+              </ListItemIcon>               
               <ListItemText sx={{ color: "white",fontSize:"small"}} >Research Groups</ListItemText>
+              {this.state.group == true ? <ExpandLess sx={{  color: "white"}}/> : <ExpandMore sx={{  color: "white"}}/>}
             </ListItemButton>
           </ListItem>
         </List>
+        <Collapse in={this.state.group} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student/GroupAdd"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupAddIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                <ListItemText sx={{ color: "white",fontSize:"small"}} >Group Registration</ListItemText>
+            </ListItemButton>
+          </List>
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                <ListItemText sx={{ color: "white",fontSize:"small"}} >View Group</ListItemText>
+            </ListItemButton>
+          </List>
+        </Collapse>
         <Divider />
 
         {/* <List sx={{marginTop:1}}>          
@@ -256,7 +330,7 @@ export default class Navbar extends React.Component {
           <ListItem disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Student/ViewAssignment">
+              href="/Student/ResultView">
               <ListItemIcon>
                 <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
               </ListItemIcon>

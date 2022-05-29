@@ -160,7 +160,7 @@ export default class Navbar extends React.Component {
       >
           <ListItemIcon>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon sx={{ color: "white"}}/>
             </IconButton>
           </ListItemIcon>
           
@@ -168,7 +168,7 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1}}>
             <ListItem  disablePadding>
               <ListItemButton component="a" 
-                href="/Supervisor/researchView">
+                href="/Supervisor">
                 <ListItemIcon>
                 <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
              
@@ -198,7 +198,7 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
-                href="/Supervisor/researchView">
+                href="/Supervisor/Topic_View">
               <ListItemIcon>
               <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
             
