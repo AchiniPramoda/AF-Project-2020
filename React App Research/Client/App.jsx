@@ -32,6 +32,7 @@ import ViewNotices from "./src/pages/Notice/viewNotice";
 import UdateNotices from "./src/pages/Notice/Update_Notices";
 import AdminSchemaView from './src/pages/admin/viewSchema';
 import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
+import Cal from './src/pages/calendars/calen';
 
 export default class App extends React.Component {
 
@@ -84,6 +85,7 @@ export default class App extends React.Component {
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
 
+            <Route path="/cal"element={<Cal/>}/>
          </Routes>
                      
 
