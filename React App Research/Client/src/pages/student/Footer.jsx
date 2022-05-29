@@ -19,7 +19,7 @@ return (
         <div class="left box">
           <h2>About us</h2>
           <div class="content">
-            <p> CDAZZDEV is customer-oriented and made up of professionals from a diverse range of backgrounds, who align to help our clients build the project of their dreams. We take pride in our work and we ensure we deliver the finest.Our team works on web app development,mobile app development,AI development,and cyber security. </p>
+            <p> We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC) under the Universities Act. We are also members of the Association of Commonwealth Universities (ACU), as well as the International Association of Universities (IAU), and the first Sri Lankan institute to be accredited by the Institution of Engineering & Technology, UK </p>
             <div class="social">
 			  <a href="https://facebook.com/coding.np"><span class="fab fa-youtube"><ImFacebook2 className='card-text text-end text-danger mt-3 mb-3'/></span></a>
 			  <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"><ImWhatsapp className='card-text text-end text-danger mt-3 mb-3'/></span></a>
@@ -63,18 +63,18 @@ return (
             <div class="phone">
 			
               <span class="fas fa-phone-alt"></span>
-              <span class="text"><HiPhone className='card-text text-end text-danger mt-3 mb-3'/></span>
+              <span class="text"><HiPhone className='card-text text-end text-danger mt-3 mb-3'/>011-9808969</span>
             </div>
             <div class="email">
               <span class="fas fa-envelope"></span>
-              <span class="text"><HiMailOpen className='card-text text-end text-danger mt-3 mb-3'/>  </span>
+              <span class="text"><HiMailOpen className='card-text text-end text-danger mt-3 mb-3'/>  info@sliit.lk </span>
             </div>
           </div>
         </div>
 
 		
         <div class="right box">
-          <h2>Contact us</h2>
+          <h2>Calendar</h2>
           <div class="content">
             <Calen/> 
          </div>
