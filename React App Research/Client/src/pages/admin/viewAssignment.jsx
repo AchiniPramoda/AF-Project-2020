@@ -258,46 +258,44 @@ export default class ViewAssignment extends React.Component {
                                     </ListItemButton>                                   
                             </Grid>
                             </Typography>
-                            <Stack 
-                                direction="row" 
-                                spacing={2}
-                                sx={{ 
-                                    marginTop:"10px"
-                                }} >
+                         
                                 <Button 
-                                    variant="contained" 
+                                    variant="outlined" 
                                     startIcon={<ModeEditOutlinedIcon />}
                                     color="warning"
                                     onClick={() => this.onEditClick(item._id)}
                                     sx={{ 
-                                        marginRight:"100px",
+                                        marginLeft:12,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }} >
                                     Edit
                                 </Button>
                                 <Button 
-                                    variant="contained" 
-                                    endIcon={<DeleteIcon />}
+                                   variant="outlined"  
+                                   startIcon={<DeleteIcon />}
                                     onClick={() => this.onDelete(item._id)}                                    
                                     color="error"
                                     sx={{ 
-                                        marginRight:"100px",
+                                        marginLeft:12,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }}  >
                                     Remove
                                 </Button>
                                 <Button 
-                                    variant="contained" 
+                                    variant="outlined" 
                                     startIcon={<AssignmentRoundedIcon />}
                                     color="primary"
                                     onClick={() => this.onViewSubmission(item._id)}
                                     sx={{ 
-                                        marginLeft:"200px",
+                                        marginLeft:12,
+                                        marginTop:3,
                                         border:"2px solid white"
                                     }} >
                                     View Submissions
                                 </Button>
-                            </Stack>
+                     
                             </AccordionDetails>
                         </Accordion>
 
@@ -315,12 +313,11 @@ export default class ViewAssignment extends React.Component {
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
-                            width: 400,
-                            bgcolor: 'background.paper',
-                            border: '2px solid white',
-                            boxShadow: 24,
-                            p: 4,
-                            backgroundColor: "black"
+                            width: 450,
+                            backgroundColor: "black",
+                            border: "2px solid white",
+                            borderRadius:4,
+                            boxShadow:"0 0 20px 0 black, 2px 2px 2px 0 #1b1b1b"  
                         }}>
                         <Typography 
                             id="modal-modal-title" 
@@ -328,6 +325,7 @@ export default class ViewAssignment extends React.Component {
                             component="h2"
                             sx={{ 
                                 marginLeft:"100px",
+                                marginTop:4,
                                 color:"white",
                                 fontSize:"25px",
                                 fontWeight:"bold",
@@ -337,16 +335,22 @@ export default class ViewAssignment extends React.Component {
 
                             <div>                            
                                 
-                         <FormGroup>
-                         <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
+         <FormGroup sx={{marginTop: "20px"}}>
+            <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:320,
+                            height:50,
+                            marginLeft:8,
+                            borderRadius:3,
+                            marginTop:2}} disablePadding>
                         <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="large" />
+                            <PermIdentityRoundedIcon fontSize="large" sx={{color:"black"}}/>
                         </ListItemIcon>
+             
                         <TextField 
-                            fullWidth
+                            
                             id="asgName" 
                             //label="Assignment Name" 
-                            variant="filled"
+                            variant="standard"
                             defaultValue={this.state.asgName}
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -354,16 +358,21 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>    <br/> 
 
                     <FormGroup>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
+                        <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:320,
+                            height:50,
+                            marginLeft:8,
+                            borderRadius:3,
+                            marginTop:2}} disablePadding>
                         <ListItemIcon>
-                            <AccessTimeIcon fontSize="large" />
+                            <AccessTimeIcon fontSize="large" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                         
                             type="date"
                             id="endDate" 
                             //label="" 
-                            variant="filled"
+                            variant="standard"
                             defaultValue={this.state.endDate}
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -371,16 +380,21 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>    <br/> 
 
                     <FormGroup>
-                    <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
+                    <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:320,
+                            height:50,
+                            marginLeft:8,
+                            borderRadius:3,
+                            marginTop:2}} disablePadding>
                         <ListItemIcon>
-                            <PermIdentityRoundedIcon fontSize="large" />
+                            <PermIdentityRoundedIcon fontSize="large" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                           
                             type="time"
                             id="endTime" 
                             //label="" 
-                            variant="filled"
+                            variant="standard"
                             defaultValue={this.state.endTime}
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -388,14 +402,19 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>      <br/>                
 
                     <FormGroup>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
+                        <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:320,
+                            height:50,
+                            marginLeft:8,
+                            borderRadius:3,
+                            marginTop:2}}  disablePadding>
                         <ListItemIcon>
-                            <ApartmentRoundedIcon fontSize="large" />
+                            <ApartmentRoundedIcon fontSize="large" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
-                            fullWidth                          
-                            variant="filled"
+                                                 
+                            variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
                             //placeholder={this.state.department}
@@ -412,7 +431,12 @@ export default class ViewAssignment extends React.Component {
                     </FormGroup>  <br/> 
 
                     <FormGroup>
-                    <ListItem sx={{backgroundColor:"whitesmoke"}} disablePadding>
+                    <ListItem sx={{backgroundColor:"whitesmoke",
+                            width:320,
+                            height:50,
+                            marginLeft:8,
+                            borderRadius:3,
+                            marginTop:2}}  disablePadding>
                             <label htmlFor="icon-button-file">
                                 <IconButton 
                                     color="primary"
@@ -434,11 +458,16 @@ export default class ViewAssignment extends React.Component {
                             </FormGroup>  <br/> 
 
                                 <Button 
-                                    fullWidth
-                                    sx={{border:"2px solid white"}}
+                                   
+                                    sx={{border:"2px solid blue",
+                                         width:130,
+                                         marginLeft:20,
+                                         marginTop:3,
+                                         marginBottom:3
+                                      }}
                                     onClick={this.onUpdate}
-                                    variant="contained" 
-                                    color="warning">
+                                    variant="outlined"
+                                    color="primary">
                                     Update
                                 </Button>
                                 
@@ -459,29 +488,30 @@ export default class ViewAssignment extends React.Component {
                                 left: '50%',
                                 transform: 'translate(-50%, -50%)',
                                 width: 900,
-                                bgcolor: 'background.paper',
-                                border: '5px solid black',
-                                boxShadow: 24,
-                                backgroundColor:"lightgray",
+                                marginLeft:21,
+                                border: "2px solid white",
+                                borderRadius:4,
+                                boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",
+                                 backgroundColor:"black",
                                 p: 4
                             }}>
                                 <TableContainer component={Paper}>
-                                    <Table size="small" sx={{ minWidth: 700, border: '2px solid black'}} aria-label="customized table">
+                                    <Table size="small" sx={{ minWidth: 700, border: '3px solid white'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Student ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Download Research</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Student ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Download Research</TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
                                         {this.state.researches.map((item) => (
                                             <TableRow hover={true} sx={{height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.asgName} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.stdID} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.grpID} </TableCell>
-                                            <TableCell align="center">
+                                            <TableCell align="center" sx={{fontSize:"20px", borderColor:"black",border:3}}> {item.asgName} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", borderColor:"black",border:3}}> {item.stdID} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", borderColor:"black",border:3}}> {item.grpID} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", borderColor:"black",border:3}}>
                                                 <ListItemButton
                                                     onClick={() => this.onDownload(item._id)}
                                                     sx={{ 

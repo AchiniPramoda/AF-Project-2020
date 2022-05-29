@@ -11,7 +11,7 @@ import Like from './LikeButton.jsx';
 
 
 // import {  FaStar } from 'react-icons/fa';
-import "./noticss.css";
+// import "./noticss.css";
 const PackageSmallView = (props) => {
 
     const notice = props.notice;

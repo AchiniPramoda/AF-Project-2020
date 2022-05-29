@@ -97,13 +97,7 @@ button:disabled {
 
 }
 
-/* .edit-group{
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid rgb(17, 146, 45);
-    color: white;
-    text-decoration: none;  
-} */
+
 
 .title-group {
     margin-top: 20px;
@@ -118,40 +112,28 @@ button:disabled {
     font-family:'poppin';
 }
 
-.group-title{
-    margin-top: 10px;
-    text-align: center;
-   
-    padding: 20px 60px;
-    border-radius: 20px;
-    font-size: 18px;
-}
 
-.landing_img_inv{
-    margin-right: 50px;   
-}
 
-.table-Inv {
-    border: 2px solid #999;
+.table-ab{ 
+    border: 3px solid white;
+    border-radius:8px;
     padding: 0.5rem;
-    color: black;
+    font-size: 20px; 
     margin-left: 300px;
-    margin-top: 120px;
-    font-size: 14px;
-    background-color: white;
+    margin-top: 120px; 
     width: auto;
+   background-color: #1b1b1b;
 }
 
-td, th {
-    border: 1px solid #999;
-    padding: 0.5rem;
-    width:auto;
-    height: 40px;
-  }
 
-.tablealign-inv{
-    margin-bottom: 100px;
-}  
+.table-ab th{
+    color: white;
+    background-color: #454546;
+}
+
+.table-ab td{
+    color: white;
+}
 
 
 

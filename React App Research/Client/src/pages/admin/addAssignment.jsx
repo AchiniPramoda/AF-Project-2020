@@ -93,23 +93,29 @@ export default class AddAssignment extends React.Component{
                 <Navbar />
 
                 <div className="AllView">
-                    <h1 style={{color: 'white'}}> Add Assignment </h1>
+                    
 
                     <Container sx={{ 
-                            backgroundColor: "black", 
                             color: "white",
                             border: '2px solid white',
-                            width:"600px",
-                            height:"auto"                    
+                            width:"450px",
+                            height:"auto",
+                            border: '2px solid white',
+                            borderRadius:5,                     
+                            backgroundColor: "black",  
+                            marginLeft:35,
+                            marginTop:19,   
+                            boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",
+                                    
                         }}>                    
-
-                    <FormGroup sx={{marginTop: "20px"}}>
+                <h1 style={{color: 'white'}}> Add Assignment </h1>
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <PermIdentityRoundedIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                          
                             id="asgName" 
                             label="Assignment Name" 
                             variant="standard"
@@ -118,13 +124,13 @@ export default class AddAssignment extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop: "20px"}}>
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <DateRangeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                           
                             type="date"
                             id="endDate" 
                             label="" 
@@ -134,13 +140,13 @@ export default class AddAssignment extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop: "20px"}}>
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <AccessTimeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                            fullWidth
+                           
                             type="time"
                             id="endTime" 
                             label="" 
@@ -150,14 +156,14 @@ export default class AddAssignment extends React.Component{
                         </ListItem>
                     </FormGroup>                    
 
-                    <FormGroup sx={{marginTop: "20px"}}>
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
                             <ApartmentRoundedIcon fontSize="medium" />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
-                            fullWidth                          
+                                                     
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
@@ -173,7 +179,7 @@ export default class AddAssignment extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop: "20px"}}>
+                    <FormGroup sx={{marginTop:2,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke", color:"black"}} >
                             <label htmlFor="icon-button-file">
                                 <IconButton 
@@ -196,10 +202,10 @@ export default class AddAssignment extends React.Component{
                         </FormGroup>
 
                     <Button 
-                        fullWidth
-                        sx={{marginTop: "20px", border:"2px solid white", marginBottom:"20px"}} 
-                        variant="contained" 
-                        size="small"
+                        
+                        sx={{marginTop:3, border:"2px solid white", marginBottom:2,width:160,marginLeft:12}} 
+                        variant="outlined" 
+                        size="medium"
                         onClick={(e) => this.onSubmit(e)}
                         color="success" >
                         Submit

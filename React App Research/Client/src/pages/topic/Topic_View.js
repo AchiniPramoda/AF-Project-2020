@@ -68,10 +68,18 @@ function TopicView() {
                   <td>
                     <Stack direction="row" spacing={3}>
                      
-                 <Button variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon />}>
+                 <Button
+                   sx={{color:"coral",
+                        border:"2px solid",
+                        
+                          }}  
+                  variant="outlined" onClick={rejectTopic} startIcon={<DeleteIcon 
+                 sx={{color:"coral",marginTop:1.7}}/>}>
                          Reject
                  </Button>
-                   <Button variant="contained" onClick={accepttopic} endIcon={<SendIcon />}>
+                   <Button variant="outlined" onClick={accepttopic} endIcon={<SendIcon 
+                   
+                 sx={{ marginTop:1.7}}/>}>
                         Accept
                   </Button>
 

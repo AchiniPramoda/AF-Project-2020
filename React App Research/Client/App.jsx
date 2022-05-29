@@ -33,6 +33,7 @@ import UdateNotices from "./src/pages/Notice/Update_Notices";
 import AdminSchemaView from './src/pages/admin/viewSchema';
 import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
 
+
 export default class App extends React.Component {
 
  constructor(props) {

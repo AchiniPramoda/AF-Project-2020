@@ -141,9 +141,10 @@ button:disabled {
     padding: 0.5rem;
     margin-left: 500px;
     margin-top: 120px;
-    color: black;
+    color: white;
     font-size: 14px;
-    background-color: white;
+    background-color: #1b1b1b;
+
     width: auto;
 }
 
@@ -152,11 +153,19 @@ td, th {
     padding: 0.5rem;
     width:auto;
     height: 40px;
+    color: white;
   }
 
-.tablealign-topic{
-    margin-bottom: 100px;
-}  
+  .table-topic th{
+    color: white;
+    background-color: #454546;
+}
+
+.table-topic td{
+    color: white;
+}
+
+
 
 
 
