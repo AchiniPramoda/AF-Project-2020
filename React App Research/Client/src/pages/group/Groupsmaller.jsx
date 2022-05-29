@@ -26,7 +26,7 @@ const PackageSmallView = (props) => {
 
     return (
       <div>
-   <Card
+   {/* <Card
    sx={{backgroundColor:"black",
   color:"white",
   padding:"10px",
@@ -59,8 +59,27 @@ const PackageSmallView = (props) => {
      
       </CardContent> 
     </Card>
-<br/>
+<br/> */}
+   <div class="main-container">
+  <div class="heading">
+    <h1 class="heading__title">Gradient Banner Cards</h1>
+    <p class="heading__credits"><a class="heading__link" target="_blank" href="https://dribbble.com/sl">Design by Simon Lurwer on Dribbble</a></p>
+  </div>
+  <div class="cards">
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+      <p class="card__apply">
+        <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+      </p>
+    </div>
+    
+    
    
+    
+  </div>
+</div>
     </div>
   
 
