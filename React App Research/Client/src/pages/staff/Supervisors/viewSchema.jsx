@@ -70,7 +70,7 @@ export default class StaffSchemaView extends React.Component {
             sub: false,
             Submission : [],
             id:"",
-            itemID:""
+            itemID:"",
         }
     }
 
@@ -139,7 +139,7 @@ export default class StaffSchemaView extends React.Component {
         
         formData.append("schemaID", this.state.id);
         formData.append("LecName", this.state.LecName);
-        //formData.append("department", this.state.department);
+        formData.append("department", this.state.department);
         formData.append("desc", this.state.desc);
         formData.append("results", this.state.results);
         formData.append("fileName", this.state.fileName);
@@ -190,7 +190,7 @@ export default class StaffSchemaView extends React.Component {
 
         await axios.get(`http://localhost:8088/results/view/${id}`)
         .then((res)=> {this.setState({
-            Submission : res.data
+            Submission : res.data,
         }); console.log(res.data)})
         .catch((err) => this.setState({
             message: err.message,
@@ -217,6 +217,24 @@ export default class StaffSchemaView extends React.Component {
 
         //this.viewSubOpen();
     }
+
+    // onClickEdit = async (id) => {
+    //     this.setState({
+    //         subedit: true,
+    //         schemaID: id
+    //     })
+
+    //     await axios.get(`http://localhost:8088/results/view/${id}`)
+    //     .then((res)=> {this.setState({
+    //         Submission : res.data
+    //     }); console.log(res.data)})
+    //     .catch((err) => this.setState({
+    //         message: err.message,
+    //         type:"error",
+    //         open: true
+    //     }))
+
+    // }
 
     render() {
         return (
@@ -315,7 +333,7 @@ export default class StaffSchemaView extends React.Component {
                                 top: '50%',
                                 left: '50%',
                                 transform: 'translate(-50%, -50%)',
-                                width: 900,
+                                width: 1100,
                                 bgcolor: 'background.paper',
                                 border: '5px solid black',
                                 boxShadow: 24,
@@ -328,7 +346,7 @@ export default class StaffSchemaView extends React.Component {
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
-                                            {/* <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell> */}
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Department</TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
                                         </TableRow>
                                         </TableHead>
@@ -338,9 +356,12 @@ export default class StaffSchemaView extends React.Component {
                                             {/* <TableCell align="center" sx={{fontSize:"20px"}}> {item.schemaID} </TableCell> */}
                                             <TableCell align="center" sx={{fontSize:"20px"}}> {item.LecName} </TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px"}}> {item.desc} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.department} </TableCell>
                                             <TableCell align="center">
                                                 <ListItemButton
-                                                    onClick={() => this.onDownload(item._id)}
+                                                    //onClick={() => this.onDownload(item._id)}
+                                                    component="a" 
+                                                    href={item.results}
                                                     sx={{ 
                                                         marginTop:"10px"
                                                     }} >
@@ -350,6 +371,20 @@ export default class StaffSchemaView extends React.Component {
                                                             color="primary" />
                                                     </ListItemIcon>
                                                     <ListItemText primary="Download" />
+                                                </ListItemButton>  
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <ListItemButton
+                                                    onClick={() => this.onEditClick(item._id)}
+                                                    sx={{ 
+                                                        marginTop:"10px"
+                                                    }} >
+                                                    <ListItemIcon>
+                                                        <DeleteForeverIcon 
+                                                            fontSize="large"
+                                                            color="error" />
+                                                    </ListItemIcon>
+                                                    <ListItemText primary="Delete" />
                                                 </ListItemButton>  
                                             </TableCell>
                                             <TableCell align="center">

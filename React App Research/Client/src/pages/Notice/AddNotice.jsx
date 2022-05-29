@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Addview.css';
 import axios from "axios";
 import Navbar from '../student/nav-bar';
+
 import{ MDBInput, MDBBtn } from "mdbreact";
 
 function noticeReg() {
@@ -46,7 +47,6 @@ axios.post("http://localhost:8088/notice/AddNotice", NoticeData )
   
 
 
-
     return(
     
 <div className="my">
@@ -85,6 +85,9 @@ axios.post("http://localhost:8088/notice/AddNotice", NoticeData )
               <button class="form-field submit-group" onClick={addNotice}  type="submit">
                     Submit
              </button>
+
+          
+             
                
           </div>
         </form>

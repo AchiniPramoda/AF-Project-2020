@@ -193,8 +193,7 @@ render () {
       </Grid>
 <br/>
 <br/>
-
-<Box sx={{  border: '4px dashed white' }}>
+<Box sx={{  border: '4px dashed white', marginTop:"34px" }}>
 <h1 style={{color: 'white'}}>NOTICES FOR ALL</h1>
 </Box>
 

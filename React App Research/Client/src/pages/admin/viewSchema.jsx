@@ -54,6 +54,7 @@ export default class AdminSchemaView extends React.Component {
         this.state = {
             Assignment:[],
             Schema:[],
+            Submission:[],
             schemaName:"",
             department:"",
             schema:null,
@@ -189,6 +190,26 @@ export default class AdminSchemaView extends React.Component {
 
         window.location.reload();
     }
+    onSubViewClick = async (id) => {
+
+        this.setState({
+            itemID: id
+        })
+
+        this.viewSubOpen();
+        console.log(id);
+
+        await axios.get(`http://localhost:8088/results/view/${id}`)
+        .then((res)=> {this.setState({
+            Submission : res.data
+        }); console.log(res.data)})
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
+
+    }
 
     render() {
         return (
@@ -255,9 +276,10 @@ export default class AdminSchemaView extends React.Component {
                                     Edit
                                 </Button>
                                 <Button 
+
                                     variant="outlined" 
                                     startIcon={<DeleteIcon />}
-                                   onClick={() => this.onDelete(item._id)}                                    
+                                   onClick={() => this.onDelete(item._id)}                                                                   
                                     color="error"
                                     sx={{ 
                                         marginLeft:19,
@@ -270,7 +292,7 @@ export default class AdminSchemaView extends React.Component {
                                     variant="outlined"  
                                     startIcon={<AssignmentRoundedIcon />}
                                     color="primary"
-                                    onClick={() => this.onViewSubmission(item._id)}
+                                    onClick={() => this.onSubViewClick(item._id)}
                                     sx={{ 
                                         marginLeft:24,
                                         marginTop:3,
@@ -294,6 +316,7 @@ export default class AdminSchemaView extends React.Component {
                                 top: '50%',
                                 left: '50%',
                                 transform: 'translate(-50%, -50%)',
+
                                 width: 1000,
                                 backgroundColor: "black",
                                 border: "2px solid white",
@@ -301,26 +324,32 @@ export default class AdminSchemaView extends React.Component {
                                 p: 4,
                                 marginLeft:10,
                                 color:"white"
+
                             }}>
                                 <TableContainer component={Paper}>
                                     <Table size="small" sx={{ minWidth: 700, border: '2px solid black',alignContent:"center"}} aria-label="customized table">
                                         <TableHead>
-                                        <TableRow sx={{backgroundColor:"gray", height:"10px",color:"white"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3,color:"white"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3,color:"white"}}>Lecture Name</TableCell>
-                                            {/* <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell> */}
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3,color:"white"}}> Download Rusult </TableCell>
+
+                                        <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
-                                        {/* {this.state.researches.map((item) => (
+                                        {this.state.Submission.map((item) => (
                                             <TableRow hover={true} sx={{height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.asgName} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.stdID} </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.grpID} </TableCell>
+                                            {/* <TableCell align="center" sx={{fontSize:"20px"}}> {item.schemaID} </TableCell> */}
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.LecName} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.desc} </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px"}}> {item.department} </TableCell>
                                             <TableCell align="center">
                                                 <ListItemButton
-                                                    onClick={() => this.onDownload(item._id)}
+                                                    // onClick={() => this.onDownload(item._id)}
+                                                    component="a" 
+                                                    href={item.results}
                                                     sx={{ 
                                                         marginTop:"10px"
                                                     }} >
@@ -333,7 +362,7 @@ export default class AdminSchemaView extends React.Component {
                                                 </ListItemButton>  
                                             </TableCell>
                                             </TableRow>
-                                        ))} */}
+                                        ))}
                                         </TableBody>
                                     </Table>
                                 </TableContainer>

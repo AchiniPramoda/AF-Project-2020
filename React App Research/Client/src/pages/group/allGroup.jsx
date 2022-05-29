@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from "axios";
 import Navbar from '../student/nav-bar';
 import SmallView from "./Groupsmaller"
-// import './Allgroup.scss'
-
+import './Allgroup.scss'
+import Box from '@mui/material/Box';
 import Navbar from '../student/nav-bar';
 
 
@@ -32,8 +32,11 @@ class AllForUser extends Component {
         
             <div>
                 <Navbar/>
-            <h1>....RESEARCH GROUP DETAILS.....</h1>
+              
 
+            <Box sx={{  border: '4px dashed black' }}>
+            <h1 style={{color: 'white'}}>....RESEARCH GROUP DETAILS.....</h1>
+            </Box>
             <br/>
             <br/>
             <br/>
@@ -48,15 +51,13 @@ class AllForUser extends Component {
       <br/>
       <br/>
 
-                    
-                    <React.Fragment>
                    
                         {
                             this.state.userm.map(userm => {
                                 return <SmallView user={userm} count={3} />
                             })
                         }
-                    </React.Fragment><br/>
+    
                
                 </div>
             </div>
