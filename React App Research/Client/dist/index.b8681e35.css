@@ -732,7 +732,7 @@ ul {
   background: var(--primary-color);
   margin: 0;
   padding: 1rem;
-  color: #000;
+  color:"white";
 }
 
 .my_socket {

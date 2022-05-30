@@ -36,6 +36,7 @@ import StudentSchemaView from './src/pages/student/viewSchema';
 import ViewUsers from './src/pages/admin/viewUsers';
 import ViewSupervisors from './src/pages/admin/viewSupervisors';
 import ViewAdmin from './src/pages/admin/viewAdmin';
+import ViewPanelMembers from './src/pages/admin/viewPanelMem';
 
 export default class App extends React.Component {
 
@@ -64,6 +65,7 @@ export default class App extends React.Component {
             <Route path="/Admin/ViewUsers" element={<ViewUsers />} />
             <Route path="/Admin/ViewSupervisors" element={<ViewSupervisors />} />
             <Route path="/Admin/ViewAdmin" element={<ViewAdmin />} />
+            <Route path="/Admin/ViewPanelMembers" element={<ViewPanelMembers />} />
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />
