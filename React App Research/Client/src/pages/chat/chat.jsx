@@ -107,13 +107,28 @@ function Chat() {
       <Typography  sx={{fontSize:28, color:"white", marginLeft:6,marginTop:2}}>Online Chat</Typography>
     </Box> 
      
-      <h1 className="my_socket">Me: {socketId}</h1>
-      <h3 className="roomjoined">
+     <Box sx={{width:520,
+                           height:150,
+                           backgroundColor:"black", 
+                           border:4,
+                           borderColor:"#3333FF",
+                           borderRadius:4,color:"white",
+                           marginLeft:60,
+                           marginTop:5
+                           }}>
+        
+        <Typography  sx={{fontSize:23, color:"white", marginLeft:10,marginTop:2,marginBottom:3}}>Me: {socketId}</Typography>
+   
+     
+     
+    <h3 className="roomjoined">
         {joinedRoom === true
           ? `Room: ${room}`
           : "You are not joined in any room"}
       </h3>
+      </Box>
 
+  <Box sx={{backgroundColor:"black"}}>    
       {!joinedRoom && (
         <div className="container">
           <div className="users-container">
@@ -152,7 +167,7 @@ function Chat() {
           </div>
         </div>
       )}
-
+</Box>
       {joinedRoom && (
         <>
           <div className="chat-container">
@@ -169,6 +184,7 @@ function Chat() {
               ))}
             </ul>
           </div>
+
 
           <form className="chat-form" onSubmit={(e) => e.preventDefault()}>
             <input
