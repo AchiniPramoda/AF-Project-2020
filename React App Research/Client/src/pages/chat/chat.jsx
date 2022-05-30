@@ -3,6 +3,7 @@ import "./chat.css";
 import io from "socket.io-client";
 import Picker from "emoji-picker-react";
 import { Box, Typography } from "@mui/material";
+import { border } from "@mui/system";
 const socket = io("http://localhost:8088");
 
 function Chat() {
@@ -128,7 +129,17 @@ function Chat() {
       </h3>
       </Box>
 
-  <Box sx={{backgroundColor:"black"}}>    
+  <Box sx={{backgroundColor:"black",
+            width:1300,
+            marginLeft:15,
+            marginTop:4,
+            marginRight:15,
+            height:580,
+            border:2,
+            borderRadius:3,
+            borderColor:"white"
+            }}>    
+      
       {!joinedRoom && (
         <div className="container">
           <div className="users-container">
@@ -167,7 +178,7 @@ function Chat() {
           </div>
         </div>
       )}
-</Box>
+
       {joinedRoom && (
         <>
           <div className="chat-container">
@@ -224,8 +235,11 @@ function Chat() {
               }}
             />
           )}
+        
         </>
+        
       )}
+    </Box>
     </>
   );
 }
