@@ -499,10 +499,10 @@ export default class ViewAssignment extends React.Component {
                                     <Table size="small" sx={{ minWidth: 700, border: '3px solid white'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Student ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Download Research</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Student ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Download Research</TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>

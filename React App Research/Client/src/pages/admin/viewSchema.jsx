@@ -331,10 +331,10 @@ export default class AdminSchemaView extends React.Component {
                                         <TableHead>
 
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Lecture Name</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}> Download Rusult </TableCell>
 
                                         </TableRow>
                                         </TableHead>
