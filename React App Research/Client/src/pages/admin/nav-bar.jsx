@@ -280,6 +280,48 @@ export default class Navbar extends React.Component {
               <ListItemText />
             </ListItemButton>
           </List>
+
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/ViewUsers"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PeopleAltRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                View Students
+              <ListItemText />
+            </ListItemButton>
+          </List>
+
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/ViewSupervisors"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PeopleAltRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                View Supervisors
+              <ListItemText />
+            </ListItemButton>
+          </List>
+
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/ViewAdmin"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PeopleAltRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                View Administrators
+              <ListItemText />
+            </ListItemButton>
+          </List>
         </Collapse>
         <Divider />
 
