@@ -67,8 +67,8 @@ export default class PanelReg extends React.Component{
     console.log(panel);
 
     await axios.post("http://localhost:8088/panels/add", panel)
-    .then((res)=> AlertMsg('success', res.data))
-    .catch((err) => AlertMsg('error', err.message))
+    .then((res)=> AlertMsg("success", "success", res.data))
+    .catch((err) => AlertMsg("error", "error", err.message))
     
     window.location = "/Admin/ViewPanels";
   }
