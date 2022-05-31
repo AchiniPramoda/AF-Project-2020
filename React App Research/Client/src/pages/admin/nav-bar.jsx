@@ -43,7 +43,8 @@ export default class Navbar extends React.Component {
       userEx: false,
       asg:false,
       schema:false,
-      notice:false
+      notice:false,
+      panels:false,
     }
   }
 
@@ -85,8 +86,15 @@ export default class Navbar extends React.Component {
       this.setState({asg:true})
     }else{
       this.setState({asg:false})
-    }
-    
+    }    
+  };
+
+  handlePanelOpen = () => {
+    if(this.state.panels != true) {
+      this.setState({panels:true})
+    }else{
+      this.setState({panels:false})
+    }    
   };
 
   handleSchemaOpen = () => {
@@ -367,6 +375,52 @@ export default class Navbar extends React.Component {
           </ListItem>
         </List>
         <Divider />
+
+        <List>          
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={this.handlePanelOpen}>
+              <ListItemIcon>
+                <AssignmentRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panels
+              <ListItemText />
+              {this.state.panels == true ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+          </ListItem>
+        </List>
+
+        <Collapse in={this.state.panels} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/PanelReg"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PostAddRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panels Create
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href=""
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AssignmentOutlinedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panels View
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
+        </Collapse> 
+
+        <Divider />
+
         <List>          
           <ListItem disablePadding>
             <ListItemButton
