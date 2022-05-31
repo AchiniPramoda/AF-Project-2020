@@ -6,11 +6,62 @@ import Navbar from './nav-bar';
 import './../../component/css/Page.css';
 import image from "./3.jpg";
 import "./admin.css";
+import axios from 'axios';
 
 export default class StudentMain extends React.Component {
 constructor(props) {
   super(props);
+
+  this.state = {
+        student:"",
+        staff:"",
+        supervisor:"",
+        panelmembers:"",
+        groups:"",
+        assignments:""
+  }
 }
+
+componentDidMount() {
+
+        axios.get("http://localhost:8088/register/view/std")
+        .then((res)=> this.setState({
+                student : res.data.length
+        }))
+        .catch((err) => console.error(err));
+
+        axios.get("http://localhost:8088/register/view/sup")
+        .then((res)=> this.setState({
+                supervisor : res.data.length
+        }))
+        .catch((err) => console.error(err));
+
+        axios.get("http://localhost:8088/register/view/pmem")
+        .then((res)=> this.setState({
+                panelmembers : res.data.length
+        }))
+        .catch((err) => console.error(err));
+
+        const total = this.state.supervisor + this.state.panelmembers;
+
+        this.setState({
+                staff : total
+        })
+
+        axios.get("http://localhost:8088/group/viewgroup")
+        .then((res)=> this.setState({
+                groups : res.data.length
+        }))
+        .catch((err) => console.error(err));
+
+        axios.get("http://localhost:8088/assignment/view")
+        .then((res)=> this.setState({
+                assignments : res.data.length
+        }))
+        .catch((err) => console.error(err));
+
+}
+
 render() {
 return (
   <>
@@ -99,7 +150,11 @@ return (
            <Typography sx={{fontSize:20, color:"white", marginLeft:6,marginTop:2}}>
               Total Students
             </Typography>
-    
+
+            <Typography sx={{fontSize:25, fontWeight:"bold", color:"white", marginLeft:12,marginTop:0}}>
+                {this.state.student}
+            </Typography>
+                    
                  </Box>
          </Grid>
          <Grid item>
@@ -112,8 +167,12 @@ return (
                            borderRadius:4
                     }}>
                          <Typography sx={{fontSize:20, color:"white", marginLeft:6,marginTop:2}}>
-              Total Supervisors
-            </Typography>
+                                Total Supervisors
+                        </Typography>
+
+                        <Typography sx={{fontSize:25, fontWeight:"bold", color:"white", marginLeft:12,marginTop:0}}>
+                                {this.state.supervisor}
+                        </Typography>
                  </Box>
          </Grid>
 
@@ -127,8 +186,12 @@ return (
                            borderRadius:4
                     }}>
                          <Typography sx={{fontSize:20, color:"white", marginLeft:6,marginTop:2}}>
-              Total Groups
-            </Typography>
+                                Total Groups
+                         </Typography>
+                         
+                        <Typography sx={{fontSize:25, fontWeight:"bold", color:"white", marginLeft:12,marginTop:0}}>
+                                {this.state.groups}
+                        </Typography>
                  </Box>
          </Grid>
          <Grid item>
@@ -141,8 +204,12 @@ return (
                            borderRadius:4
                     }}>
                          <Typography sx={{fontSize:20, color:"white", marginLeft:6,marginTop:2}}>
-              Total Assignments
-            </Typography>
+                                Total Assignments
+                        </Typography>
+                        
+                        <Typography sx={{fontSize:25, fontWeight:"bold", color:"white", marginLeft:12,marginTop:0}}>
+                                {this.state.assignments}
+                        </Typography>
                  </Box>
          </Grid>
      </Grid>
