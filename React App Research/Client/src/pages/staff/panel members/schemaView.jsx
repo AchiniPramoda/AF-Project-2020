@@ -145,17 +145,8 @@ export default class StaffSchemaViewPan extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.post("http://localhost:8088/results/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true,
-            viewSub: false,
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => this.viewSubaddClose())
     }
 
@@ -203,16 +194,8 @@ export default class StaffSchemaViewPan extends React.Component {
     onDelete = async (id) => {
 
         await axios.delete(`http://localhost:8088/results/delete/${id}`)
-        .then((res)=> {this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }); console.log(res.data)})
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => this.onSubViewClick(this.state.itemID))
 
         //this.viewSubOpen();

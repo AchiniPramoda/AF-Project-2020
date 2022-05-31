@@ -47,16 +47,8 @@ export default class ResearchSubmit extends React.Component {
         formData.append("file", this.state.file);
 
         await axios.post("http://localhost:8088/research/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
     }
 
     onChange = (e) => {        

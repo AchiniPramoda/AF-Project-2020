@@ -132,8 +132,8 @@ export default class ViewPanels extends React.Component {
         console.log(panel);
     
         await axios.put(`http://localhost:8088/panels/edit/${this.state.id}`, panel)
-        .then((res)=> AlertMsg('success', res.data))
-        .catch((err) => AlertMsg('error', err.message))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
 
         window.location.reload();
       }
@@ -142,8 +142,8 @@ export default class ViewPanels extends React.Component {
         console.log(id);
         
         await axios.delete(`http://localhost:8088/panels/delete/${id}`)
-        .then((res)=> AlertMsg('success', res.data))
-        .catch((err) => AlertMsg('false', err.message))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         
         window.location.reload();
     }
