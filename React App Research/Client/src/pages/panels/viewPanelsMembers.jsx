@@ -15,7 +15,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default class ViewPanels extends React.Component {
+export default class ViewPanelsMem extends React.Component {
 
     constructor(props) {
         super(props);
