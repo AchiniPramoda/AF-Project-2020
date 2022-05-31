@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Group_view.css';
 import {  useParams } from "react-router-dom";
 import Navbar from '../student/nav-bar';
+import AlertMsg from '../alert/message';
 
 function GroupEdit() {
 
@@ -49,13 +50,9 @@ function GroupEdit() {
       }
   
       axios.put(`http://localhost:8088/group/edit/${params.id}`,updateData)
-        .then((response) => {
-          console.log("updated successfully");
-          window.location = `/Student/GroupView`;
-        })
-        .catch((error) => {
-          console.log(error);
-        })
+      .then((res)=> {AlertMsg("success", "success", res.data); window.location = `/Student/GroupView`})
+      .catch((err) => AlertMsg("error", "error", err.message))
+        
     }
 
 

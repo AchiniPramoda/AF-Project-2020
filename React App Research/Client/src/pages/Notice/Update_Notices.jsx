@@ -42,13 +42,8 @@ function NoticeEdit() {
       }
   
       axios.put(`http://localhost:8088/notice/update/${params.id}`,updateData)
-        .then((response) => {
-          console.log("updated successfully");
-          window.location = `viewNotice`;
-        })
-        .catch((error) => {
-          console.log(error);
-        })
+        .then((res)=> {AlertMsg("success", "success", res.data);  window.location = `viewNotice`})
+        .catch((err) => AlertMsg("error", "error", err.message))
     }
 
 

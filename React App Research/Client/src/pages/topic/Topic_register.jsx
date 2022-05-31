@@ -4,6 +4,7 @@ import './Topic.css'
 import Navbar from '../student/nav-bar';
 import Image from '../../component/images/1.jpg';
 import { Container } from "@mui/material";
+import AlertMsg from '../alert/message';
 
 function TopicRegister() {
 
@@ -31,13 +32,8 @@ function TopicRegister() {
     console.log(topicdata);
            
     axios.post("http://localhost:8088/topic/add", topicdata )
-    .then((res) => 
-      alert(res.data)
-    )
-    
-    .catch((error) => {
-      console.log(error);
-    })
+    .then((res)=> AlertMsg("success", "success", res.data))
+    .catch((err) => AlertMsg("error", "error", err.message))
 
   }
 

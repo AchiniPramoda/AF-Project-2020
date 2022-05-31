@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Group_view.css';
 import axios from "axios";
 import Navbar from '../student/nav-bar';
+import AlertMsg from '../alert/message';
 
 function GroupReg() {
 
@@ -35,13 +36,8 @@ function GroupReg() {
     console.log(groupData);
            
   axios.post("http://localhost:8088/group/addgroup", groupData )
-      .then((response) => {
-        console.log(response.data);
-      })
-      
-      .catch((error) => {
-        console.log(error);
-      })
+  .then((res)=> AlertMsg("success", "success", res.data))
+  .catch((err) => AlertMsg("error", "error", err.message))
 
     }
 

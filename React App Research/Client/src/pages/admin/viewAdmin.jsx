@@ -2,6 +2,7 @@ import React from 'react';
 import './../../component/css/Page.css'
 import axios from 'axios';
 import Navbar from './nav-bar';
+import AlertMsg from '../alert/message'; 
 
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';

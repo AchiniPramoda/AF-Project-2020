@@ -21,6 +21,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import AlertMsg from '../alert/message';
 
 function GroupView() {
 
@@ -46,13 +47,8 @@ function GroupView() {
     const onDeleteHandlle = (id) => {    
       axios
         .delete("http://localhost:8088/group/delete/"+ id)
-        .then((res) => {
-          console.log(res.data);   
-        })
-
-        .catch((error) => {
-          console.log(error.message);
-        });
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
     };
 
    

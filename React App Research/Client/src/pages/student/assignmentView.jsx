@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
