@@ -108,7 +108,7 @@ export default class AddAssignment extends React.Component{
                             boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",
                                     
                         }}>                    
-                <h1 style={{color: 'white'}}> Add Assignment </h1>
+                        <h1 style={{color: 'white'}}> Add Assignment </h1>
                     <FormGroup sx={{marginTop:3,marginLeft:4,width:300,border:1,borderColor:"blue"}}>
                         <ListItem sx={{backgroundColor:"whitesmoke"}} >
                         <ListItemIcon>
@@ -130,7 +130,7 @@ export default class AddAssignment extends React.Component{
                             <DateRangeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                           
+                           fullWidth
                             type="date"
                             id="endDate" 
                             label="" 
@@ -146,7 +146,7 @@ export default class AddAssignment extends React.Component{
                             <AccessTimeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                           
+                           fullWidth
                             type="time"
                             id="endTime" 
                             label="" 
@@ -163,7 +163,7 @@ export default class AddAssignment extends React.Component{
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
-                                                     
+                            fullWidth                         
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
