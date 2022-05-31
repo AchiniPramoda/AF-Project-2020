@@ -31,7 +31,7 @@ import AddNotices from "./src/pages/Notice/AddNotice";
 import ViewNotices from "./src/pages/Notice/viewNotice";
 import UdateNotices from "./src/pages/Notice/Update_Notices";
 import AdminSchemaView from './src/pages/admin/viewSchema';
-import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
+import StaffSchemaViews from './src/pages/staff/Supervisors/viewSchema';
 import StudentSchemaView from './src/pages/student/viewSchema';
 import ViewUsers from './src/pages/admin/viewUsers';
 import ViewSupervisors from './src/pages/admin/viewSupervisors';
@@ -104,7 +104,7 @@ export default class App extends React.Component {
 
             <Route path="/Supervisor" element={<SupervisorMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
-            <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
+            <Route path="/Supervisor/viewSchema" element={<StaffSchemaViews />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
             
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>

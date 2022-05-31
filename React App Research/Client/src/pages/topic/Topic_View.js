@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
-import Navbar from '../Admin/nav-bar';
+import Navbar from '../staff/Supervisors/nav-bar';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -105,7 +105,7 @@ export default class TopicView extends React.Component {
          <Box sx={{
                  position: 'absolute',
                  marginTop: '100px',
-                 marginLeft: 5,
+                 marginLeft: 10,
                  width: 1200,
                  bgcolor: 'background.paper',
                  border: '5px solid black',
@@ -140,9 +140,10 @@ export default class TopicView extends React.Component {
                                    //href={item.results}
                                    sx={{ 
                                        marginTop:"10px",
-                                       width:"100px",
+                                       width:"120px",
                                        marginRight:2,
-                                       fontSize:20
+                                       fontSize:20,
+                                       border:1,
                                    }} >
                                    <ListItemIcon>
                                      <DeleteIcon fontSize="medium" color="error"/>
@@ -158,9 +159,10 @@ export default class TopicView extends React.Component {
                                    sx={{ 
                                       marginLeft:"10px",
                                        marginTop:"10px",
-                                       width:"100px",
+                                       width:"120px",
                                        marginRight:2,
-                                       fontSize:20
+                                       fontSize:20,
+                                       border:1,
                                    }} >
                                    <ListItemIcon>                                    
                                      Accept 
