@@ -120,16 +120,8 @@ export default class ViewAssignment extends React.Component {
         console.log(this.state.id);
 
         await axios.put(`http://localhost:8088/assignment/edit/${this.state.id}`, formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
@@ -152,16 +144,8 @@ export default class ViewAssignment extends React.Component {
         console.log(id);
         
         await axios.delete(`http://localhost:8088/assignment/delete/${id}`)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location = '/Admin/ViewAssignment');
     }
 

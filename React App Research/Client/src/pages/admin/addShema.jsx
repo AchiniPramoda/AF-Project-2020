@@ -65,8 +65,8 @@ export default class AddSchema extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.post("http://localhost:8088/marking/add", formData)
-        .then((res)=> AlertMsg('success', res.data))
-        .catch((err) => AlertMsg('false', err.message))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
 
         window.location = `/Admin/viewSchema`;
     }
