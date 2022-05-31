@@ -4,7 +4,6 @@ import './Topic.css'
 import Navbar from '../student/nav-bar';
 import Image from '../../component/images/1.jpg';
 import { Container } from "@mui/material";
-import AlertMsg from '../alert/message';
 
 function TopicRegister() {
 
@@ -15,12 +14,12 @@ function TopicRegister() {
     email:""
   });
 
-  const handleAddData = (e) => {
+  const handleAddData =(e) => {
     const { name, value } = e.target
     setValues({ ...values, [name]: value});
   }  
 
-  const addTopic = (e) => {
+  const addTopic = async (e) => {
     e.preventDefault();
     let topicdata = {
       stdID: values.stdID,
@@ -32,8 +31,15 @@ function TopicRegister() {
     console.log(topicdata);
            
     axios.post("http://localhost:8088/topic/add", topicdata )
-    .then((res)=> AlertMsg("success", "success", res.data))
-    .catch((err) => AlertMsg("error", "error", err.message))
+
+    .then((res) => 
+      alert(res.data)
+    )
+    .catch((error) => {
+      console.log(error);
+
+      
+    })
 
   }
 
@@ -47,25 +53,27 @@ function TopicRegister() {
 <Navbar/>
 
 <div className="topic_page">
-<div class="form-container-topic">
+<div className="form-container-topic">
         
-        <form class="topic-form-title">
-        <h2 class="topic-title">Research Topic Submission</h2>
+        <form className="topic-form-title">
+        <h2 className="topic-title">Research Topic Submission</h2>
          
         <label className='lbl-topic'>Student ID</label>
           <input
-            class="form-field-topic"
+            className="form-field-topic"
             type="text"
             placeholder="Student ID"
             name="stdID"
+            data-testid="stdID"
             onChange={handleAddData}
             value={values.stdID}
           />
 
            <label className='lbl-topic'>Group ID</label>
           <input
-            class="form-field-topic"
+            className="form-field-topic"
             type="text"
+            data-testid="grpID"
             placeholder="Group ID"
             name="grpID"
             onChange={handleAddData}
@@ -75,9 +83,10 @@ function TopicRegister() {
 
        <label className='lbl-topic'>Title</label>
           <input
-            class="form-field-topic"
+            className="form-field-topic"
             type="text"
             placeholder="Title"
+            data-testid="title"
             name="title"
             onChange={handleAddData}
             value={values.title}
@@ -85,24 +94,20 @@ function TopicRegister() {
 
         <label className='lbl-topic'>Email</label>
           <input
-            class="form-field-topic"
+            className="form-field-topic"
             type="Email"
+            data-testid="email"
             placeholder="****@gmail.com"
             name="email"
             onChange={handleAddData}
             value={values.email}
           />
-
-
-
           <div className="btngroup-topic">  
              
               <button className="form-field cancel-topic" onclick="document.getElementById('myInput').value = ''">
                  Clear
-              </button>
-            
-            
-              <button class="form-field submit-topic" onClick={addTopic}  type="submit"> 
+              </button>     
+              <button className="form-field submit-topic"   data-testid ="submit" onClick={addTopic}  type="submit"> 
                     Submit
              </button>
                

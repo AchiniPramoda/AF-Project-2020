@@ -3,7 +3,7 @@ import "./Topic.css";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
+
 import axios from 'axios';
 import Navbar from '../staff/Supervisors/nav-bar';
 import Box from '@mui/material/Box';
@@ -17,9 +17,8 @@ import Paper from '@mui/material/Paper';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+
 import ButtonGroup from '@mui/material/ButtonGroup';
-import AlertMsg from '../alert/message';
 
 
 export default class TopicView extends React.Component {
@@ -93,20 +92,20 @@ export default class TopicView extends React.Component {
     console.log(topicdata);
 
     axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
-    .then((res)=> AlertMsg("success", "success", res.data))
-    .catch((err) => AlertMsg("error", "error", err.message))
+        .then((res)=> alert(res.data))
+        .catch((err) => alert(err.message))
    }
 
   render() {
     return (
       <>
-        <div className='topic_page'>
+        <div>
         <Navbar/>
 
          <Box sx={{
                  position: 'absolute',
                  marginTop: '100px',
-                 marginLeft: 10,
+                 marginLeft: '295px',
                  width: 1200,
                  bgcolor: 'background.paper',
                  border: '5px solid black',
@@ -118,12 +117,12 @@ export default class TopicView extends React.Component {
                  <TableContainer component={Paper}>
                    <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
                        <TableHead>
-                       <TableRow sx={{backgroundColor:"gray", height:"60px",color:"white"}}>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Group ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Topic</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader Email</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Action</TableCell>
+                       <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
                        </TableRow>
                        </TableHead>
                        <TableBody>
@@ -141,13 +140,11 @@ export default class TopicView extends React.Component {
                                    //href={item.results}
                                    sx={{ 
                                        marginTop:"10px",
-                                       width:"120px",
-                                       marginRight:2,
-                                       fontSize:20,
-                                       border:1,
+                                       width:"100px",
+                                       marginRight:"0px"
                                    }} >
                                    <ListItemIcon>
-                                     <DeleteIcon fontSize="medium" color="error"/>
+                                     <DeleteIcon color="error"/>
                                       Reject
                                    
                                    </ListItemIcon>
@@ -160,14 +157,12 @@ export default class TopicView extends React.Component {
                                    sx={{ 
                                       marginLeft:"10px",
                                        marginTop:"10px",
-                                       width:"120px",
-                                       marginRight:2,
-                                       fontSize:20,
-                                       border:1,
+                                       width:"100px",
+                                       marginRight:"10px",
                                    }} >
                                    <ListItemIcon>                                    
                                      Accept 
-                                   <SendIcon fontSize="medium" color="primary"/>                                   
+                                   <SendIcon color="primary"/>                                   
                                    
                                    </ListItemIcon>
                                </ListItemButton> 

@@ -14,7 +14,7 @@ import Divider from '@mui/material/Divider';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+
 import ListItemText from '@mui/material/ListItemText';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -22,11 +22,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
-import HomeIcon from '@mui/icons-material/Home';
-import TopicIcon from '@mui/icons-material/Topic';
-import FilePresentIcon from '@mui/icons-material/FilePresent';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 export default class Navbar extends React.Component {
 
@@ -175,7 +170,7 @@ export default class Navbar extends React.Component {
               <ListItemButton component="a" 
                 href="/Supervisor">
                 <ListItemIcon>
-                <HomeIcon fontSize="small" sx={{ color: "white"}}/>  
+                <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
              
                 </ListItemIcon>
                 Home
@@ -205,7 +200,7 @@ export default class Navbar extends React.Component {
             <ListItemButton component="a" 
                 href="/Supervisor/Topic_View">
               <ListItemIcon>
-              <TopicIcon fontSize="small" sx={{ color: "white"}}/>  
+              <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
             
               </ListItemIcon>
               Research Topics Evaluate
@@ -221,7 +216,7 @@ export default class Navbar extends React.Component {
                 component="a" 
                 href="/Supervisor/researchView" >
               <ListItemIcon>
-                <FilePresentIcon fontSize="small" sx={{ color: "white"}}/>                
+                <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>                
               </ListItemIcon>
                 Research Submission Evaluate
               <ListItemText sx={{ color: "white",fontSize:"small"}}/>
@@ -235,7 +230,7 @@ export default class Navbar extends React.Component {
             <ListItemButton component="a" 
                 href="/Supervisor/viewSchema">
               <ListItemIcon>
-              <AssignmentIcon fontSize="small" sx={{ color: "white"}}/>  
+              <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
               </ListItemIcon>
                 Documents Evaluation
               <ListItemText sx={{ color: "white",fontSize:"small"}}/>
@@ -246,9 +241,9 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
-                href="/Supervisor">
+                href="/Supervisor/researchView">
               <ListItemIcon>
-              <ContactMailIcon fontSize="small" sx={{ color: "white"}}/>  
+              <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
         
               </ListItemIcon>
               Contact us
