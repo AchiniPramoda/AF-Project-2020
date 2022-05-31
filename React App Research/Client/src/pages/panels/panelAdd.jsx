@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Navbar from '../admin/nav-bar';
+import AlertMsg from "../alert/message";
 
 import Container from '@mui/material/Container';
 import FormGroup from '@mui/material/FormGroup';
@@ -66,8 +67,8 @@ export default class PanelReg extends React.Component{
     console.log(panel);
 
     await axios.post("http://localhost:8088/panels/add", panel)
-    .then((res)=> alert(res.data))
-    .catch((err) => console.error(err))
+    .then((res)=> AlertMsg('success', res.data))
+    .catch((err) => AlertMsg('false', err.message))
     
     window.location = "/Admin/ViewPanels";
   }
