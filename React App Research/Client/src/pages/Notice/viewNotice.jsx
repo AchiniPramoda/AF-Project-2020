@@ -10,6 +10,7 @@ import axios from 'axios';
 import './Addview.css';
 
 import Navbar from '../admin/nav-bar';
+import AlertMsg from '../alert/message'; 
 
 
 
@@ -37,12 +38,8 @@ function View() {
     const onDeleteHandlle = (id) => {    
         axios
             .delete("http://localhost:8088/notice/delete/"+ id)
-            .then((res) => {
-                console.log(res.data);
-            })
-        .catch((error) => {
-          console.log(error.message);
-        });
+            .then((res)=> AlertMsg("success", "success", res.data))
+            .catch((err) => AlertMsg("error", "error", err.message))
     };
 
    
