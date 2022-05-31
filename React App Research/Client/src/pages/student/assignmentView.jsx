@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -110,16 +111,8 @@ export default class StudentViewAssignment extends React.Component {
         formData.append("file", this.state.file);
 
         await axios.post("http://localhost:8088/research/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally();
 
         this.signModalClose();

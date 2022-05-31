@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -147,16 +148,8 @@ export default class AdminSchemaView extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.put(`http://localhost:8088/marking/edit/${this.state.id}`, formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => {window.location = `/Admin/viewSchema`;})
 
         this.handleOpen();
@@ -177,16 +170,8 @@ export default class AdminSchemaView extends React.Component {
 
     onDelete = async (id) => {
         await axios.delete(`http://localhost:8088/marking/delete/${id}`)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            //open: true
-        }), this.handleOpen)
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
 
         window.location.reload();
     }
@@ -331,10 +316,10 @@ export default class AdminSchemaView extends React.Component {
                                         <TableHead>
 
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Lecture Name</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px",color:"white",border:2, fontWeight:"bold"}}> Download Rusult </TableCell>
 
                                         </TableRow>
                                         </TableHead>

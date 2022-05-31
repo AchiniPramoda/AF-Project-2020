@@ -8,8 +8,7 @@ module.exports = multer({
         let ext = path.extname(file.originalname);
 
         if(ext !==".pdf"){
-            cb(new Error("File type is not supported"), false);
-            return;
+           return cb(new Error("File type is not supported"), false);            
         }
         //console.log(file, path);
        cb(null, true);

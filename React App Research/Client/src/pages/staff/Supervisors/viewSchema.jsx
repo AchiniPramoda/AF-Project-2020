@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import AlertMsg from '../../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../../component/css/Page.css';
@@ -47,7 +48,7 @@ import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export default class StaffSchemaView extends React.Component {
+export default class StaffSchemaViews extends React.Component {
 
     constructor(props) {
         super(props);
@@ -145,17 +146,8 @@ export default class StaffSchemaView extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.post("http://localhost:8088/results/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true,
-            viewSub: false,
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => this.viewSubaddClose())
     }
 
@@ -203,16 +195,8 @@ export default class StaffSchemaView extends React.Component {
     onDelete = async (id) => {
 
         await axios.delete(`http://localhost:8088/results/delete/${id}`)
-        .then((res)=> {this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }); console.log(res.data)})
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => this.onSubViewClick(this.state.itemID))
 
         //this.viewSubOpen();
@@ -330,8 +314,8 @@ export default class StaffSchemaView extends React.Component {
 
                             <Box sx={{
                                 position: 'absolute',
-                                top: '50%',
-                                left: '50%',
+                                top: '30%',
+                                left: '57%',
                                 transform: 'translate(-50%, -50%)',
                                 width: 1100,
                                 bgcolor: 'background.paper',
@@ -344,10 +328,10 @@ export default class StaffSchemaView extends React.Component {
                                     <Table size="small" sx={{ minWidth: 700, border: '2px solid black'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Department</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Lecture Name</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Department</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}> Download Rusult </TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>

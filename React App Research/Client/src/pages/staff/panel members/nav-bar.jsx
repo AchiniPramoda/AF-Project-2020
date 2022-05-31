@@ -1,5 +1,4 @@
 import React from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,6 +22,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
+import HomeIcon from '@mui/icons-material/Home';
+import TopicIcon from '@mui/icons-material/Topic';
+import FilePresentIcon from '@mui/icons-material/FilePresent';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 export default class Navbar extends React.Component {
 
@@ -69,7 +73,7 @@ export default class Navbar extends React.Component {
         return (
             <>
                 <Box>
-            <AppBar position="fixed" color="default" mode='dark'>
+            <AppBar  position="fixed" color="default" mode='dark' sx={{ backgroundColor: "black", color: "white"}}>
               <Toolbar>
                 <IconButton
                   size="large"
@@ -92,7 +96,9 @@ export default class Navbar extends React.Component {
                   <SearchIcon />
                   <InputBase
                     placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }} />
+                    inputProps={{ 'aria-label': 'search' }} 
+                    sx={{marginLeft:2, color:"white"}}
+                    />
 
                 <IconButton
                 size="large"
@@ -107,11 +113,11 @@ export default class Navbar extends React.Component {
               <Menu
                 id="menu-appbar"
                 sx={{
-                  marginTop:"-55px"
+                  marginTop:"-10px"
                 }}
                 anchorEl={this.state.logo}
                 anchorOrigin={{
-                  vertical: 'center',
+                  vertical: 'top',
                   horizontal: 'right',
                 }}
                 keepMounted
@@ -144,9 +150,13 @@ export default class Navbar extends React.Component {
               width: 200,
               flexShrink: 0,
               '& .MuiDrawer-paper': {
-                width: 250,
+                width: 300,
                 boxSizing: 'border-box',
-                marginTop:10
+                marginTop:8,
+                backgroundColor: "black", 
+                color: "white",
+                borderRight: "2px solid white",
+                boxShadow:"0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b"
               },
             }}
             variant="persistent"
@@ -155,76 +165,93 @@ export default class Navbar extends React.Component {
       >
           <ListItemIcon>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon sx={{ color: "white"}}/>
             </IconButton>
           </ListItemIcon>
           
         <Divider />
-        <List>
+        <List sx={{marginTop:1}}>
             <ListItem  disablePadding>
-              <ListItemButton>
+              <ListItemButton component="a" 
+                href="/Panel">
                 <ListItemIcon>
-                  Home
+                <HomeIcon fontSize="small" sx={{ color: "white"}}/>  
+             
                 </ListItemIcon>
-                <ListItemText />
+                Home
+                <ListItemText sx={{ color: "white",fontSize:"small"}}/>
               </ListItemButton>
             </ListItem>
         </List>
         <Divider />
-        <List>          
+
+        <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton component="a" 
+                href="/Panel/ViewPanelsMem">
               <ListItemIcon>
-                Research Topics Accepting
+              <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
+           
               </ListItemIcon>
-              <ListItemText />
+              View Panels
+              <ListItemText sx={{ color: "white",fontSize:"small"}}/>
             </ListItemButton>
           </ListItem>
         </List>
         <Divider />
-        <List>          
+
+        <List sx={{marginTop:1}}>          
+          <ListItem disablePadding>
+            <ListItemButton component="a" 
+                href="/Panel/TopicViewPanel">
+              <ListItemIcon>
+              <TopicIcon fontSize="small" sx={{ color: "white"}}/>              
+              </ListItemIcon>
+              Research Topics View
+              <ListItemText sx={{ color: "white",fontSize:"small"}}/>
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Divider />
+
+        <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton
                 component="a" 
                 href="/Panel/researchView" >
               <ListItemIcon>
-                <ArticleRoundedIcon fontSize="small" />                
+                <FilePresentIcon fontSize="small" sx={{ color: "white"}}/>                
               </ListItemIcon>
                 Research Submission Evaluate
-              <ListItemText />
+              <ListItemText sx={{ color: "white",fontSize:"small"}}/>
             </ListItemButton>
           </ListItem>
         </List>
         <Divider />
-        <List>          
+
+        <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton component="a" 
+                href="/Panel/viewSchema">
               <ListItemIcon>
-                Research Groups Chat
+              <AssignmentIcon fontSize="small" sx={{ color: "white"}}/>  
               </ListItemIcon>
-              <ListItemText />
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <Divider />
-        <List>          
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                Document Evaluation
-              </ListItemIcon>
-              <ListItemText />
+                Documents Evaluation
+              <ListItemText sx={{ color: "white",fontSize:"small"}}/>
             </ListItemButton>
           </ListItem>
         </List>        
         <Divider />
-        <List>          
+        <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton component="a" 
+                href="">
               <ListItemIcon>
-                Contact us
+              <ContactMailIcon fontSize="small" sx={{ color: "white"}}/>  
+        
               </ListItemIcon>
-              <ListItemText />
+              Contact us
+              <ListItemText sx={{ color: "white",fontSize:"small"}}/>
             </ListItemButton>
           </ListItem>
         </List>

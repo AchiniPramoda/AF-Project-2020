@@ -2,9 +2,15 @@
     margin-left: 300px;
     margin-top: 100px;
 }
+.image02{
+    width: 480px;
+    height: 400px;
+}
 .page{
     margin-left: 300px;
     margin-top: 100px;
+    /* height: 100vh; */
+    /* overflow-y: scroll; */
 }
 
 .image1{
@@ -12,6 +18,267 @@
     height: 150px;
 }
 
+.react-calendar { 
+    width: 400px;
+    /* max-width: 100%; */
+    background-color: rgb(0, 0, 0);
+    color: #222;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+    height: 250px;
+
+   }
+   .react-calendar__navigation button {
+    color: #3800f0;
+    min-width: 44px;
+    background: black;
+    font-size: 16px;
+    margin-top: 12px;
+
+   }
+   .react-calendar__navigation,
+   .react-calendar__navigation  {
+    background-color: #000000;
+   }
+   .react-calendar__navigation button[disabled] {
+    background-color: #000000;
+   }
+   abbr[title] {
+    text-decoration: none;
+    background-color: #000000;
+   }
+   /* .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+   } */
+   .react-calendar__tile,
+   .react-calendar__tile {
+    background: #000000;
+    color: #6f48eb;
+    /* border-radius: 6px; */
+   }
+   .react-calendar__tile--now {
+    background: #0e94d8ee;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #6f48eb;
+   }
+   .react-calendar__tile--now:enabled:hover,
+   .react-calendar__tile--now:enabled:focus {
+    background: #3701e9d3;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #6f48eb;
+   }
+   .react-calendar__tile--hasActive:enabled:hover,
+   .react-calendar__tile--hasActive:enabled:focus {
+    background: #000000;
+   }
+   .react-calendar__tile--active {
+    background: #000000;
+    border-radius: 6px;
+    font-weight: bold;
+    color: rgb(14, 14, 14);
+   }
+   .react-calendar__tile--active:enabled:hover,
+   .react-calendar__tile--active:enabled:focus {
+    background: #000000;
+    color: rgb(214, 33, 33);
+   }
+   .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #000000;
+   }
+   .react-calendar__tile--range {
+    background: #000000;
+    color: #6f48eb;
+    border-radius: 0;
+   }
+   .react-calendar__tile--rangeStart {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: #000000;
+    color: white;
+   }
+   .react-calendar__tile--rangeEnd {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background: #050505;
+    color: white;
+   }
+.like-button-wrapper::before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  will-change: background-color;
+  transition: background-color 0.3s, transform 0.3s;
+  background-color: #1f75c4;
+  box-shadow: 0 0 10px #1f75c4;
+  border-radius: 8px;
+}
+.like-button-wrapper.liked::before {
+  background-color: rgba(4, 32, 57, 0.1803921569);
+}
+.like-button-wrapper .suffix {
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  transform: translateX(15px);
+}
+.like-button-wrapper .suffix.liked {
+  opacity: 1;
+  transform: translateX(0);
+}
+.sup-page{
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+.image1{
+    width: 230px;
+    height: 150px;
+    box-shadow: 8px 8px 8px 8px black, 2px 2px 2px 0 #1b1b1b;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-container {
+  padding: 30px;
+}
+
+/* HEADING */
+.heading {
+  text-align: center;
+}
+
+.heading__title {
+  font-weight: 600;
+}
+
+.heading__credits {
+  margin: 10px 0px;
+  color: #888888;
+  font-size: 25px;
+  transition: all 0.5s;
+}
+
+.heading__link {
+  text-decoration: none;
+}
+
+.heading__credits .heading__link {
+  color: inherit;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+  min-height: 200px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.card__link,
+.card__exit,
+.card__icon {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card__link::after {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+}
+
+.card__link:hover::after {
+  width: 100%;
+}
+
+.card__exit {
+  grid-row: 1/2;
+  justify-self: end;
+}
+
+.card__icon {
+  grid-row: 2/3;
+  font-size: 30px;
+}
+
+.card__title {
+  grid-row: 3/4;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.card__apply {
+  grid-row: 4/5;
+  align-self: center;
+}
+
+/* CARD BACKGROUNDS */
+.card-1 {
+  background: radial-gradient(#1fe4f5, #3fbafe);
+}
+
+.card-2 {
+  background: radial-gradient(#fbc1cc, #fa99b2);
+}
+
+.card-3 {
+  background: radial-gradient(#76b2fe, #b69efe);
+}
+
+.card-4 {
+  background: radial-gradient(#60efbc, #58d5c9);
+}
+
+.card-5 {
+  background: radial-gradient(#f588d8, #c0a3e5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1600px) {
+  .cards {
+    justify-content: center;
+  }
+}
 .form-container-group {
     width: 450px;
     background-color: black;
@@ -111,13 +378,7 @@ button:disabled {
 
 }
 
-/* .edit-group{
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid rgb(17, 146, 45);
-    color: white;
-    text-decoration: none;  
-} */
+
 
 .title-group {
     margin-top: 20px;
@@ -132,40 +393,28 @@ button:disabled {
     font-family:'poppin';
 }
 
-.group-title{
-    margin-top: 10px;
-    text-align: center;
-   
-    padding: 20px 60px;
-    border-radius: 20px;
-    font-size: 18px;
-}
 
-.landing_img_inv{
-    margin-right: 50px;   
-}
 
-.table-Inv {
-    border: 2px solid #999;
+.table-ab{ 
+    border: 3px solid white;
+    border-radius:8px;
     padding: 0.5rem;
-    color: black;
+    font-size: 20px; 
     margin-left: 300px;
-    margin-top: 120px;
-    font-size: 14px;
-    background-color: white;
+    margin-top: 120px; 
     width: auto;
+   background-color: #1b1b1b;
 }
 
-td, th {
-    border: 1px solid #999;
-    padding: 0.5rem;
-    width:auto;
-    height: 40px;
-  }
 
-.tablealign-inv{
-    margin-bottom: 100px;
-}  
+.table-ab th{
+    color: white;
+    background-color: #454546;
+}
+
+.table-ab td{
+    color: white;
+}
 
 
 
@@ -246,12 +495,12 @@ ul {
   width: 500px;
   height: 65vh;
   /*  */
-  background: rgba(0, 0, 0, 0.46);
+  background: #15295C;
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid black;
 }
 
 .users-container ul,
@@ -271,7 +520,8 @@ ul {
   margin: 5px auto;
   font-size: 1rem;
   padding: 1rem 1.5rem;
-  color: rgb(93, 165, 233);
+  color: white
+  ;
 }
 
 .users li:hover,
@@ -329,15 +579,15 @@ ul {
 .chat-me {
   justify-self: flex-end;
   text-align: right;
-  background-color: #0f1011;
+  background-color: #8DADF8;
   animation: fademe 0.3s;
 }
 
 .chat-user {
   justify-self: flex-start;
   text-align: left;
-  background-color: #000000;
-  color: #000;
+  background-color: #1D3478;
+  color: white;
   animation: fadeuser 0.3s;
 }
 
@@ -355,7 +605,7 @@ ul {
   border-radius: 2rem;
   outline: 0;
   border: 0;
-  background-color: #130f40;
+  background-color: #1D3478;
   color: #fff;
   font-size: 1.5rem;
   margin-right: 0.5rem;
@@ -396,13 +646,14 @@ ul {
   width: 100%;
   font-size: 18px;
   padding: 1.5rem 2rem;
-  border: none;
+  border: 2;
   outline: 0;
+  border-color: #3333FF;
   border-radius: 20px;
   font-weight: bold;
   font-family: inherit;
   transition: 0.3s;
-  background: rgb(222, 220, 220);
+  background: transparent;
 }
 
 .btn-container {
@@ -434,6 +685,7 @@ ul {
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
+  background-color: #130f40;
 }
 
 .send_btn {
@@ -448,7 +700,7 @@ ul {
 .emoji_btn {
   background-color: inherit;
   border: 2px solid #000;
-  color: #000;
+  color: 130f40;
 }
 
 .send_btn:hover {
@@ -472,18 +724,20 @@ ul {
 .users_heading,
 .rooms_heading,
 .no_rooms {
-  background-color: rgb(93, 165, 233);;
+  background-color: #8DADF8;
+  border: 3;
+  border-color: white;
   border-radius: 20px;
   padding: 1rem 3rem;
   /* margin-bottom: 10px; */
-  color: #000;
+  color: white;
 }
 
 .main_heading {
   background: var(--primary-color);
   margin: 0;
   padding: 1rem;
-  color: #000;
+  color:"white";
 }
 
 .my_socket {
@@ -495,7 +749,7 @@ ul {
 .roomjoined {
   text-align: center;
   font-size: 2rem;
-  color: #000;
+  color: white;
   margin-top: 0.2rem;
 }
 
@@ -644,9 +898,10 @@ button:disabled {
     padding: 0.5rem;
     margin-left: 500px;
     margin-top: 120px;
-    color: black;
+    color: white;
     font-size: 14px;
-    background-color: white;
+    background-color: #1b1b1b;
+
     width: auto;
 }
 
@@ -655,11 +910,19 @@ td, th {
     padding: 0.5rem;
     width:auto;
     height: 40px;
+    color: white;
   }
 
-.tablealign-topic{
-    margin-bottom: 100px;
-}  
+  .table-topic th{
+    color: white;
+    background-color: #454546;
+}
+
+.table-topic td{
+    color: white;
+}
+
+
 
 
 
@@ -794,18 +1057,21 @@ button:disabled {
     border: 2px solid #999;
     padding: 0.5rem;
     color: black;
-    margin-left: 600px;
+    margin-left: 400px;
     margin-top: 160px;
-    font-size: 14px;
-    background-color: white;
+    font-size: 17px;
+    background-color: black;
     width: auto;
 }
-td, th {
+.table-Inv td, th {
     border: 1px solid #999;
+ 
     padding: 0.5rem;
+    background-color: #1b1b1b;
     width:auto;
-    color: #000;
+    color: white;
     height: 40px;
+    width: 130px;
   }
 .tablealign-inv{
     margin-bottom: 100px;

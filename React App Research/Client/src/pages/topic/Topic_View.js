@@ -19,6 +19,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import AlertMsg from '../alert/message';
 
 
 export default class TopicView extends React.Component {
@@ -92,20 +93,20 @@ export default class TopicView extends React.Component {
     console.log(topicdata);
 
     axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
-        .then((res)=> alert(res.data))
-        .catch((err) => alert(err.message))
+    .then((res)=> AlertMsg("success", "success", res.data))
+    .catch((err) => AlertMsg("error", "error", err.message))
    }
 
   render() {
     return (
       <>
-        <div>
+        <div className='topic_page'>
         <Navbar/>
 
          <Box sx={{
                  position: 'absolute',
                  marginTop: '100px',
-                 marginLeft: '295px',
+                 marginLeft: 10,
                  width: 1200,
                  bgcolor: 'background.paper',
                  border: '5px solid black',
@@ -117,12 +118,12 @@ export default class TopicView extends React.Component {
                  <TableContainer component={Paper}>
                    <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
                        <TableHead>
-                       <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
+                       <TableRow sx={{backgroundColor:"gray", height:"60px",color:"white"}}>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Group ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Topic</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader Email</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Action</TableCell>
                        </TableRow>
                        </TableHead>
                        <TableBody>
@@ -140,11 +141,13 @@ export default class TopicView extends React.Component {
                                    //href={item.results}
                                    sx={{ 
                                        marginTop:"10px",
-                                       width:"100px",
-                                       marginRight:"0px"
+                                       width:"120px",
+                                       marginRight:2,
+                                       fontSize:20,
+                                       border:1,
                                    }} >
                                    <ListItemIcon>
-                                     <DeleteIcon color="error"/>
+                                     <DeleteIcon fontSize="medium" color="error"/>
                                       Reject
                                    
                                    </ListItemIcon>
@@ -157,12 +160,14 @@ export default class TopicView extends React.Component {
                                    sx={{ 
                                       marginLeft:"10px",
                                        marginTop:"10px",
-                                       width:"100px",
-                                       marginRight:"10px",
+                                       width:"120px",
+                                       marginRight:2,
+                                       fontSize:20,
+                                       border:1,
                                    }} >
                                    <ListItemIcon>                                    
                                      Accept 
-                                   <SendIcon color="primary"/>                                   
+                                   <SendIcon fontSize="medium" color="primary"/>                                   
                                    
                                    </ListItemIcon>
                                </ListItemButton> 

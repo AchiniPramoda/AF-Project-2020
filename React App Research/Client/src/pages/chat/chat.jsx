@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./chat.css";
 import io from "socket.io-client";
 import Picker from "emoji-picker-react";
+import { Box, Typography } from "@mui/material";
+import { border } from "@mui/system";
 const socket = io("http://localhost:8088");
 
 function Chat() {
@@ -94,14 +96,50 @@ function Chat() {
 
   return (
     <>
-      <h1 className="main_heading">Chat App</h1>
-      <h1 className="my_socket">Me: {socketId}</h1>
-      <h3 className="roomjoined">
+    <Box sx={{width:250,
+                           height:85,
+                           backgroundColor:"black", 
+                           border:4,
+                           borderColor:"#3333FF",
+                           borderRadius:4,color:"white",
+                           marginLeft:78,
+                           marginTop:5
+                           }}>
+      <Typography  sx={{fontSize:28, color:"white", marginLeft:6,marginTop:2}}>Online Chat</Typography>
+    </Box> 
+     
+     <Box sx={{width:520,
+                           height:150,
+                           backgroundColor:"black", 
+                           border:4,
+                           borderColor:"#3333FF",
+                           borderRadius:4,color:"white",
+                           marginLeft:60,
+                           marginTop:5
+                           }}>
+        
+        <Typography  sx={{fontSize:23, color:"white", marginLeft:10,marginTop:2,marginBottom:3}}>Me: {socketId}</Typography>
+   
+     
+     
+    <h3 className="roomjoined">
         {joinedRoom === true
           ? `Room: ${room}`
           : "You are not joined in any room"}
       </h3>
+      </Box>
 
+  <Box sx={{backgroundColor:"black",
+            width:1300,
+            marginLeft:15,
+            marginTop:4,
+            marginRight:15,
+            height:580,
+            border:2,
+            borderRadius:3,
+            borderColor:"white"
+            }}>    
+      
       {!joinedRoom && (
         <div className="container">
           <div className="users-container">
@@ -158,6 +196,7 @@ function Chat() {
             </ul>
           </div>
 
+
           <form className="chat-form" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
@@ -196,8 +235,11 @@ function Chat() {
               }}
             />
           )}
+        
         </>
+        
       )}
+    </Box>
     </>
   );
 }

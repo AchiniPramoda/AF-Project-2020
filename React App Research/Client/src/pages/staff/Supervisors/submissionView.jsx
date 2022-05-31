@@ -220,10 +220,10 @@ export default class ViewAssignmentSubmission extends React.Component {
                                     <Table size="small" sx={{ minWidth: 700, border: '2px solid black', }} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Student ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Download Research</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Student ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Download Research</TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>

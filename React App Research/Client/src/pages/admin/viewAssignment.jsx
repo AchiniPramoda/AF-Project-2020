@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -120,16 +121,8 @@ export default class ViewAssignment extends React.Component {
         console.log(this.state.id);
 
         await axios.put(`http://localhost:8088/assignment/edit/${this.state.id}`, formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
@@ -152,16 +145,8 @@ export default class ViewAssignment extends React.Component {
         console.log(id);
         
         await axios.delete(`http://localhost:8088/assignment/delete/${id}`)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
@@ -499,10 +484,10 @@ export default class ViewAssignment extends React.Component {
                                     <Table size="small" sx={{ minWidth: 700, border: '3px solid white'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Student ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Group ID</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Download Research</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Student ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Group ID</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white", borderColor:"black",border:3}}>Download Research</TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -535,10 +520,10 @@ export default class ViewAssignment extends React.Component {
                         </Modal>
 
                         <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose}>
-                        <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
-                            {this.state.message}
-                        </Alert>
-                    </Snackbar>
+                            <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
+                                {this.state.message}
+                            </Alert>
+                        </Snackbar>
                 </div>
             </>
         )

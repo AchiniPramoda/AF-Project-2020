@@ -65,7 +65,7 @@ router.get("/:id/verify/:token/", async (req, res) => {
 });
 
 //create the update route
-router.put("upadate/:id", async (req, res) => {
+router.put("/upadate/:id", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
 		if (error)
@@ -130,6 +130,53 @@ router.get("/", async (req, res) => {
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
+});
+
+router.get('/view/std', (req, res) => {
+    User
+    .find({type : "Student"})
+    .then((response) => res.json(response))
+    .catch((err) => res.json(err.message));
+});
+
+router.get('/view/sup', (req, res) => {
+    User
+    .find({type : "Supervisor"})
+    .then((response) => res.json(response))
+    .catch((err) => res.json(err.message));
+});
+
+router.get('/view/pmem', (req, res) => {
+    User
+    .find({type : "Panel Member"})
+    .then((response) => res.json(response))
+    .catch((err) => res.json(err.message));
+});
+
+router.get('/view/ad', (req, res) => {
+    User
+    .find({type : "Admin"})
+    .then((response) => res.json(response))
+    .catch((err) => res.json(err.message));
+});
+
+router.put('/edit/:id', (req, res) => {
+    User
+    .findById(req.params.id)
+    .then(response => {
+        response.firstName = req.body.firstName,
+        response.lastName =  req.body.lastName,
+        response.email =  req.body.email,
+        response.password =  req.body.password,
+        response.contact =  req.body.contact,
+        response.type = req.body.type
+
+        response
+        .save()
+        .then(() => res.json("User Updated Successfully..."))
+        .catch((err) => res.json(err.message));
+    })
+    .catch((err) => res.json(err.message));
 });
 
 module.exports = router

@@ -32,6 +32,8 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupIcon from '@mui/icons-material/Group';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export default class Navbar extends React.Component {
 
@@ -246,7 +248,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Student"
+              href="/Student/ViewTopic"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <GroupIcon sx={{  color: "white"}}/>
@@ -297,34 +299,19 @@ export default class Navbar extends React.Component {
         </Collapse>
         <Divider />
 
-        {/* <List sx={{marginTop:1}}>          
-          <ListItem disablePadding>
-            <ListItemButton component="a" 
-              href="/Student/GroupAdd">
-              <ListItemIcon>
-              <GroupsRoundedIcon fontSize="small"  sx={{ color: "white"}}/>
-              </ListItemIcon>
-              <ListItemText sx={{ color: "white"}} >Document Template</ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <Divider/> */}
-
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton 
               component="a" 
               href="/Student/ViewAssignment">
               <ListItemIcon>
-                <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
+                <FileUploadIcon fontSize="small"  sx={{  color: "white"}}/>
               </ListItemIcon>
               <ListItemText sx={{ color: "white"}} >Research Submission</ListItemText>
             </ListItemButton>
           </ListItem>
         </List>        
         <Divider />
-
-
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
@@ -340,13 +327,27 @@ export default class Navbar extends React.Component {
         </List>        
         <Divider />
 
+        <List sx={{marginTop:1}}>          
+          <ListItem disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student/ViewPanelsStudent">
+              <ListItemIcon>
+                <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
+              </ListItemIcon>
+              <ListItemText sx={{ color: "white"}} >Panels View</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>        
+        <Divider />
+
 
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-            
+                <ContactMailIcon fontSize="small" sx={{ color: "white"}}/>
               </ListItemIcon>
               <ListItemText sx={{ color: "white"}} >Contacat Us</ListItemText>
             </ListItemButton>

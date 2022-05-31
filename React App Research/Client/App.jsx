@@ -31,9 +31,20 @@ import AddNotices from "./src/pages/Notice/AddNotice";
 import ViewNotices from "./src/pages/Notice/viewNotice";
 import UdateNotices from "./src/pages/Notice/Update_Notices";
 import AdminSchemaView from './src/pages/admin/viewSchema';
-import StaffSchemaView from './src/pages/staff/Supervisors/viewSchema';
+import StaffSchemaViews from './src/pages/staff/Supervisors/viewSchema';
 import StudentSchemaView from './src/pages/student/viewSchema';
-
+import ViewUsers from './src/pages/admin/viewUsers';
+import ViewSupervisors from './src/pages/admin/viewSupervisors';
+import ViewAdmin from './src/pages/admin/viewAdmin';
+import ViewPanelMembers from './src/pages/admin/viewPanelMem';
+import PanelReg from './src/pages/panels/panelAdd';
+import ViewPanels from './src/pages/panels/viewPanels';
+import ViewPanelsStudent from './src/pages/panels/viewPanelsStudent';
+import ViewPanelsMem from './src/pages/panels/viewPanelsMembers';
+import TopicViewPanel from './src/pages/topic/viewTopicsPanels';
+import ViewAssignmentSubmissionPanel from './src/pages/staff/panel members/researchSubEve';
+import StaffSchemaViewPan from './src/pages/staff/panel members/schemaView';
+import TopicViewStd from './src/pages/topic/viewTopicStudents';
 
 export default class App extends React.Component {
 
@@ -59,6 +70,12 @@ export default class App extends React.Component {
             <Route path="/Admin/Topic_View" element={<TopicView/>} />
             <Route path='/Admin/AddNotices' element={<AddNotices/>}/>
             <Route path='/Admin/viewNotice'element={<ViewNotices/>}/>
+            <Route path="/Admin/ViewUsers" element={<ViewUsers />} />
+            <Route path="/Admin/ViewSupervisors" element={<ViewSupervisors />} />
+            <Route path="/Admin/ViewAdmin" element={<ViewAdmin />} />
+            <Route path="/Admin/ViewPanelMembers" element={<ViewPanelMembers />} />
+            <Route path="/Admin/PanelReg" element={<PanelReg />} />
+            <Route path="/Admin/ViewPanels" element={<ViewPanels />} />
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />
@@ -76,19 +93,25 @@ export default class App extends React.Component {
             <Route path="/Student/Group_Edit/:id" element={<GroupEdit />} />
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
-            <Route path="/Student/ResultView" element={<StudentSchemaView/>} />
+            <Route path="/Student/ResultView" element={<StudentSchemaView/>} />            
+            <Route path="/Student/ViewPanelsStudent" element={<ViewPanelsStudent/>} />          
+            <Route path="/Student/ViewTopic" element={<TopicViewStd/>} />
 
             <Route path="/Panel" element={<PanelMain />} />
             <Route path="/Panel/researchView" element={<ViewAssignmentSubmission />} />
+            <Route path="/Panel/ViewPanelsMem" element={<ViewPanelsMem />} />
+            <Route path="/Panel/TopicViewPanel" element={<TopicViewPanel />} />
+            <Route path="/Panel/researchView" element={< ViewAssignmentSubmissionPanel/>} />
+            <Route path="/Panel/viewSchema" element={< StaffSchemaViewPan/>} />
 
             <Route path="/Supervisor" element={<SupervisorMain />} />
-            <Route path="/Chat" element={<ChatMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
-            
+            <Route path="/Supervisor/viewSchema" element={<StaffSchemaViews />} />
+            <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
             
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
-            <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
-            <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
+            
+            <Route path="/Chat" element={<ChatMain />} />
 
             {/* <Route path="/cal"element={<Cal/>}/> */}
          </Routes>

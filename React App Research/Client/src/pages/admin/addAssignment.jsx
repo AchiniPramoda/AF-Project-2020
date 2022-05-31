@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -68,16 +69,8 @@ export default class AddAssignment extends React.Component{
         formData.append("fileName", this.state.fileName);
 
         await axios.post("http://localhost:8088/assignment/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
@@ -130,7 +123,7 @@ export default class AddAssignment extends React.Component{
                             <DateRangeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                           
+                           fullWidth
                             type="date"
                             id="endDate" 
                             label="" 
@@ -146,7 +139,7 @@ export default class AddAssignment extends React.Component{
                             <AccessTimeIcon fontSize="medium" />
                         </ListItemIcon>
                         <TextField 
-                           
+                           fullWidth
                             type="time"
                             id="endTime" 
                             label="" 
@@ -163,7 +156,7 @@ export default class AddAssignment extends React.Component{
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
-                                                     
+                            fullWidth                        
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
                             id="department"
