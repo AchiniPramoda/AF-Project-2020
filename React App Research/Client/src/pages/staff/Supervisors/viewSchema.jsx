@@ -47,7 +47,7 @@ import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export default class StaffSchemaView extends React.Component {
+export default class StaffSchemaViews extends React.Component {
 
     constructor(props) {
         super(props);
@@ -330,8 +330,8 @@ export default class StaffSchemaView extends React.Component {
 
                             <Box sx={{
                                 position: 'absolute',
-                                top: '50%',
-                                left: '50%',
+                                top: '30%',
+                                left: '57%',
                                 transform: 'translate(-50%, -50%)',
                                 width: 1100,
                                 bgcolor: 'background.paper',
@@ -344,10 +344,10 @@ export default class StaffSchemaView extends React.Component {
                                     <Table size="small" sx={{ minWidth: 700, border: '2px solid black'}} aria-label="customized table">
                                         <TableHead>
                                         <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Assignment Name </TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Lecture Name</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Department</TableCell>
-                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}> Download Rusult </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Assignment Name </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Lecture Name</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Department</TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}> Download Rusult </TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
