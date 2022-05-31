@@ -44,6 +44,7 @@ import ViewPanelsMem from './src/pages/panels/viewPanelsMembers';
 import TopicViewPanel from './src/pages/topic/viewTopicsPanels';
 import ViewAssignmentSubmissionPanel from './src/pages/staff/panel members/researchSubEve';
 import StaffSchemaViewPan from './src/pages/staff/panel members/schemaView';
+import TopicViewStd from './src/pages/topic/viewTopicStudents';
 
 export default class App extends React.Component {
 
@@ -93,7 +94,8 @@ export default class App extends React.Component {
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
             <Route path="/Student/ResultView" element={<StudentSchemaView/>} />            
-            <Route path="/Student/ViewPanelsStudent" element={<ViewPanelsStudent/>} />
+            <Route path="/Student/ViewPanelsStudent" element={<ViewPanelsStudent/>} />          
+            <Route path="/Student/ViewTopic" element={<TopicViewStd/>} />
 
             <Route path="/Panel" element={<PanelMain />} />
             <Route path="/Panel/researchView" element={<ViewAssignmentSubmission />} />

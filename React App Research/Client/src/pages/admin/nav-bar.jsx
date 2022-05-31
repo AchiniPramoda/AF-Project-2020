@@ -201,6 +201,8 @@ export default class Navbar extends React.Component {
               flexShrink: 0,
               '& .MuiDrawer-paper': {
                 width: 250,
+                minHeight:"800px",
+                height:"auto",
                 boxSizing: 'border-box',
                 marginTop:8,
                 backgroundColor: "black", 
@@ -351,7 +353,7 @@ export default class Navbar extends React.Component {
         <List>          
           <ListItem disablePadding>
             <ListItemButton  component="a" 
-              href="/Admin/Topic_View"  >
+              href=""  >
               <ListItemIcon>
                  <PersonAddAltRoundedIcon sx={{  color: "white"}}/>
               </ListItemIcon>
