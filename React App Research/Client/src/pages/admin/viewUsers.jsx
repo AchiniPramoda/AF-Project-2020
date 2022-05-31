@@ -63,8 +63,8 @@ export default class ViewUsers extends React.Component {
 
     onDeleteHandlle = async (id) => {
         await axios.delete(`http://localhost:8088/register/${id}`)
-        .then((res)=> alert(res.data)  )
-        .catch((err) => console.error(err))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location.reload());
     }
 
@@ -120,16 +120,8 @@ export default class ViewUsers extends React.Component {
 
         try {
 		 await axios.put(`http://localhost:8088/register/edit/${this.state.userID}`, student)
-        .then((res)=> this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
+         .then((res)=> AlertMsg("success", "success", res.data))
+         .catch((err) => AlertMsg("error", "error", err.message))
         .finally(() => window.location.reload())
 
 		} catch (error) {

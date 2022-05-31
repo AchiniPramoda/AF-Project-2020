@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Navbar from './../admin/nav-bar'
 import './../../component/css/Page.css'
+import AlertMsg from './../alert/message';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -131,16 +132,8 @@ export default class ViewPanels extends React.Component {
         console.log(panel);
     
         await axios.put(`http://localhost:8088/panels/edit/${this.state.id}`, panel)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }));
+        .then((res)=> AlertMsg('success', res.data))
+        .catch((err) => AlertMsg('error', err.message))
 
         window.location.reload();
       }
@@ -149,16 +142,8 @@ export default class ViewPanels extends React.Component {
         console.log(id);
         
         await axios.delete(`http://localhost:8088/panels/delete/${id}`)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }));
+        .then((res)=> AlertMsg('success', res.data))
+        .catch((err) => AlertMsg('false', err.message))
         
         window.location.reload();
     }
@@ -175,7 +160,7 @@ export default class ViewPanels extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1> ViewPanels </h1>
+                    <h1 style={{color:"white"}}> ViewPanels </h1>
 
                     {this.state.panels.map((panel) => (
 
