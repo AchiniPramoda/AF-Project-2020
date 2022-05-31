@@ -407,7 +407,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href=""
+              href="/Admin/ViewPanels"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <AssignmentOutlinedIcon sx={{  color: "white"}}/>

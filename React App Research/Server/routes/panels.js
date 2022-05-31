@@ -22,7 +22,7 @@ router.post('/add', (req, res) => {
 router.get('/view', (req, res) => {
     Panels
     .find()
-    .then(response => res.json(response))
+    .then((response) => res.json(response))
     .catch((err) => res.json(err.message));
 });
 
