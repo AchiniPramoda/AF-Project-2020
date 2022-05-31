@@ -167,7 +167,7 @@ export default class ViewUsers extends React.Component {
                         position: 'absolute',
                         marginTop: '0px',
                         marginLeft: '50px',
-                        width: 1000,
+                        width: "auto",
                         bgcolor: 'background.paper',
                         border: "2px solid white",
                         borderRadius:4,
@@ -181,10 +181,10 @@ export default class ViewUsers extends React.Component {
                    <Table size="small" sx={{ minWidth: 1000, maxWidth: 1000, border: '2px solid black'}} aria-label="customized table">
                        <TableHead>
                        <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>User Name</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Email</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Contact</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3}}>Action</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3, color:"white"}}>User Name</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3, color:"white"}}>Email</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3, color:"white"}}>Contact</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", borderColor:"black",border:3, color:"white"}}>Action</TableCell>
                        </TableRow>
                        </TableHead>
                        <TableBody>

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AlertMsg from '../alert/message';
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -64,17 +65,8 @@ export default class AddSchema extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.post("http://localhost:8088/marking/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
-        .finally(() => {})
+        .then((res)=> AlertMsg('success', res.data))
+        .catch((err) => AlertMsg('false', err.message))
 
         window.location = `/Admin/viewSchema`;
     }
