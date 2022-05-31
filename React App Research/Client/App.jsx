@@ -39,6 +39,11 @@ import ViewAdmin from './src/pages/admin/viewAdmin';
 import ViewPanelMembers from './src/pages/admin/viewPanelMem';
 import PanelReg from './src/pages/panels/panelAdd';
 import ViewPanels from './src/pages/panels/viewPanels';
+import ViewPanelsStudent from './src/pages/panels/viewPanelsStudent';
+import ViewPanelsMem from './src/pages/panels/viewPanelsMembers';
+import TopicViewPanel from './src/pages/topic/viewTopicsPanels';
+import ViewAssignmentSubmissionPanel from './src/pages/staff/panel members/researchSubEve';
+import StaffSchemaViewPan from './src/pages/staff/panel members/schemaView';
 
 export default class App extends React.Component {
 
@@ -87,19 +92,24 @@ export default class App extends React.Component {
             <Route path="/Student/Group_Edit/:id" element={<GroupEdit />} />
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
-            <Route path="/Student/ResultView" element={<StudentSchemaView/>} />
+            <Route path="/Student/ResultView" element={<StudentSchemaView/>} />            
+            <Route path="/Student/ViewPanelsStudent" element={<ViewPanelsStudent/>} />
 
             <Route path="/Panel" element={<PanelMain />} />
             <Route path="/Panel/researchView" element={<ViewAssignmentSubmission />} />
+            <Route path="/Panel/ViewPanelsMem" element={<ViewPanelsMem />} />
+            <Route path="/Panel/TopicViewPanel" element={<TopicViewPanel />} />
+            <Route path="/Panel/researchView" element={< ViewAssignmentSubmissionPanel/>} />
+            <Route path="/Panel/viewSchema" element={< StaffSchemaViewPan/>} />
 
             <Route path="/Supervisor" element={<SupervisorMain />} />
-            <Route path="/Chat" element={<ChatMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
-            
-            
-            <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaView />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
+            
+            <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
+            
+            <Route path="/Chat" element={<ChatMain />} />
 
             {/* <Route path="/cal"element={<Cal/>}/> */}
          </Routes>
