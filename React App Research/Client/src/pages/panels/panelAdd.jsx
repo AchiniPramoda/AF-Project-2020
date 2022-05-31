@@ -11,6 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 export default class PanelReg extends React.Component{
 
@@ -66,7 +67,9 @@ export default class PanelReg extends React.Component{
 
     await axios.post("http://localhost:8088/panels/add", panel)
     .then((res)=> alert(res.data))
-    .catch((err) => console.error(err));
+    .catch((err) => console.error(err))
+    
+    window.location = "/Admin/ViewPanels";
   }
 
   render() {
@@ -90,8 +93,9 @@ export default class PanelReg extends React.Component{
             }}>
               <h1 style={{color: 'white'}}> Add Panels </h1>
 
-              <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+              <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+              <Typography>Panel ID</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <PermIdentityRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>
@@ -105,8 +109,9 @@ export default class PanelReg extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+                    <Typography>Panel Member 01</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <ApartmentRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>
@@ -127,8 +132,9 @@ export default class PanelReg extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+                    <Typography>Panel Member 02</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <ApartmentRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>
@@ -149,8 +155,9 @@ export default class PanelReg extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+                    <Typography>Group  01</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <ApartmentRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>
@@ -171,8 +178,9 @@ export default class PanelReg extends React.Component{
                         </ListItem>
                     </FormGroup>
                     
-                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+                    <Typography>Group  02</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <ApartmentRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>
@@ -193,8 +201,9 @@ export default class PanelReg extends React.Component{
                         </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350,border:1,borderColor:"blue"}}>
-                        <ListItem sx={{backgroundColor:"whitesmoke"}} >
+                    <FormGroup sx={{marginTop:3,marginLeft:4,width:350}}>
+                    <Typography>Group  03</Typography>
+                        <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
                             {/* <ApartmentRoundedIcon fontSize="medium" /> */}
                         </ListItemIcon>

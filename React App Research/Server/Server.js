@@ -130,3 +130,6 @@ app.use('/marking',MarkingSchema);
 
 const resultSubmission = require('./routes/resultSubmission');
 app.use('/results',resultSubmission);
+
+const panels = require('./routes/panels');
+app.use('/panels',panels);

@@ -38,6 +38,7 @@ import ViewSupervisors from './src/pages/admin/viewSupervisors';
 import ViewAdmin from './src/pages/admin/viewAdmin';
 import ViewPanelMembers from './src/pages/admin/viewPanelMem';
 import PanelReg from './src/pages/panels/panelAdd';
+import ViewPanels from './src/pages/panels/viewPanels';
 
 export default class App extends React.Component {
 
@@ -68,6 +69,7 @@ export default class App extends React.Component {
             <Route path="/Admin/ViewAdmin" element={<ViewAdmin />} />
             <Route path="/Admin/ViewPanelMembers" element={<ViewPanelMembers />} />
             <Route path="/Admin/PanelReg" element={<PanelReg />} />
+            <Route path="/Admin/ViewPanels" element={<ViewPanels />} />
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />

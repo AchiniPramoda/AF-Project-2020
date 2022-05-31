@@ -535,10 +535,10 @@ export default class ViewAssignment extends React.Component {
                         </Modal>
 
                         <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose}>
-                        <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
-                            {this.state.message}
-                        </Alert>
-                    </Snackbar>
+                            <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
+                                {this.state.message}
+                            </Alert>
+                        </Snackbar>
                 </div>
             </>
         )
