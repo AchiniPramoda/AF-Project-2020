@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Addview.css';
 import axios from "axios";
-import Navbar from '../student/nav-bar';
+import Navbar from '../Admin/nav-bar';
 import AlertMsg from '../alert/message'; 
 
 import{ MDBInput, MDBBtn } from "mdbreact";

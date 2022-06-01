@@ -98,7 +98,7 @@ function SuperMain() {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="Supervisor/Topic_View">
                               Topic
                           </Button >
                     </Container>

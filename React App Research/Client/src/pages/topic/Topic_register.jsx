@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import './Topic.css'
 import Navbar from '../student/nav-bar';
-import Image from '../../component/images/1.jpg';
-import { Container } from "@mui/material";
+
 
 function TopicRegister() {
 

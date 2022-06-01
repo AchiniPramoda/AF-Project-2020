@@ -129,6 +129,45 @@ export default class TopicViewPanel extends React.Component {
                    </Table>
                </TableContainer>
              </Box>
+
+
+         {/* <div class="tablealign-topic">
+                  <table class="table-topic">
+
+
+
+                    <tr>
+                       <th>Leader ID</th>
+                       <th>Group ID</th>
+                       <th>Topic</th>
+                       <th>Email</th>
+                       <th>Action</th>                                 
+                    </tr>
+          
+              {this.state.topic.map((view)  => 
+              <tr>
+               <td>{view.stdID}</td>
+               <td>{view.grpID}</td>
+               <td>{view.title}</td>
+               <td>{view.email}</td>
+                  <td>
+                    <Stack direction="row" spacing={3}>
+                     
+
+                 <Button variant="outlined"  onClick={() => this.rejectTopic(view._id)} startIcon={<DeleteIcon />}>
+                         Reject
+                 </Button>
+                   <Button variant="contained"  onClick={() => this.accepttopic(view._id)} endIcon={<SendIcon />}>
+                        Accept
+                  </Button>
+
+                </Stack>
+                </td>
+           </tr>  
+           )}
+
+             </table>
+          </div>             */}
         </div>
       </>
     )

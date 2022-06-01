@@ -245,7 +245,7 @@ export default class Navbar extends React.Component {
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
-                href="">
+                href="/Panel/ContactUs">
               <ListItemIcon>
               <ContactMailIcon fontSize="small" sx={{ color: "white"}}/>  
         

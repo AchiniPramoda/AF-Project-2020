@@ -87,8 +87,8 @@ render () {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
-                              Panels
+                                                                               href="/Student/GroupStudentView">
+                              Groups
                           </Button >
                     </Container>     
             </Box>
@@ -119,7 +119,7 @@ render () {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="/Student/Topic_view_std">
                               Topic
                           </Button >
                     </Container>
@@ -151,7 +151,7 @@ render () {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="/Student/ViewAssignment">
                               Submission
                           </Button >
                     </Container>
@@ -183,8 +183,8 @@ render () {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
-                              Evalution
+                                                                               href="Student/ResultView">
+                               Results
                           </Button >
                     </Container>
            
