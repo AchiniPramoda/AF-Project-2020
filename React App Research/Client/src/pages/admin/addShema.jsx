@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import AlertMsg from '../alert/message';
-
+// import AlertMsg from '../alert/message';
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
+import  {Alert} from '../alert/message';
 
+import  ShemaValidations from "../validation/AddShechema";
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -18,7 +19,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+// import Alert from '@mui/material/Alert';
 import Container from '@mui/material/Container';
 import ListItem from '@mui/material/ListItem';
 import { borderRadius } from '@mui/system';
@@ -54,28 +55,60 @@ export default class AddSchema extends React.Component {
     onChageSelected = (e) => {
         this.setState({department: e.target.value});
     }
+   // Function for Check Status code
+   handleError = (err) => {
+    if (err) {
+        if (err.response) {
+            if (err.response.status === 404) {
+                Alert("error", "Something went wrong!", err.response.data)
 
-    onSubmit = async (e) => {
+            }
+        } else {
+            Alert("error", "Something went wrong.", err)
+
+        }
+    }
+}
+    onSubmit =  (e) => {
         e.preventDefault();
 
-        let formData = new FormData();
+        const result = ShemaValidations({
+            schemaName: this.state.schemaName,
+            department: this.state.department
+
+        });
+        if (result.status) {
+        const  formData = new FormData();
         formData.append("schemaName", this.state.schemaName);
         formData.append("department", this.state.department);
         formData.append("schema", this.state.schema);
         formData.append("fileName", this.state.fileName);
 
-        await axios.post("http://localhost:8088/marking/add", formData)
-        .then((res)=> AlertMsg("success", "success", res.data))
-        .catch((err) => AlertMsg("error", "error", err.message))
-
-        window.location = `/Admin/viewSchema`;
+      axios.post("http://localhost:8088/marking/add", formData)
+            .then(res => {
+                Alert("success", "Done!", "Schema Created Successfully.");
+                this.setState({
+                    schemaName:"",
+                    department:"",
+                    schema:null,
+                    fileName:"Insert File",
+                    message: "",
+                    type:"",
+                    open: true
+                    
+                })
+            })
+            .catch(err => {
+                this.handleError(err);
+            })
+        } else {
+            Alert("error", "Something went wrong!", result.error)
+        }
     }
 
-    handleClose = () => {
-        this.setState({
-            open: false
-        })
-    }
+
+
+
 
     render() {
         return (
@@ -83,8 +116,6 @@ export default class AddSchema extends React.Component {
                 <div className="AllView">
                     <Navbar/>
                     
-                 
-
                  <Container sx={{ 
                             backgroundColor: "black", 
                             color: "white",

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import  {Alert} from '../alert/message';
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
 
@@ -13,7 +13,7 @@ import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+// import Alert from '@mui/material/Alert';
 import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -22,6 +22,8 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Container from '@mui/material/Container';
 import ListItem from '@mui/material/ListItem';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+
+import  AssgmentValidations from "./../validation/Addassigment";
 
 export default class AddAssignment extends React.Component{
 
@@ -40,7 +42,20 @@ export default class AddAssignment extends React.Component{
             open:false
         }
     }
-    
+       // Function for Check Status code
+       handleError = (err) => {
+        if (err) {
+            if (err.response) {
+                if (err.response.status === 404) {
+                    Alert("error", "Something went wrong!", err.response.data)
+
+                }
+            } else {
+                Alert("error", "Something went wrong.", err)
+
+            }
+        }
+    }
     onChange = (e) => {        
         this.setState({[e.target.id]: e.target.value});
     }
@@ -56,10 +71,18 @@ export default class AddAssignment extends React.Component{
         this.setState({department: e.target.value});
     }
 
-    onSubmit = async (e) => {
+    onSubmit =  (e) => {
         e.preventDefault();
 
-        let formData = new FormData();
+        const result = AssgmentValidations({
+            asgName: this.state.asgName,
+            endDate: this.state.endDate,
+            endTime: this.state.endTime,
+            department: this.state.department
+        });
+       
+     if(result.status){
+        const formData = new FormData();
         formData.append("asgName", this.state.asgName);
         formData.append("endDate", this.state.endDate);
         formData.append("endTime", this.state.endTime);
@@ -67,25 +90,32 @@ export default class AddAssignment extends React.Component{
         formData.append("template", this.state.template);
         formData.append("fileName", this.state.fileName);
 
-        await axios.post("http://localhost:8088/assignment/add", formData)
-        .then((res)=> this.setState({
-            message: res.data,
-            type:"success",
-            open: true
-        }))
-        .catch((err) => this.setState({
-            message: err.message,
-            type:"error",
-            open: true
-        }))
-        .finally(() => window.location = '/Admin/ViewAssignment');
+      axios.post("http://localhost:8088/assignment/add", formData)
+         
+        .then(res => {
+            Alert( "success", "Assignment Added Successfully");
+            this.setState({
+                asgName:"",
+                endDate:"",
+                endTime:"",
+                template:"",
+                department:"",
+                fileName:"Insert File",
+                message:"",
+                type:"",
+             
+            })
+            window.location.reload("/Admin/ViewAssignment");                                                                       
+        }).catch(err => {
+            this.handleError(err);
+        })
+        }else{
+            Alert("error", "Form Validation Error!", result.error)
+
+        }
     }
 
-    handleClose = () => {
-        this.setState({
-            open: false
-        })
-    }
+
 
     render() {
         return (
@@ -130,9 +160,11 @@ export default class AddAssignment extends React.Component{
                         <ListItemIcon>
                             <DateRangeIcon fontSize="medium" />
                         </ListItemIcon>
+                        <InputLabel id="demo-simple-select-standard-label">End Date</InputLabel>
                         <TextField 
                            
                             type="date"
+                            placeholder="End Date"
                             id="endDate" 
                             label="" 
                             variant="standard"
@@ -146,11 +178,13 @@ export default class AddAssignment extends React.Component{
                         <ListItemIcon>
                             <AccessTimeIcon fontSize="medium" />
                         </ListItemIcon>
+                        <InputLabel id="demo-simple-select-standard-label">End Time  </InputLabel>
                         <TextField 
                            
                             type="time"
                             id="endTime" 
                             label="" 
+                            placeholder="End Time"
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -162,10 +196,11 @@ export default class AddAssignment extends React.Component{
                         <ListItemIcon>
                             <ApartmentRoundedIcon fontSize="medium" />
                         </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+                        <InputLabel id="demo-simple-select-standard-label">Department</InputLabel>
                         <Select  
                                                      
                             variant="standard"
+                            placeholder='Department'
                             labelId="demo-simple-select-standard-label"
                             id="department"
                             value={this.state.department}
