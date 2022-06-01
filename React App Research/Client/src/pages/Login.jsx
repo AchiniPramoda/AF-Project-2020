@@ -12,7 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import FormGroup from '@mui/material/FormGroup';
+
 import LockRoundedIcon from '@mui/icons-material/LockRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -124,7 +124,9 @@ export default class LogIn extends React.Component {
                         <TextField
                         fullWidth 
                         label="Email"
+                        placeholder="Email"
                         id="email"
+                        data-testid="email"
                         defaultValue=""
                         variant="filled"
                         onChange={(e) => this.onChange(e)}
@@ -141,7 +143,9 @@ export default class LogIn extends React.Component {
                             fullWidth
                             id="password"
                             label="Password"
+                            placeholder="Password"
                             type="password"
+                            data-testid="password"
                             autoComplete="current-password"
                             variant="filled"
                             onChange={(e) => this.onChange(e)}
@@ -173,8 +177,10 @@ export default class LogIn extends React.Component {
 
                         <Button 
                         fullWidth
+                        placeholder="Sign In"
                         onClick={this.onSignIn}
                         variant="contained" 
+                        data-testid="submit"
                         color="success">
                         Sign In
                         </Button>

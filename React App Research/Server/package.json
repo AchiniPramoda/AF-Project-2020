@@ -4,7 +4,8 @@
   "description": "",
   "main": "Server.js",
   "scripts": {
-    "start": "nodemon Server"
+    "start": "nodemon Server",
+    "test": "jest --forceExit --detectOpenHandles "
   },
   "keywords": [],
   "author": "",
@@ -25,5 +26,12 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^28.1.0",
+    "superagent": "^7.1.6",
+    "supertest": "^6.2.3"
   }
 }
