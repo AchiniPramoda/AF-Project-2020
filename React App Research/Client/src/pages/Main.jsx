@@ -18,7 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
+
 import Menu from '@mui/material/Menu';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -31,12 +31,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import ManRoundedIcon from '@mui/icons-material/ManRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
-import TopicRoundedIcon from '@mui/icons-material/TopicRounded';
 
+import "./main.scss";
 export default class Header extends React.PureComponent {
 
   constructor(props) {
@@ -333,6 +332,44 @@ export default class Header extends React.PureComponent {
         </List>
       </Drawer>
 
+      <div class="untitled">
+	<div class="untitled__slides">
+		<div class="untitled__slide">
+			<div class="untitled__slideBg"></div>
+			<div class="untitled__slideContent">
+				<span>Computing</span> 
+				<span>Faculty</span>
+				<a class="button" href="https://unsplash.com/@scoutthecity" target="/black">Unsplash Profile</a>
+			</div>
+		</div>
+		<div class="untitled__slide">
+			<div class="untitled__slideBg"></div>
+			<div class="untitled__slideContent">
+				
+				<span>Vladimir</span> 
+				<span>Kudinov</span>
+				<a class="button" href="https://unsplash.com/@madbyte" target="/black">Unsplash Profile</a>
+			</div>
+		</div>
+		<div class="untitled__slide">
+			<div class="untitled__slideBg"></div>
+			<div class="untitled__slideContent">
+				<span>Macio</span> 
+				<span>Amorim</span>
+				<a class="button" href="https://unsplash.com/@maicoamorim" target="/black">Unsplash Profile</a>
+			</div>
+		</div>
+		<div class="untitled__slide">
+			<div class="untitled__slideBg"></div>
+			<div class="untitled__slideContent">
+				<span>Mario</span> 
+				<span>Calvo</span>
+				<a class="button" href="https://unsplash.com/@mariocalvo" target="/black">Unsplash Profile</a>
+			</div>
+		</div>
+	</div>
+	<div class="untitled__shutters"></div>
+</div>
      <Modal
         open={this.state.log}
         onClose={this.signModalClose}
@@ -432,6 +469,8 @@ export default class Header extends React.PureComponent {
           
         </Box>
       </Modal>
+
+      
           </>
         )
     }
