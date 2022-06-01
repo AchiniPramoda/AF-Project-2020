@@ -386,7 +386,7 @@ export default class AdminSchemaView extends React.Component {
                                 fontSize:"25px",
                                 fontWeight:"bold",
                              }}>
-                            Edit Assignment
+                            Edit Schema
                         </Typography>
 
                         <FormGroup sx={{marginTop:4, marginLeft:4, marginRight:4, borderRadius:3}}>

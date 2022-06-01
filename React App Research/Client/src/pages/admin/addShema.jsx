@@ -71,7 +71,6 @@ export default class AddSchema extends React.Component {
 }
     onSubmit =  (e) => {
         e.preventDefault();
-
         const result = ShemaValidations({
             schemaName: this.state.schemaName,
             department: this.state.department
@@ -86,7 +85,7 @@ export default class AddSchema extends React.Component {
 
       axios.post("http://localhost:8088/marking/add", formData)
             .then(res => {
-                Alert("success", "Done!", "Schema Created Successfully.");
+                 Alert("success", "Done!", "Schema Created Successfully.");
                 this.setState({
                     schemaName:"",
                     department:"",
@@ -102,7 +101,7 @@ export default class AddSchema extends React.Component {
                 this.handleError(err);
             })
         } else {
-            Alert("error", "Something went wrong!", result.error)
+           Alert("error", "Something went wrong!", result.error)
         }
     }
 
@@ -145,7 +144,7 @@ export default class AddSchema extends React.Component {
                         <TextField 
                             fullWidth
                             id="schemaName" 
-                            label="Assignment Name" 
+                            label="Marking Name" 
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="small" required/>
@@ -165,19 +164,18 @@ export default class AddSchema extends React.Component {
                            <ListItemIcon>
                                <ApartmentRoundedIcon fontSize="medium" />
                            </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label"></InputLabel>
+                        <InputLabel id="demo-simple-select-standard-label">Department  </InputLabel>
+                        <br/>
                     
                      <Select 
-                            fullWidth                           
+                                width="100%"                     
                             variant="standard"
                             labelId="demo-simple-select-standard-label"
-                            label="Department" 
                             id="department"
-                           
-                           
+                
                             value={this.state.asgDep}
                             onChange={(e) => this.onChageSelected(e)}
-                            lable="Department"
+                       
                             >
                             <MenuItem value="">None</MenuItem>
                             <MenuItem value="IT">IT</MenuItem>
@@ -231,12 +229,12 @@ export default class AddSchema extends React.Component {
                     </Button>
 
                     </Container>
-                    
+{/*                     
                     <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
                         <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
                             {this.state.message}
                         </Alert>
-                    </Snackbar>
+                    </Snackbar> */}
                 </div>
             </>
         )
