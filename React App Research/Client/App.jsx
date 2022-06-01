@@ -112,6 +112,7 @@ export default class App extends React.Component {
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             
             <Route path="/Chat" element={<ChatMain />} />
+            
 
             {/* <Route path="/cal"element={<Cal/>}/> */}
          </Routes>
