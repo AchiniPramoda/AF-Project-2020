@@ -105,7 +105,7 @@ export default class AddAssignment extends React.Component{
                 type:"",
              
             })
-            window.location.reload("/Admin/ViewAssignment");
+            window.location.reload("/Admin/ViewAssignment");                                                                       
         }).catch(err => {
             this.handleError(err);
         })
