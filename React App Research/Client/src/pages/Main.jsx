@@ -123,7 +123,7 @@ export default class Header extends React.PureComponent {
 			const { data: res } = await axios.post(url, user);
 			localStorage.setItem("token", res.data.token);
             console.log(res);
-			//window.location = "/best";
+			window.location = "/best";
             if(res.data.type == "Student") {
                 window.location = "/Student"
             }else if(res.data.type == "Panel Member") {

@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 
-export const Alert = (icon, title, text) => {
-    Swal.fire({
-        icon: icon,
-        title: title,
-        text: text,
+const AlertMsg = ( booSucess, atype, msg ) => {
+    return Swal.fire({
+        icon: booSucess ,
+        type:atype,
+        title: msg
     });
 }
+
+export default AlertMsg;
