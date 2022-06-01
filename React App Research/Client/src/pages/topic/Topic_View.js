@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 
 import axios from 'axios';
-import Navbar from '../staff/Supervisors/nav-bar';
+import Navbar from '../Admin/nav-bar';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -19,6 +19,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { Typography } from '@mui/material';
 
 
 export default class TopicView extends React.Component {
@@ -102,9 +103,14 @@ export default class TopicView extends React.Component {
         <div>
         <Navbar/>
 
+  
+        <Box sx={{  border: '4px dashed white', marginTop:10 }}>
+<h1 style={{color: 'white'}}>Evelution Topic</h1>
+</Box>
+
          <Box sx={{
                  position: 'absolute',
-                 marginTop: '100px',
+                 marginTop: '70px',
                  marginLeft: '295px',
                  width: 1200,
                  bgcolor: 'background.paper',
@@ -113,16 +119,17 @@ export default class TopicView extends React.Component {
                  backgroundColor:"white",
                  p: 0.5
              }}>
+             
 
                  <TableContainer component={Paper}>
                    <Table size="small" sx={{ minWidth: 1000, maxWidth: 1200, border: '2px solid black'}} aria-label="customized table">
                        <TableHead>
                        <TableRow sx={{backgroundColor:"gray", height:"10px"}}>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Group ID</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Topic</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Leader Email</TableCell>
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold"}}>Action</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Group ID</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Topic</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader Email</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Action</TableCell>
                        </TableRow>
                        </TableHead>
                        <TableBody>

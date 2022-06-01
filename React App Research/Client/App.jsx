@@ -45,6 +45,10 @@ import TopicViewPanel from './src/pages/topic/viewTopicsPanels';
 import ViewAssignmentSubmissionPanel from './src/pages/staff/panel members/researchSubEve';
 import StaffSchemaViewPan from './src/pages/staff/panel members/schemaView';
 import TopicViewStd from './src/pages/topic/viewTopicStudents';
+import ContactUS from './src/pages/student/Contactus';
+import GroupStudentView from './src/pages/group/groupStudentView';
+import ContactUSSupervisor from './src/pages/staff/Supervisors/ContactUsSupervisor';
+import ContactUSPanel from './src/pages/staff/panel members/contactUsPanel';
 
 export default class App extends React.Component {
 
@@ -95,23 +99,29 @@ export default class App extends React.Component {
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
             <Route path="/Student/ResultView" element={<StudentSchemaView/>} />            
             <Route path="/Student/ViewPanelsStudent" element={<ViewPanelsStudent/>} />          
-            <Route path="/Student/ViewTopic" element={<TopicViewStd/>} />
+            <Route path="/Student/Contact" element={<ContactUS/>} />
+            <Route path="/Student/GroupStudentView" element={<GroupStudentView/>} />
+   
+           
 
             <Route path="/Panel" element={<PanelMain />} />
-            <Route path="/Panel/researchView" element={<ViewAssignmentSubmission />} />
+         
             <Route path="/Panel/ViewPanelsMem" element={<ViewPanelsMem />} />
             <Route path="/Panel/TopicViewPanel" element={<TopicViewPanel />} />
             <Route path="/Panel/researchView" element={< ViewAssignmentSubmissionPanel/>} />
             <Route path="/Panel/viewSchema" element={< StaffSchemaViewPan/>} />
-
+            <Route path="/Panel/ContactUs" element={<ContactUSPanel/>} />
+ 
             <Route path="/Supervisor" element={<SupervisorMain />} />
             <Route path="/Supervisor/researchView" element={<ViewAssignmentSubmission />} />
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaViews />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
+            <Route path="/Supervisor/contactUs" element={<ContactUSSupervisor/>} />
             
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             
             <Route path="/Chat" element={<ChatMain />} />
+          
 
             {/* <Route path="/cal"element={<Cal/>}/> */}
          </Routes>

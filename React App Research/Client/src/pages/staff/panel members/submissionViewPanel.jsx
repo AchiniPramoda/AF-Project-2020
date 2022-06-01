@@ -32,7 +32,7 @@ import Paper from '@mui/material/Paper';
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import ListItemText from '@mui/material/ListItemText';
 
-export default class ViewAssignmentSubmission extends React.Component {
+export default class ViewAssignmentSubmissionPanel extends React.Component {
 
     constructor(props) {
         super(props);

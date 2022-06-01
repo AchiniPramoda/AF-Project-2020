@@ -332,6 +332,8 @@ export default class StaffSchemaViews extends React.Component {
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Lecture Name</TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}>Department</TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}> Download Rusult </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}> Edit </TableCell>
+                                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold", color:"white"}}> Delete </TableCell>
                                         </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -342,6 +344,7 @@ export default class StaffSchemaViews extends React.Component {
                                             <TableCell align="center" sx={{fontSize:"20px"}}> {item.desc} </TableCell>
                                             <TableCell align="center" sx={{fontSize:"20px"}}> {item.department} </TableCell>
                                             <TableCell align="center">
+                                            
                                                 <ListItemButton
                                                     //onClick={() => this.onDownload(item._id)}
                                                     component="a" 
@@ -357,6 +360,7 @@ export default class StaffSchemaViews extends React.Component {
                                                     <ListItemText primary="Download" />
                                                 </ListItemButton>  
                                             </TableCell>
+                                         
                                             <TableCell align="center">
                                                 <ListItemButton
                                                     onClick={() => this.onEditClick(item._id)}
@@ -368,9 +372,10 @@ export default class StaffSchemaViews extends React.Component {
                                                             fontSize="large"
                                                             color="error" />
                                                     </ListItemIcon>
-                                                    <ListItemText primary="Delete" />
+                                                    <ListItemText primary="Edit" />
                                                 </ListItemButton>  
                                             </TableCell>
+                                           
                                             <TableCell align="center">
                                                 <ListItemButton
                                                     onClick={() => this.onDelete(item._id)}

@@ -117,7 +117,7 @@ return (
             </Container>
             </Grid> 
             <Grid item>
-            <Container sx={{width:570,
+            <Container sx={{width:530,
                             height:400,
                             backgroundColor:"black",
                             marginLeft:0,      

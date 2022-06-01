@@ -5,6 +5,7 @@ import {  useParams } from "react-router-dom";
 import Navbar from '../student/nav-bar';
 import AlertMsg from '../alert/message';
 
+
 function GroupEdit() {
 
   
@@ -61,7 +62,11 @@ function GroupEdit() {
 
 <Navbar/>
 
+
+
    <div class="form-container-group">
+
+  
         
         <form class="Groupreg-form-group">
           
@@ -111,7 +116,7 @@ function GroupEdit() {
        <label className='lbl-group'>Member No 02</label>
           <input
             class="form-field-group"
-            type="number"
+            type="text"
             placeholder="SLIIT ID"
             name="membertwo"
             onChange={(e) => setmembertwo(e.target.value)}

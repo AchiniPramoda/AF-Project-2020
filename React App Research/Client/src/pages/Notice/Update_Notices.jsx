@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './Addview.css';
 import {  useParams } from "react-router-dom";
-import Navbar from '../student/nav-bar';
+import Navbar from '../Admin/nav-bar';
+import AlertMsg from '../alert/message'; 
 
 function NoticeEdit() {
 
@@ -35,16 +36,19 @@ function NoticeEdit() {
       e.preventDefault();
   
       let updateData = {
-        noticeid: noticeId,
+        noticeId: noticeId,
         noticeTitle: noticeTitle,
         date: date,
         noticePurpose: noticePurpose,
       }
   
       axios.put(`http://localhost:8088/notice/update/${params.id}`,updateData)
-        .then((res)=> {AlertMsg("success", "success", res.data);  window.location = `viewNotice`})
+        .then((res)=> {AlertMsg("success", "success", res.data);  window.location = `/Admin/viewNotice`})
         .catch((err) => AlertMsg("error", "error", err.message))
+
+       
     }
+
 
 
     return ( 

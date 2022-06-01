@@ -26,6 +26,10 @@ import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import TopicRoundedIcon from '@mui/icons-material/TopicRounded';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import PublishIcon from '@mui/icons-material/Publish';
+import PercentIcon from '@mui/icons-material/Percent';
+import TocIcon from '@mui/icons-material/Toc';
 import { palette } from '@mui/system';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -216,14 +220,14 @@ export default class Navbar extends React.Component {
             </ListItem>
         </List>
         <Divider />
-
+        
         <List sx={{marginTop:1,}} >        
           <ListItem disablePadding>
             <ListItemButton
               onClick={this.handleTopicOpen}
                 >
               <ListItemIcon > 
-                <TopicRoundedIcon fontSize="small"  sx={{  color: "white"}}/>              
+                <TocIcon fontSize="medium"  sx={{  color: "white"}}/>              
               </ListItemIcon >              
               <ListItemText sx={{ color: "white"}} >Research Topics</ListItemText>
               {this.state.topic == true ? <ExpandLess sx={{  color: "white"}}/> : <ExpandMore sx={{  color: "white"}}/>}
@@ -246,7 +250,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Student"
+              href="/Student/Topic_view_std"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <GroupIcon sx={{  color: "white"}}/>
@@ -286,7 +290,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Student"
+              href="/Student/GroupStudentView"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <GroupIcon sx={{  color: "white"}}/>
@@ -316,7 +320,7 @@ export default class Navbar extends React.Component {
               component="a" 
               href="/Student/ViewAssignment">
               <ListItemIcon>
-                <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
+                <PublishIcon fontSize="small"  sx={{  color: "white"}}/>
               </ListItemIcon>
               <ListItemText sx={{ color: "white"}} >Research Submission</ListItemText>
             </ListItemButton>
@@ -325,14 +329,14 @@ export default class Navbar extends React.Component {
         <Divider />
 
 
-
+  
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton 
               component="a" 
               href="/Student/ResultView">
               <ListItemIcon>
-                <ArticleRoundedIcon fontSize="small"  sx={{  color: "white"}}/>
+                <PercentIcon fontSize="medium"  sx={{  color: "white"}}/>
               </ListItemIcon>
               <ListItemText sx={{ color: "white"}} >Result View</ListItemText>
             </ListItemButton>
@@ -340,13 +344,15 @@ export default class Navbar extends React.Component {
         </List>        
         <Divider />
 
-
+  
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton   
+              component="a" 
+              href="/Student/Contact">
               <ListItemIcon>
-            
+                 <ConnectWithoutContactIcon fontSize="medium"  sx={{  color: "white"}}/>
               </ListItemIcon>
               <ListItemText sx={{ color: "white"}} >Contacat Us</ListItemText>
             </ListItemButton>

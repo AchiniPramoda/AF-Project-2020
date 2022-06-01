@@ -2,7 +2,8 @@ import React from "react";
 import axios from 'axios';
 
 import Navbar from './nav-bar';
-import './../../component/css/Page.css';
+import './student.css';
+
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -131,7 +132,13 @@ export default class StudentSchemaView extends React.Component {
             <>
                 <Navbar/>
                 
-                <div className="AllView">
+                <div className="page">
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
                     <h1 style={{color: 'white'}}> View Schema </h1>
 
                 {this.state.Schema.map((item) => (
