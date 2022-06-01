@@ -121,8 +121,10 @@ export default class StudentAdd extends React.Component {
                             <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                            id="fname" 
-                            label="Student Name" 
+                              data-testid="fname" 
+                              type="text"
+                            label ="Student Name" 
+                            placeholder='First Name'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -142,8 +144,10 @@ export default class StudentAdd extends React.Component {
                             <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="lname" 
+                            data-testid="lname" 
+                            type="text"
                             label="Student Name" 
+                            placeholder='Last Name'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -163,8 +167,10 @@ export default class StudentAdd extends React.Component {
                             <MailRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="email" 
+                              data-testid="email" 
+                            placeholder='Email'
                             label="Student Email" 
+                            type="email"
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -184,8 +190,9 @@ export default class StudentAdd extends React.Component {
                             <CallRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="contact" 
+                              data-testid="contact" 
                             label="Contact No" 
+                            placeholder='Contact No'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -205,9 +212,10 @@ export default class StudentAdd extends React.Component {
                             <AccountBoxRoundedIcon fontSize="medium" sx={{color:"black"}} />
                           </ListItemIcon>
                           <TextField 
-                            id="password" 
+                              data-testid="password" 
                             type="password"
                             label="password" 
+                            placeholder='Password'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
@@ -220,7 +228,8 @@ export default class StudentAdd extends React.Component {
                         size="small"
                         sx={{border:2,borderColor:"white",  width:180,
                         marginLeft:17, fontSize:16}}
-                        
+                        name = "submit"
+                     
                         onClick={this.handleClickOpen}
                         color="success" >
                         Submit
@@ -240,8 +249,8 @@ export default class StudentAdd extends React.Component {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Button color="error" onClick={this.handleClose}>Cancel</Button>
-                            <Button color="success" onClick={() => this.onSubmit()}>Confirm</Button>
+                            <Button color="error"  onClick={this.handleClose}>Cancel</Button>
+                            <Button color="success" data-testid="submit" onClick={() => this.onSubmit()}>Confirm</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

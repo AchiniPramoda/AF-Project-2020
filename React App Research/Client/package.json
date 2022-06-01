@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "test": "react-scripts test"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "@mui/styled-engine-sc": "^5.8.0",
     "axios": "^0.27.2",
     "emoji-picker-react": "^3.5.1",
+    "joi": "^17.6.0",
     "mdbreact": "^5.2.0",
     "parcel": "^2.0.0-rc.0",
     "react": "^18.1.0",

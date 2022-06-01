@@ -35,7 +35,7 @@ router.post("/add", async (req, res) => {
 
 		res.status(201).send({ message: "send mail successfully" });
 	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
+		//res.status(500).send({ message: "Internal Server Error" });
         console.log(error);
 	}
 });
