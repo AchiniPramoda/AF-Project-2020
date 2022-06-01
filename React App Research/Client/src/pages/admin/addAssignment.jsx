@@ -23,7 +23,7 @@ import Container from '@mui/material/Container';
 import ListItem from '@mui/material/ListItem';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
-import  AssgmentValidations from "../validation/Addassigment";
+import  AssgmentValidations from "./../validation/Addassigment";
 
 export default class AddAssignment extends React.Component{
 
