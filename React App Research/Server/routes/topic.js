@@ -32,11 +32,7 @@ router.post('/response/:id', (req, res) => {
         if (err) {
           err.message(err)
         } else {
-<<<<<<< Updated upstream
-         // res.json(`Research Topic ${req.body.status} Successfully... Email Sent Successfully...`);
-=======
           //res.json(`Research Topic ${req.body.status} Successfully... Email Sent Successfully...`);
->>>>>>> Stashed changes
         }
     });
     
