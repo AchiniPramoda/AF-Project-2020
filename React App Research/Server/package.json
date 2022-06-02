@@ -4,10 +4,8 @@
   "description": "",
   "main": "Server.js",
   "scripts": {
-
     "start": "nodemon Server",
     "test": "jest --forceExit --detectOpenHandles "
-
   },
   "keywords": [],
   "author": "",
