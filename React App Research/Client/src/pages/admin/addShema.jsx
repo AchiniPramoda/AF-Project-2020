@@ -85,7 +85,7 @@ export default class AddSchema extends React.Component {
 
       axios.post("http://localhost:8088/marking/add", formData)
             .then(res => {
-                 Alert("success", "Done!", "Schema Created Successfully.");
+                 Alert("success", "Done!", "Schema Created Successfully");
                 this.setState({
                     schemaName:"",
                     department:"",
@@ -96,6 +96,8 @@ export default class AddSchema extends React.Component {
                     open: true
                     
                 })
+
+             
             })
             .catch(err => {
                 this.handleError(err);
