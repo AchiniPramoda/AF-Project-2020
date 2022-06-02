@@ -94,8 +94,13 @@ export default class TopicView extends React.Component {
     console.log(topicdata);
 
     axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
+<<<<<<< Updated upstream
         .then((res)=> Alert("success",this.state.status, res.data ))
         .catch((err) => Alert("error", err.message ))
+=======
+        .then((res)=> Alert('success', this.state.status, res.data))
+        .catch((err) => Alert('error', this.state.status, err.message))
+>>>>>>> Stashed changes
    }
 
   render() {
