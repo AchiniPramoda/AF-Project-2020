@@ -24,7 +24,7 @@ router.post('/response/:id', (req, res) => {
     const message = { 
         to: `${req.body.email}`,
         subject: "Research Passeord Activation",
-        html: `<h1> Group ID : ${req.body.grpID} <br/> Your research topic : ${req.body.title}<br/> Research Topic : ${req.body.status} by the supervisor</h1> <br/><br/>` 
+        html: `<h1> Group ID : ${req.body.grpID} <br/> Your research topic : ${req.body.title}<br/> Research Topic ${req.body.status} by the supervisor</h1> <br/><br/>` 
         
     };
 
@@ -32,7 +32,7 @@ router.post('/response/:id', (req, res) => {
         if (err) {
           err.message(err)
         } else {
-          res.json(`Research Topic ${req.body.status} Successfully... Email Sent Successfully...`);
+         // res.json(`Research Topic ${req.body.status} Successfully... Email Sent Successfully...`);
         }
     });
     

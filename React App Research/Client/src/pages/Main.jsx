@@ -118,6 +118,7 @@ export default class Header extends React.PureComponent {
     }
     console.log(user)
 
+<<<<<<< Updated upstream
     try {
 			const url = "http://localhost:8088/login/login";
 			const { data: res } = await axios.post(url, user);
@@ -142,6 +143,32 @@ export default class Header extends React.PureComponent {
 				setError(error.response.data.message);
 			}
 		}
+=======
+    // try {
+		// 	const url = "http://localhost:8088/login/login";
+		// 	const { data: res } = await axios.post(url, user);
+		// 	localStorage.setItem("token", res.data.token);
+    //         console.log(res);
+		// 	window.location = "/best";
+    //         if(res.data.type == "Student") {
+    //             window.location = "/Student"
+    //         }else if(res.data.type == "Panel Member") {
+    //             window.location = "/Panel"
+    //         }else if(res.data.type == "Supervisor") {
+    //             window.location = "/Supervisor"
+    //         }else if(res.data.type == "Admin") {
+    //             window.location = "/Admin"
+    //         }
+		// } catch (error) {
+		// 	if (
+		// 		error.response &&
+		// 		error.response.status >= 400 &&
+		// 		error.response.status <= 500
+		// 	) {
+		// 		setError(error.response.data.message);
+		// 	}
+		// }
+>>>>>>> Stashed changes
 
               if(this.state.type == "Student") {
                   window.location = "/Student"

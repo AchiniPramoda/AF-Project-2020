@@ -1,7 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
-import './../../component/css/Page.css'
-
+import './../../component/css/Page.css';
 import Navbar from './nav-bar';
 
 import FormGroup from '@mui/material/FormGroup';
@@ -9,190 +9,232 @@ import TextField from '@mui/material/TextField';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import MailRoundedIcon from '@mui/icons-material/MailRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import CallRoundedIcon from '@mui/icons-material/CallRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import Button from '@mui/material/Button';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Box, ListItem, Typography } from '@mui/material';
 
-export default class AdminRegister extends React.Component {
+export default class StudentAdd extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            name:"",
+            firstName: "",
+            lastName: "",
             email: "",
-            address: "",
-            contact: "",
-            nic:"",
-            department: "",
-            open:false
+            password: "",
+            open:false,
+            type:"Admin"
         }
     }
 
-    onChageSelectedDep = (e) => {
-        this.setState({department: e.target.value});
-    }   
-    
     onChange = (e) => {        
         this.setState({[e.target.id]: e.target.value});
     }
 
-    onSubmit = () => {
+    onSubmit = async () => {
         this.handleClose();
 
-        const Staff = {
-            name: this.state.name,
+        const admin = {
+            firstName: this.state.fname,
+            lastName: this.state.lname,
             email: this.state.email,
-            address: this.state.address,
+            password: this.state.password,            
             contact: this.state.contact,
-            nic:this.state.nic,
-            department:this.state.department
+            type: this.state.type
         }
-        console.log(Staff);
+        console.log(admin);
+
+        try {
+			const url = "http://localhost:8088/register/add";
+			const { data: res } = await axios.post(url, admin);
+            alert(res.message);
+			//navigate("/login");
+			console.log(res.message);
+
+            axios.post("http://localhost:8088/register/add", student)
+            .then((res)=> console.log(res))
+            .catch((err) => console.error(err));
+
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
     }
 
     handleClickOpen = () => {
         this.setState({open: true});
-    };
+      };
     
     handleClose = () => {
         this.setState({open: false});
-    };
+      };
 
     render() {
         return (
             <>
                 <Navbar/>
-                
+
                 <div className="AllView">
-                    <h1> Admin Register </h1>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+        <Box sx={{
+           position: 'absolute',
+           width:500,
+           height:750,
+           marginTop:12,
+           marginLeft:14,
+           top: '50%',
+           left: '50%',
+           transform: 'translate(-50%, -50%)',
+           border: '2px solid white',
+           borderRadius:5,
+           boxShadow: "10px 10px 20px 10px black, 2px 2px 2px 0 #1b1b1b",
+           color:"white",                   
+           backgroundColor: "black"
+       }}>
+            <Typography  sx={{marginLeft:17,marginTop:2,marginBottom:2,fontSize:29}}>
+            Admin Registration
+               </Typography>
+            
+                    <FormGroup sx={{          
+                          backgroundColor:"white",                       
+                          marginLeft:9,
+                          marginBottom:5, 
+                          marginTop:6,
+                          width:350,
+                          border:"black",
+                         borderRadius:1                   
                         }}>
+                   <ListItem>
                         <ListItemIcon>
-                            <AccountCircleRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                            id="name" 
-                            label="Name" 
+                              data-testid="fname" 
+                              type="text"
+                            label ="Student Name" 
+                            placeholder='First Name'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
-                    </FormGroup>
+                  </ListItem>
+            </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                       backgroundColor:"white",                       
+                       marginLeft:9,
+                       marginBottom:5, 
+                       marginTop:6,
+                       width:350,
+                       borderRadius:1                          
                         }}>
+                  <ListItem>
                         <ListItemIcon>
-                            <MailRoundedIcon fontSize="small" />
+                            <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="email" 
-                            label="Email" 
+                            data-testid="lname" 
+                            type="text"
+                            label="Student Name" 
+                            placeholder='Last Name'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
-                    </FormGroup>
+                  </ListItem>
+              </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                      backgroundColor:"white",                       
+                      marginLeft:9,
+                      marginBottom:5, 
+                      marginTop:6,
+                      width:350,
+                      borderRadius:1                           
                         }}>
+                   <ListItem>
                         <ListItemIcon>
-                            <HomeRoundedIcon fontSize="small" />
+                            <MailRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="address" 
-                            label="Address" 
+                              data-testid="email" 
+                            placeholder='Email'
+                            label="Student Email" 
+                            type="email"
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                    </ListItem>
                     </FormGroup>
 
                     <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                     backgroundColor:"white",                       
+                     marginLeft:9,
+                     marginBottom:5, 
+                     marginTop:6,
+                     width:350,
+                     borderRadius:1                    
                         }}>
+                  <ListItem>
                         <ListItemIcon>
-                            <CallRoundedIcon fontSize="small" />
+                            <CallRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            id="contact" 
+                              data-testid="contact" 
                             label="Contact No" 
+                            placeholder='Contact No'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                  </ListItem>
                     </FormGroup>
 
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
+                    <FormGroup sx={{   
+                       backgroundColor:"white",                       
+                       marginLeft:9,
+                       marginBottom:5, 
+                       marginTop:6,
+                       width:350,
+                       borderRadius:1                          
                         }}>
-                        <ListItemIcon>
-                            <AccountBoxRoundedIcon fontSize="small" />
-                        </ListItemIcon>
-                        <TextField 
-                            id="nic" 
-                            label="NIC No" 
+                       <ListItem>
+                         <ListItemIcon>
+                            <AccountBoxRoundedIcon fontSize="medium" sx={{color:"black"}} />
+                          </ListItemIcon>
+                          <TextField 
+                              data-testid="password" 
+                            type="password"
+                            label="password" 
+                            placeholder='Password'
                             variant="standard"
                             onChange={(e) => this.onChange(e)}
                             size="medium" required/>
+                          </ListItem>
                     </FormGroup>
-
-                    <FormGroup sx={{ 
-                        width:400,
-                        marginLeft:40,
-                        marginBottom:5,                        
-                        }}>
-                        <ListItemIcon>
-                            <ApartmentRoundedIcon fontSize="small" />
-                        </ListItemIcon>
-                        <InputLabel id="demo-simple-select-standard-label">Department</InputLabel>
-                        <Select                            
-                            variant="standard"
-                            labelId="demo-simple-select-standard-label"
-                            id="department"
-                            value={this.state.department}
-                            onChange={(e) => this.onChageSelectedDep(e)}
-                            lable="Department"
-                            >
-                            <MenuItem value="">None</MenuItem>
-                            <MenuItem value="IT">IT</MenuItem>
-                            <MenuItem value="SE">SE</MenuItem>
-                            <MenuItem value="CS">CS</MenuItem>
-                        </Select>
-                    </FormGroup>                    
 
                     <Button 
-                        sx={{
-                            width:400,
-                            marginLeft:40
-                        }} 
-                        variant="contained" 
+                       
+                        variant="outlined" 
                         size="small"
+                        sx={{border:2,borderColor:"white",  width:180,
+                        marginLeft:17, fontSize:16}}
+                        name = "submit"
+                     
                         onClick={this.handleClickOpen}
                         color="success" >
                         Submit
                     </Button>
-
+   </Box>
                     <Dialog
                         open={this.state.open}
                         keepMounted
@@ -207,8 +249,8 @@ export default class AdminRegister extends React.Component {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Button color="error" onClick={this.handleClose}>Cancel</Button>
-                            <Button color="success" onClick={() => this.onSubmit()}>Confirm</Button>
+                            <Button color="error"  onClick={this.handleClose}>Cancel</Button>
+                            <Button color="success" data-testid="submit" onClick={() => this.onSubmit()}>Confirm</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

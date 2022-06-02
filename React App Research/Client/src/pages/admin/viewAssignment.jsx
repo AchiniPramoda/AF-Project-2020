@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import AlertMsg from '../alert/message'; 
+import AlertMsg from './../alert/message';
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -17,7 +17,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Stack from '@mui/material/Stack';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -39,7 +38,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';

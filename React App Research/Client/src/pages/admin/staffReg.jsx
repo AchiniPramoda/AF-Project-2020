@@ -71,9 +71,9 @@ export default class StaffRegister extends React.Component {
 			//navigate("/login");
 			console.log(res.message);
 
-            // axios.post("http://localhost:8088/register/add", student)
-            // .then((res)=> console.log(res))
-            // .catch((err) => console.error(err));
+            axios.post("http://localhost:8088/register/add", student)
+            .then((res)=> console.log(res))
+            .catch((err) => console.error(err));
 
 		} catch (error) {
 			if (
@@ -106,7 +106,7 @@ export default class StaffRegister extends React.Component {
            position: 'absolute',
            width:500,
            height:760,
-           marginTop:9,
+           marginTop:12,
            marginLeft:14,
            top: '50%',
            left: '50%',
@@ -118,7 +118,7 @@ export default class StaffRegister extends React.Component {
            backgroundColor: "black"
        }}>
             <Typography  sx={{marginLeft:17,marginTop:2,marginBottom:2,fontSize:29}}>
-                    Student Registration
+                    Staff Registration
                </Typography>
                     <FormGroup sx={{ 
                         backgroundColor:"white",                       

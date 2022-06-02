@@ -58,9 +58,9 @@ export default class StudentAdd extends React.Component {
 			//navigate("/login");
 			console.log(res.message);
 
-            // axios.post("http://localhost:8088/register/add", student)
-            // .then((res)=> console.log(res))
-            // .catch((err) => console.error(err));
+            axios.post("http://localhost:8088/register/add", student)
+            .then((res)=> console.log(res))
+            .catch((err) => console.error(err));
 
 		} catch (error) {
 			if (
@@ -92,7 +92,7 @@ export default class StudentAdd extends React.Component {
            position: 'absolute',
            width:500,
            height:750,
-           marginTop:9,
+           marginTop:12,
            marginLeft:14,
            top: '50%',
            left: '50%',

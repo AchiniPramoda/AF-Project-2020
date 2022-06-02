@@ -7,7 +7,7 @@ module.exports = multer({
     fileFilter : (req, file, cb) => {
         let ext = path.extname(file.originalname);
 
-        if(ext !==".docx" && ext !==".doc" && ext !==".pptx"){
+        if(ext !==".docx" && ext !==".doc" && ext !==".pptx" && ext !==".pdf"){
             cb(new Error("File type is not supported"), false);
             return;
         }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Topic.css";
+import Alert from './../alert/message';
+
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
@@ -92,8 +94,8 @@ export default class TopicView extends React.Component {
     console.log(topicdata);
 
     axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
-        .then((res)=> alert(res.data))
-        .catch((err) => alert(err.message))
+        .then((res)=> Alert("success",this.state.status, res.data ))
+        .catch((err) => Alert("error", err.message ))
    }
 
   render() {
