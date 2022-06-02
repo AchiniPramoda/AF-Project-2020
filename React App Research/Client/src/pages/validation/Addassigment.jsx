@@ -6,9 +6,7 @@ const AssgmentValidations = (validation) => {
             "string.base": "Assignment Name must be a string",
             "string.empty": "Assignment Name is required",
             "string.min": "Assignment Name must be at least 3 characters",
-            "string.max": "Assignment Name must be less than 255 characters"
-
-           
+            "string.max": "Assignment Name must be less than 255 characters" 
         }),
           
         endDate: joi.string().required().messages({
@@ -23,6 +21,10 @@ const AssgmentValidations = (validation) => {
             "string.base": "Department must be a string",
             "string.empty": "Department is required"
         })
+
+    
+
+
     })
     const result = schema.validate(validation);
 
