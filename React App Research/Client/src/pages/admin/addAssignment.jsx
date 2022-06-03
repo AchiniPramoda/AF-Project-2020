@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 import  {Alert} from '../alert/message';
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -13,7 +14,6 @@ import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-// import Alert from '@mui/material/Alert';
 import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -105,7 +105,7 @@ export default class AddAssignment extends React.Component{
                 type:"",
              
             })
-            window.location.reload("/Admin/ViewAssignment");                                                                       
+            //window.location.reload("/Admin/ViewAssignment");                                                                       
         }).catch(err => {
             this.handleError(err);
         })
