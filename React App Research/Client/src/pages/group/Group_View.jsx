@@ -6,11 +6,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import { Grid} from '@material-ui/core';
 import axios from 'axios';
 import Navbar from '../admin/nav-bar';
-
-
 import Box from '@mui/material/Box';
-
-;
 import AlertMsg from '../alert/message';
 
 function GroupView() {
@@ -49,12 +45,13 @@ function GroupView() {
 
     return(
        
-
-    <div>
-    <Navbar/>
+<>
+<Navbar/>
+    <div className='groupPage'>
+   
 
     <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
-           <h1 style={{color: 'white'}}>Eveluate Topic</h1>
+           <h1 style={{color: 'white'}}>Eveluate Group</h1>
        </Box>
                   <table class="table-ab">
 
@@ -101,7 +98,7 @@ function GroupView() {
           </div>  
 
      
-
+          </>
    
     )
 }

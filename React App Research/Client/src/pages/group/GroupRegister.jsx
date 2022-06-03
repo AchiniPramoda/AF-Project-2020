@@ -56,7 +56,7 @@ function GroupReg() {
 <div className="form-container-group">
         
         <form className="Groupreg-form-group">
-        <h2 className="group-title">Group Assign</h2>
+        <h2 className="group-title">Group Registration</h2>
          
         <label className='lbl-group'>Group ID</label>
         <input

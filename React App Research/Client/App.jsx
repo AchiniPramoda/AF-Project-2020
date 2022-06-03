@@ -49,7 +49,7 @@ import ContactUS from './src/pages/student/Contactus';
 import GroupStudentView from './src/pages/group/groupStudentView';
 import ContactUSSupervisor from './src/pages/staff/Supervisors/ContactUsSupervisor';
 import ContactUSPanel from './src/pages/staff/panel members/contactUsPanel';
-import ViewPanelsSup from './src/pages/panels/viewPanelsSup';
+import ViewPanelsMemberSupervisor from './src/pages/staff/Supervisors/submissionViewPanel';
 
 export default class App extends React.Component {
 
@@ -94,7 +94,7 @@ export default class App extends React.Component {
             <Route path="/Student/AllGroup" element={<AllForUser />} />
             <Route path="/Student/GroupAdd" element={<GroupReg />} />
             <Route path="/Student/ViewAssignment" element={<StudentViewAssignment />} />
-            <Route path="/Student/GroupView" element={<GroupView />} />
+            {/* <Route path="/Student/GroupView" element={<GroupView />} /> */}
             <Route path="/Student/Group_Edit/:id" element={<GroupEdit />} />
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />
@@ -118,7 +118,8 @@ export default class App extends React.Component {
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaViews />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
             <Route path="/Supervisor/contactUs" element={<ContactUSSupervisor/>} />
-            <Route path="/Supervisor/ViewPanels" element={<ViewPanelsSup/>} />
+            <Route path="/Supervisor/ViewPanelsMember" element={<ViewPanelsMemberSupervisor/>} />
+            
             
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             

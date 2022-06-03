@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Topic.css";
+import {Alert} from '../alert/message'; 
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
@@ -54,6 +55,7 @@ export default class TopicView extends React.Component {
       });
 
       await axios.get(`http://localhost:8088/topic/view/${id}`)
+      Alert("error", "error", err.message)
       .then((res)=> this.setState({
           stdID:res.data.stdID,
           grpID:res.data.grpID,
@@ -72,6 +74,7 @@ export default class TopicView extends React.Component {
       });
       
       await axios.get(`http://localhost:8088/topic/view/${id}`)
+      Alert("success", "success", res.data)
       .then((res)=> this.setState({
         stdID:res.data.stdID,
         grpID:res.data.grpID,
@@ -93,8 +96,9 @@ export default class TopicView extends React.Component {
     console.log(topicdata);
 
     axios.post(`http://localhost:8088/topicacc/response/${this.state.itemID}`, topicdata)
-        .then((res)=> alert(res.data))
-        .catch((err) => alert(err.message))
+    .then((res)=> Alert("success", "success", res.data))
+
+    .catch((err) => Alert("error", "error", err.message))
    }
 
   render() {
@@ -104,9 +108,9 @@ export default class TopicView extends React.Component {
         <Navbar/>
 
   
-        <Box sx={{  border: '4px dashed white', marginTop:10 }}>
-<h1 style={{color: 'white'}}>Evelution Topic</h1>
-</Box>
+        <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
+             <h1 style={{color: 'white'}}>Evelution Topic</h1>
+        </Box>
 
          <Box sx={{
                  position: 'absolute',

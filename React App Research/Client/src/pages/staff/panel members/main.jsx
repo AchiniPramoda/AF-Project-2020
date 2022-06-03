@@ -65,7 +65,7 @@ function SuperMain() {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="Panel/ViewPanelsMem">
                               Panels
                           </Button >
                     </Container>     
@@ -98,7 +98,7 @@ function SuperMain() {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="Panel/TopicViewPanel">
                               Topic
                           </Button >
                     </Container>
@@ -129,7 +129,7 @@ function SuperMain() {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="Panel/researchView">
                               Submission
                           </Button >
                     </Container>
@@ -160,7 +160,7 @@ function SuperMain() {
                                                                                     width:120,
                                                                                     marginBottom:2,
                                                                                     borderColor:"white"}} 
-                                                                               href="Supervisor/researchView">
+                                                                               href="/Panel/viewSchema">
                               Evalution
                           </Button >
                     </Container>

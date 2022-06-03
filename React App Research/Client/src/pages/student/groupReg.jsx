@@ -18,7 +18,7 @@ import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-
+import Footer from './Footer.jsx';
 export default class GroupAdd extends React.Component {
 
     constructor(props) {
@@ -208,6 +208,7 @@ export default class GroupAdd extends React.Component {
                             <Button color="success" onClick={() => this.onSubmit()}>Confirm</Button>
                         </DialogActions>
                     </Dialog>
+                    <Footer/>
                 </div>
             </>
         )

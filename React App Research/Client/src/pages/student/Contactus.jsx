@@ -6,7 +6,7 @@ import './student.css';
 import image01 from './con01.jpg';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-
+import Footer from './Footer.jsx';
 function ContactUS() {
 
 
@@ -22,6 +22,7 @@ return(
            
            <Box sx={{ width:1000,
                       height:500,
+                      marginBottom:26
 
            }}>
             <CardContent sx={{margin:2,minHeight:450,minWidth:1300}}  style={{ backgroundImage: `url(${image01})`,   
@@ -127,6 +128,7 @@ return(
        </Grid>
              
    </Box>
+   <Footer/>
         
      </div>
     </>

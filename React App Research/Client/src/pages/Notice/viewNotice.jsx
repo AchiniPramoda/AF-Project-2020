@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import axios from 'axios';
 import './Addview.css';
+import { Box } from '@mui/system';
 
 import Navbar from '../admin/nav-bar';
 import AlertMsg from '../alert/message'; 
@@ -58,6 +59,10 @@ function View() {
     return(
         <div>
             <Navbar/>
+
+            <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
+               <h1 style={{color: 'white'}}>View Notice</h1>
+          </Box>
 
             <div class="tablealign-inv">
                  <table class="table-Inv">

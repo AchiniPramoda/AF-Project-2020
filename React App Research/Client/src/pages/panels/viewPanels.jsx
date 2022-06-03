@@ -248,8 +248,8 @@ export default class ViewPanels extends React.Component {
                         >
                             <Box sx={{
                                 position: 'absolute',
-                                marginLeft:"400px",
-                                marginTop:"10px",
+                                marginLeft:60,
+                                marginTop:13,
                                 width: "auto",
                                 height: "auto",
                                 backgroundColor: "black",

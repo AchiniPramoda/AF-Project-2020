@@ -1,3 +1,13 @@
+.groupPage{
+        margin-left: 250px;
+        margin-top: 100px;
+
+}
+.groupPage-std{
+    margin-left: 230px;
+    margin-top: 100px;
+}
+
 .form-container-group {
     width: 450px;
     background-color: black;
@@ -119,22 +129,32 @@ button:disabled {
     border-radius:8px;
     padding: 0.5rem;
     font-size: 20px; 
-    margin-left: 350px;
+    margin-left: 300px;
     margin-top: 60px; 
+    width: auto;
+   background-color: #1b1b1b;
+}
+.table-ab-std{
+   
+    border: 3px solid white;
+    border-radius:8px;
+    padding: 0.5rem;
+    font-size: 20px; 
+    margin-left: 100px;
+    margin-top: 20px; 
     width: auto;
    background-color: #1b1b1b;
 }
 
 
-.table-ab th{
+.table-ab-std th{
     color: white;
     background-color: #454546;
 }
 
-.table-ab td{
+.table-ab-std td{
     color: white;
 }
-
 
 
 

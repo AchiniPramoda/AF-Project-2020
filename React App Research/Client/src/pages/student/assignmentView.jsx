@@ -35,7 +35,7 @@ import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
 import ListItem from '@mui/material/ListItem';
-
+import Footer from './Footer.jsx';
 export default class StudentViewAssignment extends React.Component {
 
     constructor(props) {
@@ -154,6 +154,7 @@ export default class StudentViewAssignment extends React.Component {
                             backgroundColor: "black",
                             border: "2px solid white",
                             radius: 10,
+                            marginBottom:6
                             }}>
                             <AccordionSummary
                             expandIcon={<ExpandMoreIcon sx={{color:"white"}}/>}
@@ -328,7 +329,9 @@ export default class StudentViewAssignment extends React.Component {
                             {this.state.message}
                         </Alert>
                     </Snackbar>
+                    <Footer/>
                 </div>
+
             </>
         )
     }

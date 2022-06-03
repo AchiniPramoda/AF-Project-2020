@@ -37,13 +37,13 @@ function GroupStudentView() {
 
         <div>
         <Navbar/>
-
+         <div className='groupPage-std'>
 
              <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
-                    <h1 style={{color: 'white'}}>Research Topic</h1>
+                    <h1 style={{color: 'white'}}>Research Group</h1>
             </Box>
-
-                      <table class="table-ab">
+       
+                      <table class="table-ab-std">
     
     
                         <tr>
@@ -70,7 +70,7 @@ function GroupStudentView() {
                     ))}
                              
                  </table>
-    
+                 </div>
               </div>  
     
          

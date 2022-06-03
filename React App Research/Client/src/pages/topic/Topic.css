@@ -1,5 +1,5 @@
 .topic_page{
-    margin-left: 240px;
+    margin-left: 130px;
     margin-top: 60px;
 }
 
@@ -14,6 +14,7 @@
     box-shadow: 0 0 10px 0 black, 2px 2px 2px 0 #1b1b1b;
     padding: 10px;
     color: white;
+    margin-bottom: 30px;
 }
 
 .topic-form-title {
@@ -139,12 +140,11 @@ button:disabled {
 .table-topic {
     border: 2px solid #999;
     padding: 0.5rem;
-    margin-left: 500px;
-    margin-top: 120px;
+    margin-left: 200px;
+    margin-top: 160px;
     color: white;
-    font-size: 14px;
+    font-size: 22px;
     background-color: #1b1b1b;
-
     width: auto;
 }
 

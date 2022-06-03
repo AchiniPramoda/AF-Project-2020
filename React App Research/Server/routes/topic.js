@@ -32,7 +32,7 @@ router.post('/response/:id', (req, res) => {
         if (err) {
           err.message(err)
         } else {
-          res.json(`Research Topic ${req.body.status} Successfully... Email Sent Successfully...`);
+          res.json(`Research Topic ${req.body.status} Email Sent Successfully...`);
         }
     });
     

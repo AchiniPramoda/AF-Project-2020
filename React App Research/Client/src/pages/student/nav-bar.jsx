@@ -290,7 +290,7 @@ export default class Navbar extends React.Component {
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
-              href="/Student/GroupStudentView"
+              href="Student/GroupStudentView"
               sx={{ pl: 4 }}>
               <ListItemIcon>
                 <GroupIcon sx={{  color: "white"}}/>
@@ -301,21 +301,18 @@ export default class Navbar extends React.Component {
         </Collapse>
         <Divider />
 
-        <List sx={{marginTop:1}}>          
+        {/* <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
             <ListItemButton component="a" 
-                href="/Student/ViewPanelsStudent">
+              href="/Student/GroupAdd">
               <ListItemIcon>
-              <ArticleRoundedIcon fontSize="small" sx={{ color: "white"}}/>  
-           
+              <GroupsRoundedIcon fontSize="small"  sx={{ color: "white"}}/>
               </ListItemIcon>
-              
-              <ListItemText sx={{ color: "white"}} >View Panels</ListItemText>
+              <ListItemText sx={{ color: "white"}} >Document Template</ListItemText>
             </ListItemButton>
           </ListItem>
         </List>
-        <Divider />
-
+        <Divider/> */}
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>

@@ -7,6 +7,8 @@ import './../../component/css/Page.css';
 import image from "./3.jpg";
 import "./admin.css";
 import axios from 'axios';
+import Footer from '../footer/Footer';
+
 
 export default class StudentMain extends React.Component {
 constructor(props) {
@@ -68,15 +70,15 @@ return (
 
   <Navbar/>
 
-<div className="AllView">
+<div className="mainpage">
 
 
                 
-<div>
+    <div>
                  
         <Box sx={{minWidth:800,
                   maxHeight:405,
-                  marginLeft:4,
+                  marginLeft:15,
                   marginTop:4,
                   marginRight:20,
                   border:2,
@@ -136,7 +138,7 @@ return (
             </Grid> 
         </Box>
 
-     <Grid container spacing={6} sx={{marginTop:4}}>
+     <Grid container spacing={6} sx={{marginTop:4,marginLeft:4,marginBottom:3}}>
          <Grid item>
                  <Box sx={{width:250,
                            height:100,
@@ -213,7 +215,7 @@ return (
                  </Box>
          </Grid>
      </Grid>
-
+<Footer/>
 </div>
 </div>
  </> );}}

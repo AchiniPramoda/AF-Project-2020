@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './Group_view.css';
 import {  useParams } from "react-router-dom";
-import Navbar from '../student/nav-bar';
+import Navbar from '../Admin/nav-bar';
 import AlertMsg from '../alert/message';
 
 

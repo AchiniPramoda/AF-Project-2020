@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Topic.css'
+import {Alert} from '../alert/message'; 
+
 import Navbar from '../student/nav-bar';
+import Footer from "../footer/Footer";
 
 
 function TopicRegister() {
@@ -32,10 +35,10 @@ function TopicRegister() {
     axios.post("http://localhost:8088/topic/add", topicdata )
 
     .then((res) => 
-      alert(res.data)
+    Alert("success", "success", res.data)
     )
     .catch((error) => {
-      console.log(error);
+      Alert('error', error.message)
 
       
     })
@@ -52,7 +55,8 @@ function TopicRegister() {
 <Navbar/>
 
 <div className="topic_page">
-<div className="form-container-topic">
+
+    <div className="form-container-topic">
         
         <form className="topic-form-title">
         <h2 className="topic-title">Research Topic Submission</h2>
@@ -115,6 +119,7 @@ function TopicRegister() {
       </div>
      
       </div>
+     <Footer/> 
         </div>
 
       

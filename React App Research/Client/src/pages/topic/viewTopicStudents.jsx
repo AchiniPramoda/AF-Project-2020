@@ -11,6 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+
 export default class TopicViewStd extends React.Component {
 
   constructor(props) {
@@ -91,9 +92,48 @@ export default class TopicViewStd extends React.Component {
       <>
         <div className='topic_page'>
         <Navbar/>
+  <div>
 
-         <Box sx={{
-                 position: 'absolute',
+
+  <div className='topic_page'>
+   
+
+      <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
+          <h1 style={{color: 'white'}}>Topic View</h1>
+        </Box>
+                 <table class="table-topic">
+
+
+                   <tr>
+                      <th>Student ID</th>
+                      <th>Group ID</th>
+                      <th>Title</th>
+                      <th>E-mail</th>
+                                                      
+                   </tr>
+
+                   {this.state.topic.map((view) => (
+                <tr>
+                   <td>{view.stdID}</td>
+                   <td>{view.grpID}</td>
+                   <td>{view.title}</td>
+                   <td>{view.email}</td>
+                  
+                  
+            
+     
+                </tr>
+               ))}
+                        
+            </table>
+
+         </div>  
+
+
+
+
+         {/* <Box sx={{
+                
                  marginTop: '100px',
                  marginLeft: 10,
                  width: 1200,
@@ -101,7 +141,8 @@ export default class TopicViewStd extends React.Component {
                  border: '5px solid black',
                  //boxShadow: 24,
                  backgroundColor:"white",
-                 p: 0.5
+                 p: 0.5,
+                 marginBottom:20
              }}>
 
                  <TableContainer component={Paper}>
@@ -127,7 +168,9 @@ export default class TopicViewStd extends React.Component {
                        </TableBody>
                    </Table>
                </TableContainer>
-             </Box>
+             </Box> */}
+             </div>
+            
         </div>
       </>
     )

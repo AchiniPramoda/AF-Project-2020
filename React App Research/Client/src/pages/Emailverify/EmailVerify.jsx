@@ -8,6 +8,9 @@ import  "./style.css";
 import success from './suc.png';
 import RobotAnimated from "./robot-animated"
 import { Fragment } from "react/cjs/react.production.min";
+import { Container } from "@mui/system";
+import { Button, Grid, Typography } from "@mui/material";
+
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
 	const param = useParams();
@@ -30,27 +33,46 @@ const EmailVerify = () => {
 
 	return (
 		<Fragment>
-		{validUrl ? (
+		{/* {validUrl ? ( */}
 			<div className="containers">
-				<img src={success} alt="success_img" className="styles.success_img" />
-				<h1>Email verified successfully</h1>
-				
-				<Link to="/login">
-					<button className="green_btn">Login</button>
-				</Link>
-			</div>
-		) : (
-			
-			<h1>404 Not Found<br/>
-			
-			
-			<div>
-		  <RobotAnimated />
-			</div>
-			something went wrong ,Try again !!!!!!!
-			</h1>
 
-		)}
+         <Grid container sx={{marginLeft:30}}>
+			 <Grid item>
+			   <Container sx={{marginLeft:30,marginTop:4,border:4,borderColor:"white", boxShadow:"3px 4px 3px 6px #1b1b1b"}}>	
+			    	<h1>Email verified successfully</h1>
+				</Container>
+			  </Grid>
+			  <Grid item>
+			   <Container sx={{marginLeft:30,marginTop:4,border:4,borderColor:"white", boxShadow:"3px 4px 3px 6px #1b1b1b"}}>
+				<img src={success} alt="success_img" className="styles.success_img" />
+				</Container>
+			  </Grid>
+
+			  <Grid item>
+			  <Link to="/"> 
+			  <Container sx={{marginLeft:30,marginTop:4,border:4,borderColor:"blue",minWidth:430,minHeight:80 ,boxShadow:"3px 4px 3px 6px #1b1b1b"}}>
+			     
+				    	<Typography sx={{marginLeft:30,marginTop:2,fontSize:33,color:"Blue",fontWeight:"bold"}}>Login</Typography>
+			    	
+				</Container>
+				</Link>
+			  </Grid>
+		 </Grid>			
+
+			
+			</div>
+		{/* // ) : (
+			
+		// 	<h1>404 Not Found<br/>
+			
+			
+		// 	<div>
+		//   <RobotAnimated />
+		// 	</div>
+		// 	something went wrong ,Try again !!!!!!!
+		// 	</h1>
+
+		// )} */}
 		
 	</Fragment>
 	);
