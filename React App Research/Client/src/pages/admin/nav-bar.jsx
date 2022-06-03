@@ -291,7 +291,7 @@ export default class Navbar extends React.Component {
         <List>          
           <ListItem disablePadding>
             <ListItemButton  component="a" 
-              href="/Admin/TopicView"  >
+              href="/Admin/Topic_View"  >
               <ListItemIcon>
                  <TitleIcon sx={{  color: "white"}}/>
               </ListItemIcon>
