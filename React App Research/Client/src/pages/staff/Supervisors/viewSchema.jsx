@@ -202,23 +202,23 @@ export default class StaffSchemaViews extends React.Component {
         //this.viewSubOpen();
     }
 
-    // onClickEdit = async (id) => {
-    //     this.setState({
-    //         subedit: true,
-    //         schemaID: id
-    //     })
+    onClickEdit = async (id) => {
+        this.setState({
+            subedit: true,
+            schemaID: id
+        })
 
-    //     await axios.get(`http://localhost:8088/results/view/${id}`)
-    //     .then((res)=> {this.setState({
-    //         Submission : res.data
-    //     }); console.log(res.data)})
-    //     .catch((err) => this.setState({
-    //         message: err.message,
-    //         type:"error",
-    //         open: true
-    //     }))
+        await axios.get(`http://localhost:8088/results/view/${id}`)
+        .then((res)=> {this.setState({
+            Submission : res.data
+        }); console.log(res.data)})
+        .catch((err) => this.setState({
+            message: err.message,
+            type:"error",
+            open: true
+        }))
 
-    // }
+    }
 
     render() {
         return (
@@ -308,7 +308,7 @@ export default class StaffSchemaViews extends React.Component {
 
                         <Modal 
                             open={this.state.viewSub}
-                            onClose={this.viewSubClose}
+                            onClose={this.signModalClose}
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description">
 
@@ -400,7 +400,7 @@ export default class StaffSchemaViews extends React.Component {
                         </Modal>
 
                         <Modal
-                            open={this.state.sub}
+                            open={this.state.edit}
                             onClose={this.viewSubaddClose}
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description"

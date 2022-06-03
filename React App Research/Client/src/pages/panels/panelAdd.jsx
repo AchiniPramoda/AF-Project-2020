@@ -13,6 +13,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
 export default class PanelReg extends React.Component{
 
@@ -98,7 +100,7 @@ export default class PanelReg extends React.Component{
               <Typography>Panel ID</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <PermIdentityRoundedIcon fontSize="medium" /> */}
+                            <PermIdentityIcon />
                         </ListItemIcon>
                         <TextField 
                           fullWidth
@@ -114,7 +116,7 @@ export default class PanelReg extends React.Component{
                     <Typography>Panel Member 01</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <ApartmentRoundedIcon fontSize="medium" /> */}
+                          <PersonAddAltRoundedIcon />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
@@ -137,7 +139,7 @@ export default class PanelReg extends React.Component{
                     <Typography>Panel Member 02</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <ApartmentRoundedIcon fontSize="medium" /> */}
+                          <PersonAddAltRoundedIcon />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
@@ -160,7 +162,7 @@ export default class PanelReg extends React.Component{
                     <Typography>Group  01</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <ApartmentRoundedIcon fontSize="medium" /> */}
+                          <PersonAddAltRoundedIcon />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
@@ -183,7 +185,7 @@ export default class PanelReg extends React.Component{
                     <Typography>Group  02</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <ApartmentRoundedIcon fontSize="medium" /> */}
+                          <PersonAddAltRoundedIcon />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  
@@ -206,7 +208,7 @@ export default class PanelReg extends React.Component{
                     <Typography>Group  03</Typography>
                         <ListItem sx={{backgroundColor:"whitesmoke",borderColor:"blue"}} >
                         <ListItemIcon>
-                            {/* <ApartmentRoundedIcon fontSize="medium" /> */}
+                          <PersonAddAltRoundedIcon />
                         </ListItemIcon>
                         <InputLabel id="demo-simple-select-standard-label"></InputLabel>
                         <Select  

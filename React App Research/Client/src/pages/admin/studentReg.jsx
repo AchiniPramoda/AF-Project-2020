@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import './../../component/css/Page.css';
 import Navbar from './nav-bar';
+import {Alert} from './../alert/message';
 
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
@@ -52,15 +53,10 @@ export default class StudentAdd extends React.Component {
         console.log(student);
 
         try {
-			const url = "http://localhost:8088/register/add";
-			const { data: res } = await axios.post(url, student);
-            alert(res.message);
-			//navigate("/login");
-			console.log(res.message);
 
-            // axios.post("http://localhost:8088/register/add", student)
-            // .then((res)=> console.log(res))
-            // .catch((err) => console.error(err));
+            axios.post("http://localhost:8088/register/add", student)
+            .then((res)=> Alert('success', 'Registered', res.message))
+            .catch((err) => Alert('error', 'Error', err.message));
 
 		} catch (error) {
 			if (
@@ -121,7 +117,7 @@ export default class StudentAdd extends React.Component {
                             <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}}/>
                         </ListItemIcon>
                         <TextField 
-                              data-testid="fname" 
+                              id="fname" 
                               type="text"
                             label ="Student Name" 
                             placeholder='First Name'
@@ -144,7 +140,7 @@ export default class StudentAdd extends React.Component {
                             <AccountCircleRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                            data-testid="lname" 
+                            id="lname" 
                             type="text"
                             label="Student Name" 
                             placeholder='Last Name'
@@ -167,7 +163,7 @@ export default class StudentAdd extends React.Component {
                             <MailRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                              data-testid="email" 
+                              id="email"  
                             placeholder='Email'
                             label="Student Email" 
                             type="email"
@@ -190,7 +186,7 @@ export default class StudentAdd extends React.Component {
                             <CallRoundedIcon fontSize="medium" sx={{color:"black"}} />
                         </ListItemIcon>
                         <TextField 
-                              data-testid="contact" 
+                             id="contact" 
                             label="Contact No" 
                             placeholder='Contact No'
                             variant="standard"
@@ -212,7 +208,7 @@ export default class StudentAdd extends React.Component {
                             <AccountBoxRoundedIcon fontSize="medium" sx={{color:"black"}} />
                           </ListItemIcon>
                           <TextField 
-                              data-testid="password" 
+                               id="password"  
                             type="password"
                             label="password" 
                             placeholder='Password'

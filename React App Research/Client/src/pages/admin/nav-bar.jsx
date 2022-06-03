@@ -15,7 +15,6 @@ import Divider from '@mui/material/Divider';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -43,7 +42,8 @@ export default class Navbar extends React.Component {
       userEx: false,
       asg:false,
       schema:false,
-      notice:false
+      notice:false,
+      panel:false
     }
   }
 
@@ -102,6 +102,14 @@ export default class Navbar extends React.Component {
       this.setState({notice:true})
     }else{
       this.setState({notice:false})
+    }
+  };
+
+  handlePanelsOpen = () => {
+    if(this.state.panel != true) {
+      this.setState({panel:true})
+    }else{
+      this.setState({panel:false})
     }
   };
 
@@ -421,6 +429,7 @@ export default class Navbar extends React.Component {
             </ListItemButton>
           </List>
           <Divider />
+
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 
@@ -438,7 +447,49 @@ export default class Navbar extends React.Component {
         <Divider />
 
 
+        <List>          
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={this.handlePanelsOpen}>
+              <ListItemIcon>
+              <PeopleAltRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panles
+              <ListItemText />
+              {this.state.panel == true ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Collapse in={this.state.panel} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/PanelReg"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PostAddRoundedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panles Create
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
 
+          <List component="div" disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Admin/ViewPanels"
+              sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AssignmentOutlinedIcon sx={{  color: "white"}}/>
+              </ListItemIcon>
+                Panles View
+              <ListItemText />
+            </ListItemButton>
+          </List>
+          <Divider />
+        </Collapse>        
+        <Divider />
 
       </Drawer>
             </>
