@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import AlertMsg from '../alert/message';
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
 import  {Alert} from '../alert/message';
@@ -18,11 +17,8 @@ import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import Snackbar from '@mui/material/Snackbar';
-// import Alert from '@mui/material/Alert';
 import Container from '@mui/material/Container';
 import ListItem from '@mui/material/ListItem';
-import { borderRadius } from '@mui/system';
 
 export default class AddSchema extends React.Component {
 
@@ -84,20 +80,8 @@ export default class AddSchema extends React.Component {
         formData.append("fileName", this.state.fileName);
 
       axios.post("http://localhost:8088/marking/add", formData)
-            .then(res => {
-                 Alert("success", "Done!", "Schema Created Successfully");
-                this.setState({
-                    schemaName:"",
-                    department:"",
-                    schema:null,
-                    fileName:"Insert File",
-                    message: "",
-                    type:"",
-                    open: true
-                    
-                })
-
-             
+            .then((res) => {
+                 Alert("success", "Created", res.data);             
             })
             .catch(err => {
                 this.handleError(err);
@@ -231,12 +215,7 @@ export default class AddSchema extends React.Component {
                     </Button>
 
                     </Container>
-{/*                     
-                    <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
-                        <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
-                            {this.state.message}
-                        </Alert>
-                    </Snackbar> */}
+
                 </div>
             </>
         )

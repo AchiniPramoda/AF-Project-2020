@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Addview.css';
 import axios from "axios";
 import Navbar from '../Admin/nav-bar';
-import {Alert} from '../alert/message'; 
+import AlertMsg from '../alert/message'; 
 
 import{ MDBInput, MDBBtn } from "mdbreact";
 
@@ -34,8 +34,8 @@ function noticeReg() {
     console.log(NoticeData );
 
 axios.post("http://localhost:8088/notice/AddNotice", NoticeData )
-    .then((res)=> Alert("success", "success", res.data))
-    .catch((err) => Alert("error", "error", err.message))
+    .then((res)=> AlertMsg("success", "success", res.data))
+    .catch((err) => AlertMsg("error", "error", err.message))
 
     }
            

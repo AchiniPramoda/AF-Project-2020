@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Navbar from './../student/nav-bar'
+import Navbar from './../staff/Supervisors/nav-bar';
 import './../../component/css/Page.css'
 
 import Accordion from '@mui/material/Accordion';
@@ -9,13 +9,13 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default class ViewPanelsStudent extends React.Component {
+export default class ViewPanelsSup extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,7 +39,7 @@ export default class ViewPanelsStudent extends React.Component {
                 <Navbar/>
 
                 <div className="AllView">
-                    <h1 style={{color:"white"}}> ViewPanels </h1>
+                    <h1 style={{color: 'white'}}> ViewPanels </h1>
 
                     {this.state.panels.map((panel) => (
 

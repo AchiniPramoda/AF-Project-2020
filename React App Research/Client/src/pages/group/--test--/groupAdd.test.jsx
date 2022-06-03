@@ -6,24 +6,40 @@ import userEvent from '@testing-library/user-event';
 test ('input  values are correct', async () => {
 
     const {getByTestId} = render(<Group />);
+
+
+
     expect(getByTestId('groupid')).toBeValid()
+
     expect(getByTestId('department')).toBeValid()
+
     expect(getByTestId('memberLeader')).toBeValid()
+
     expect(getByTestId('memberone')).toBeValid()
+
     expect(getByTestId('membertwo')).toBeValid()
+
     expect(getByTestId('mamberthree')).toBeValid()
 
 });
+
 test  ('submit button is correct', async () => {
 
     const {getByText} = render(<Group />);
+
     const submit = getByText('Submit');
+
     expect(submit).toBeInTheDocument();
 
 });
+
+
 test ('clear  button is correct', async () => {
+    
         const {getByText} = render(<Group />);
+    
         const clear = getByText('Clear');
+    
         expect(clear).toBeInTheDocument();
     
     }

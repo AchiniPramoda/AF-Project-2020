@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Addview.css';
 import {  useParams } from "react-router-dom";
 import Navbar from '../Admin/nav-bar';
-import {Alert} from '../alert/message'; 
+import AlertMsg from '../alert/message'; 
 
 function NoticeEdit() {
 
@@ -43,9 +43,9 @@ function NoticeEdit() {
       }
   
       axios.put(`http://localhost:8088/notice/update/${params.id}`,updateData)
-        .then((res)=> {Alert("success", "success", res.data);  window.location = `/Admin/viewNotice`})
-       
-        .catch((err) => Alert("error", "error", err.message))
+        .then((res)=> {AlertMsg("success", "success", res.data);  window.location = `/Admin/viewNotice`})
+        .catch((err) => AlertMsg("error", "error", err.message))
+
        
     }
 
