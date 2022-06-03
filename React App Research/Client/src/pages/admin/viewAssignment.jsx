@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Alert} from '../alert/message'; 
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -36,7 +36,7 @@ import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Snackbar from '@mui/material/Snackbar';
-// import Alert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -121,10 +121,9 @@ export default class ViewAssignment extends React.Component {
         console.log(this.state.id);
 
         await axios.put(`http://localhost:8088/assignment/edit/${this.state.id}`, formData)
-        .then((res)=> Alert("success", "Updated", res.data))
-        .catch((err) => Alert("error", "Error", err.message))
-        //.finally(() => window.location = '/Admin/ViewAssignment');
-        this.componentDidMount();
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
+        .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
     onFileChange = (e) => {
@@ -146,10 +145,9 @@ export default class ViewAssignment extends React.Component {
         console.log(id);
         
         await axios.delete(`http://localhost:8088/assignment/delete/${id}`)
-        .then((res)=> Alert("success", "Deleted", res.data))
-        .catch((err) => Alert("error", "Error", err.message))
-        //.finally(() => window.location = '/Admin/ViewAssignment');
-        this.componentDidMount();
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
+        .finally(() => window.location = '/Admin/ViewAssignment');
     }
 
     handleClose = () => {

@@ -303,20 +303,6 @@ export default class Navbar extends React.Component {
 
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>
-            <ListItemButton 
-              component="a" 
-              href="/Student/ViewAssignment">
-              <ListItemIcon>
-                <PublishIcon fontSize="small"  sx={{  color: "white"}}/>
-              </ListItemIcon>
-              <ListItemText sx={{ color: "white"}} >Research Submission</ListItemText>
-            </ListItemButton>
-          </ListItem>
-        </List>        
-        <Divider />
-
-        <List sx={{marginTop:1}}>          
-          <ListItem disablePadding>
             <ListItemButton component="a" 
                 href="/Student/ViewPanelsStudent">
               <ListItemIcon>
@@ -329,6 +315,23 @@ export default class Navbar extends React.Component {
           </ListItem>
         </List>
         <Divider />
+
+
+        <List sx={{marginTop:1}}>          
+          <ListItem disablePadding>
+            <ListItemButton 
+              component="a" 
+              href="/Student/ViewAssignment">
+              <ListItemIcon>
+                <PublishIcon fontSize="small"  sx={{  color: "white"}}/>
+              </ListItemIcon>
+              <ListItemText sx={{ color: "white"}} >Research Submission</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>        
+        <Divider />
+
+
   
         <List sx={{marginTop:1}}>          
           <ListItem disablePadding>

@@ -15,6 +15,7 @@ import Divider from '@mui/material/Divider';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -429,7 +430,6 @@ export default class Navbar extends React.Component {
             </ListItemButton>
           </List>
           <Divider />
-
           <List component="div" disablePadding>
             <ListItemButton 
               component="a" 

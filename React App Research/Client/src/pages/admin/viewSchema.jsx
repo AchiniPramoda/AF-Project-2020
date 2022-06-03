@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import {Alert} from '../alert/message'; 
+import AlertMsg from '../alert/message'; 
 
 import Navbar from './nav-bar';
 import './../../component/css/Page.css';
@@ -17,11 +17,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -43,6 +44,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import ListItem from '@mui/material/ListItem';
 
 export default class AdminSchemaView extends React.Component {
@@ -146,9 +148,9 @@ export default class AdminSchemaView extends React.Component {
         formData.append("fileName", this.state.fileName);
 
         await axios.put(`http://localhost:8088/marking/edit/${this.state.id}`, formData)
-        .then((res)=> Alert("success", "Updated", res.data))
-        .catch((err) => Alert("error", "error", err.message))
-        //.finally(() => {window.location = `/Admin/viewSchema`;})
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
+        .finally(() => {window.location = `/Admin/viewSchema`;})
 
         this.handleOpen();
         
@@ -168,10 +170,10 @@ export default class AdminSchemaView extends React.Component {
 
     onDelete = async (id) => {
         await axios.delete(`http://localhost:8088/marking/delete/${id}`)
-        .then((res)=> Alert("success", "Deleted", res.data))
-        .catch((err) => Alert("error", "error", err.message))
+        .then((res)=> AlertMsg("success", "success", res.data))
+        .catch((err) => AlertMsg("error", "error", err.message))
 
-       // window.location.reload();
+        window.location.reload();
     }
     onSubViewClick = async (id) => {
 
@@ -463,9 +465,9 @@ export default class AdminSchemaView extends React.Component {
                     </Modal>
 
                      <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
-                        {/* <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
+                        <Alert onClose={this.handleClose} severity={this.state.type} sx={{ width: '100%' }}>
                             {this.state.message}
-                        </Alert> */}
+                        </Alert>
                     </Snackbar> 
 
                 </div>
