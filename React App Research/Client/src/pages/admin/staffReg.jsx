@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import './../../component/css/Page.css'
-
+import {Alert} from './../alert/message';
 import Navbar from './nav-bar';
 
 import FormGroup from '@mui/material/FormGroup';
@@ -67,7 +67,8 @@ export default class StaffRegister extends React.Component {
         try {
 			const url = "http://localhost:8088/register/add";
 			const { data: res } = await axios.post(url, staff);
-            alert(res.message);
+            //alert(res.message);
+            Alert('success', 'Registered', res.message)
 			//navigate("/login");
 			console.log(res.message);
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import './Topic.css'
 import Navbar from '../student/nav-bar';
-import {Alert} from './../alert/message';
 
 
 function TopicRegister() {
@@ -32,9 +31,14 @@ function TopicRegister() {
            
     axios.post("http://localhost:8088/topic/add", topicdata )
 
-    .then((res) => Alert('success', "Success" ,  res.data))
-    .catch((err) => Alert('error', "Error", err.message))
-    //.finally(() => {window.location = '/Student/Topic_view_std'})
+    .then((res) => 
+      alert(res.data)
+    )
+    .catch((error) => {
+      console.log(error);
+
+      
+    })
 
   }
 

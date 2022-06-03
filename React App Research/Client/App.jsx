@@ -49,6 +49,7 @@ import ContactUS from './src/pages/student/Contactus';
 import GroupStudentView from './src/pages/group/groupStudentView';
 import ContactUSSupervisor from './src/pages/staff/Supervisors/ContactUsSupervisor';
 import ContactUSPanel from './src/pages/staff/panel members/contactUsPanel';
+import ViewPanelsSup from './src/pages/panels/viewPanelsSup';
 
 export default class App extends React.Component {
 
@@ -117,6 +118,7 @@ export default class App extends React.Component {
             <Route path="/Supervisor/viewSchema" element={<StaffSchemaViews />} />
             <Route path="/Supervisor/Topic_View" element={<TopicView/>} />
             <Route path="/Supervisor/contactUs" element={<ContactUSSupervisor/>} />
+            <Route path="/Supervisor/ViewPanels" element={<ViewPanelsSup/>} />
             
             <Route path='/UpdateNotice/:id'element={<UdateNotices/>}/>
             
