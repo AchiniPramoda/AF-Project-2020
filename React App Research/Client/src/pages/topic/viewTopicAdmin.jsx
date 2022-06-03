@@ -1,7 +1,9 @@
 import React from 'react';
 import "./Topic.css";
 import axios from 'axios';
-import Navbar from './../student/nav-bar';
+import Navbar from './../admin/nav-bar';
+import {Alert} from './../alert/message';
+
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,9 +12,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-
-export default class TopicViewStd extends React.Component {
+export default class TopicViewAdmin extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,54 +40,20 @@ export default class TopicViewStd extends React.Component {
     .catch((err) => console.error(err));    
   }
 
+   onDeleteHandlle = (id) => {
+    axios.delete(`http://localhost:8088/topic/delete/${id}`)
+    .then((res)=> Alert("success", "Deleted", res.data))
+    .catch((err) => Alert("error", "Error", err.message))
+   }
 
   render() {
     return (
       <>
         <div className='topic_page'>
         <Navbar/>
-  <div>
 
-
-  <div className='topic_page'>
-   
-
-      <Box sx={{  border: '4px dashed blue', marginTop:16 }}>
-          <h1 style={{color: 'white'}}>Topic View</h1>
-        </Box>
-                 <table class="table-topic">
-
-
-                   <tr>
-                      <th>Student ID</th>
-                      <th>Group ID</th>
-                      <th>Title</th>
-                      <th>E-mail</th>
-                                                      
-                   </tr>
-
-                   {this.state.topic.map((view) => (
-                <tr>
-                   <td>{view.stdID}</td>
-                   <td>{view.grpID}</td>
-                   <td>{view.title}</td>
-                   <td>{view.email}</td>
-                  
-                  
-            
-     
-                </tr>
-               ))}
-                        
-            </table>
-
-         </div>  
-
-
-
-
-         {/* <Box sx={{
-                
+         <Box sx={{
+                 position: 'absolute',
                  marginTop: '100px',
                  marginLeft: 10,
                  width: 1200,
@@ -92,8 +61,7 @@ export default class TopicViewStd extends React.Component {
                  border: '5px solid black',
                  //boxShadow: 24,
                  backgroundColor:"white",
-                 p: 0.5,
-                 marginBottom:20
+                 p: 0.5
              }}>
 
                  <TableContainer component={Paper}>
@@ -104,7 +72,8 @@ export default class TopicViewStd extends React.Component {
                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Group ID</TableCell>
                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Topic</TableCell>
                            <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Leader Email</TableCell>                           
-                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Status</TableCell>
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Status</TableCell>                          
+                           <TableCell align="center" sx={{fontSize:"20px", fontWeight:"bold",color:"white"}}>Action</TableCell>
                        </TableRow>
                        </TableHead>
                        <TableBody>
@@ -115,15 +84,17 @@ export default class TopicViewStd extends React.Component {
                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.title} </TableCell>
                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.email} </TableCell>
                            <TableCell align="center" sx={{fontSize:"20px"}}> {view.status} </TableCell>
-                           
+                           <TableCell align="center" sx={{fontSize:"20px"}}>
+                                <IconButton aria-label="delete" onClick={() => this.onDeleteHandlle(view._id)}> 
+                                   <DeleteIcon color={'secondary'} />   
+                                </IconButton>  
+                           </TableCell>
                            </TableRow>
                        ))}
                        </TableBody>
                    </Table>
                </TableContainer>
-             </Box> */}
-             </div>
-            
+             </Box>
         </div>
       </>
     )

@@ -50,6 +50,8 @@ import GroupStudentView from './src/pages/group/groupStudentView';
 import ContactUSSupervisor from './src/pages/staff/Supervisors/ContactUsSupervisor';
 import ContactUSPanel from './src/pages/staff/panel members/contactUsPanel';
 import ViewPanelsMemberSupervisor from './src/pages/staff/Supervisors/submissionViewPanel';
+import ViewPanelsSup from './src/pages/panels/viewPanelsSup';
+import TopicViewAdmin from './src/pages/topic/viewTopicAdmin';
 
 export default class App extends React.Component {
 
@@ -81,6 +83,7 @@ export default class App extends React.Component {
             <Route path="/Admin/ViewPanelMembers" element={<ViewPanelMembers />} />
             <Route path="/Admin/PanelReg" element={<PanelReg />} />
             <Route path="/Admin/ViewPanels" element={<ViewPanels />} />
+            <Route path="/Admin/TopicView" element={<TopicViewAdmin />} />
                         
             <Route path="/StudentReg" element={<StudentReg />} />
             <Route path="/StaffRegister" element={<StaffRegister />} />
