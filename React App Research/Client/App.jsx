@@ -97,7 +97,7 @@ export default class App extends React.Component {
             <Route path="/Student/AllGroup" element={<AllForUser />} />
             <Route path="/Student/GroupAdd" element={<GroupReg />} />
             <Route path="/Student/ViewAssignment" element={<StudentViewAssignment />} />
-            {/* <Route path="/Student/GroupView" element={<GroupView />} /> */}
+            <Route path="/Student/GroupView" element={<GroupView />} /> 
             <Route path="/Student/Group_Edit/:id" element={<GroupEdit />} />
             <Route path="/Student/Topic_register" element={<TopicRegister/>} />
             <Route path="/Student/Topic_view_std" element={<TopicViewStd/>} />

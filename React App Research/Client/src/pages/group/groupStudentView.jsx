@@ -25,14 +25,7 @@ function GroupStudentView() {
       getgroups();
     })
 
-   
-   
-
- 
-
-
-
-
+  
     return(
 
         <div>

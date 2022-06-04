@@ -3,6 +3,7 @@ import './Group_view.css';
 import axios from "axios";
 import Navbar from '../student/nav-bar';
 
+
 function GroupReg() {
 
   const [values, setValues] = useState({
@@ -44,8 +45,6 @@ function GroupReg() {
       })
 
     }
-
-
 
     return(
     
