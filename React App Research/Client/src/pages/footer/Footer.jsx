@@ -96,8 +96,8 @@ return (
       </div>
       <div class="bottom">
         <center>
-          <span class="credit">Created By <a href="https://cdazzdev.com/">© Copyright 2022.</a> | </span>
-          <span class="far fa-copyright"></span><span>  All Rights Reserved by Ceylon Dazzling Dev Holding (PVT) LTD.</span>
+          <span class="credit">Created By <a href="/">© Copyright 2022.</a> | </span>
+          <span class="far fa-copyright"></span><span>  All Rights Reserved by SLIIT (PVT) LTD.</span>
         </center>
       </div>
 	  </footer>
